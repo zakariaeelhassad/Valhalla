@@ -4,9 +4,6 @@ import com.example.backend.model.Position;
 
 import java.math.BigDecimal;
 
-/**
- * DTO for lightweight player information (for listings)
- */
 public record PlayerSummary(
         Long id,
         String name,
