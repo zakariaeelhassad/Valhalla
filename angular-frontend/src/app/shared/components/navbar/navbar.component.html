@@ -1,0 +1,80 @@
+<nav class="sticky top-0 z-50 bg-[#070b14]/85 border-b border-white/[0.08] backdrop-blur-xl">
+  <div class="max-w-7xl mx-auto px-6 h-[68px] flex items-center justify-between">
+
+    <!-- Logo -->
+    <a routerLink="/" class="flex items-center gap-2.5 no-underline">
+      <span class="text-2xl" style="filter:drop-shadow(0 0 8px rgba(56,189,248,0.6))">⚽</span>
+      <span class="font-outfit font-extrabold text-xl tracking-tight text-slate-100">
+        Aji<span class="gradient-text">T9aser</span>
+      </span>
+    </a>
+
+    <!-- Desktop nav links -->
+    <div class="hidden md:flex items-center gap-1">
+      <a routerLink="/" routerLinkActive="text-sky-400 bg-white/[0.06]" [routerLinkActiveOptions]="{exact:true}"
+        class="px-4 py-2 text-slate-400 text-sm font-medium rounded-lg transition-all hover:text-slate-100 hover:bg-white/[0.05] no-underline">
+        Home
+      </a>
+      @if (isAuth) {
+      <a routerLink="/dashboard" routerLinkActive="text-sky-400 bg-white/[0.06]"
+        class="px-4 py-2 text-slate-400 text-sm font-medium rounded-lg transition-all hover:text-slate-100 hover:bg-white/[0.05] no-underline">
+        Dashboard
+      </a>
+      <a routerLink="/team-selection" routerLinkActive="text-sky-400 bg-white/[0.06]"
+        class="px-4 py-2 text-slate-400 text-sm font-medium rounded-lg transition-all hover:text-slate-100 hover:bg-white/[0.05] no-underline">
+        Team Selection
+      </a>
+      @if (teamComplete) {
+      <a routerLink="/points" routerLinkActive="text-sky-400 bg-white/[0.06]"
+        class="px-4 py-2 text-slate-400 text-sm font-medium rounded-lg transition-all hover:text-slate-100 hover:bg-white/[0.05] no-underline">
+        Points
+      </a>
+      }
+      }
+    </div>
+
+    <!-- Auth area -->
+    <div class="hidden md:flex items-center gap-3">
+      @if (isAuth) {
+      <div class="flex items-center gap-2 bg-sky-400/[0.08] border border-sky-400/20 rounded-full px-4 py-1.5">
+        <div class="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold"
+          style="background: linear-gradient(135deg,#38bdf8,#818cf8)">
+          {{ username[0].toUpperCase() }}
+        </div>
+        <span class="text-slate-100 text-sm font-medium max-w-[120px] truncate">{{ username }}</span>
+      </div>
+      <button (click)="logout()" class="btn-secondary text-sm px-5 py-2">Sign Out</button>
+      } @else {
+      <a routerLink="/login" class="btn-secondary text-sm px-5 py-2 no-underline">Log In</a>
+      <a routerLink="/register" class="btn-primary  text-sm px-5 py-2 no-underline">Play Now</a>
+      }
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button (click)="menuOpen = !menuOpen"
+      class="md:hidden flex flex-col gap-1.5 bg-transparent border-0 cursor-pointer p-1" aria-label="Toggle menu">
+      <span class="block w-6 h-0.5 bg-slate-400 rounded transition-all"></span>
+      <span class="block w-6 h-0.5 bg-slate-400 rounded transition-all"></span>
+      <span class="block w-6 h-0.5 bg-slate-400 rounded transition-all"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  @if (menuOpen) {
+  <div class="md:hidden border-t border-white/[0.05] px-6 py-4 flex flex-col gap-1">
+    <a routerLink="/" (click)="menuOpen=false" class="mob-link no-underline">Home</a>
+    @if (isAuth) {
+    <a routerLink="/dashboard" (click)="menuOpen=false" class="mob-link no-underline">Dashboard</a>
+    <a routerLink="/team-selection" (click)="menuOpen=false" class="mob-link no-underline">Team Selection</a>
+    @if (teamComplete) {
+    <a routerLink="/points" (click)="menuOpen=false" class="mob-link no-underline">Points</a>
+    }
+    <button (click)="logout(); menuOpen=false"
+      class="mob-link text-left border-0 bg-transparent text-red-400 cursor-pointer">Sign Out</button>
+    } @else {
+    <a routerLink="/login" (click)="menuOpen=false" class="mob-link no-underline">Log In</a>
+    <a routerLink="/register" (click)="menuOpen=false" class="mob-link no-underline">Register</a>
+    }
+  </div>
+  }
+</nav>
