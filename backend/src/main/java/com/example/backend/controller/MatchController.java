@@ -89,7 +89,6 @@ public class MatchController {
                 return ResponseEntity.ok(Map.of("simulatedNow", clockService.getSimulatedNow().toString()));
         }
 
-        // ------------------------------------------------------------------
         private MatchStatusResponse toDto(Match m, int gwNumber) {
                 String status = clockService.computeStatus(m.getKickoffTime(), m.getFinished());
                 int elapsed = "LIVE".equals(status) ? clockService.getElapsedMinutes(m.getKickoffTime()) : 0;
