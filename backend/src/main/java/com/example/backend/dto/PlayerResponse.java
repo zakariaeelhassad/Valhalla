@@ -4,9 +4,6 @@ import com.example.backend.model.Position;
 
 import java.math.BigDecimal;
 
-/**
- * DTO for complete player information
- */
 public record PlayerResponse(
         Long id,
         String name,
