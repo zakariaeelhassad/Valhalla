@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AjiT9aser – Fixtures</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080d18;
+      --surface: #0f1624;
+      --surface2: #162035;
+      --border: #1c2d45;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --live: #10b981;
+      --live-dim: rgba(16, 185, 129, .1);
+      --text: #f0f4ff;
+      --muted: #8898aa;
+      --yellow: #f59e0b;
+      --red: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ─────────────────────────────── */
+    header {
+      background: linear-gradient(135deg, #0b1225 0%, #160e36 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+
+    .hdr {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 62px;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: -.5px;
+    }
+
+    .logo span {
+      color: var(--accent2);
+    }
+
+    .clock-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    .clock-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    .clock-pill strong {
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ── Layout ─────────────────────────────── */
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 24px;
+    }
+
+    h1 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: .88rem;
+      margin-bottom: 26px;
+    }
+
+    /* ── GW Tabs ────────────────────────────── */
+    .tabs {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+      margin-bottom: 24px;
+    }
+
+    .tabs::-webkit-scrollbar {
+      display: none
+    }
+
+    .tab {
+      flex-shrink: 0;
+      padding: 6px 15px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .tab:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .tab.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .live-pip {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--live);
+      margin-left: 5px;
+      vertical-align: middle;
+      animation: pulse 1.4s infinite;
+    }
+
+    /* ── Toolbar ────────────────────────────── */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .count {
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    .refresh-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 8px;
+      padding: 6px 13px;
+      font-size: .8rem;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .refresh-btn:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .refresh-btn.spin svg {
+      animation: spin .6s linear infinite;
+    }
+
+    /* ── Date group ─────────────────────────── */
+    .date-label {
+      font-size: .73rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 22px 0 8px 4px;
+    }
+
+    /* ── Match card ─────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      transition: border-color .25s, transform .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-1px);
+      border-color: #283d5e;
+    }
+
+    .card.is-live {
+      border-color: var(--live);
+      background: linear-gradient(135deg, var(--surface) 0%, rgba(16, 185, 129, .05) 100%);
+    }
+
+    .card.is-finished {
+      opacity: .72;
+    }
+
+    /* Main row */
+    .card-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 22px;
+    }
+
+    /* Teams */
+    .team {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .team.away {
+      flex-direction: row-reverse;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: .95rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .team-name {
+      font-weight: 600;
+      font-size: .95rem;
+    }
+
+    .away .team-name {
+      text-align: right;
+    }
+
+    /* Centre */
+    .centre {
+      text-align: center;
+      min-width: 120px;
+    }
+
+    .score {
+      font-size: 1.7rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .score.live {
+      color: var(--live);
+    }
+
+    .ko-time {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent2);
+      letter-spacing: 1px;
+    }
+
+    /* Status badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      border-radius: 20px;
+      padding: 3px 10px;
+      margin-top: 5px;
+    }
+
+    .badge.live {
+      background: var(--live-dim);
+      color: var(--live);
+      border: 1px solid rgba(16, 185, 129, .25);
+    }
+
+    .badge.live::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--live);
+      animation: pulse 1.2s infinite;
+    }
+
+    .badge.ft {
+      background: rgba(107, 114, 128, .12);
+      color: #6b7280;
+      border: 1px solid rgba(107, 114, 128, .2);
+    }
+
+    .badge.up {
+      background: rgba(99, 102, 241, .1);
+      color: var(--accent2);
+      border: 1px solid rgba(99, 102, 241, .2);
+    }
+
+    /* Minute display */
+    .minute {
+      font-size: .72rem;
+      color: var(--live);
+      font-weight: 700;
+      margin-top: 3px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ── Event feed (inside LIVE/finished cards) ── */
+    .events-panel {
+      border-top: 1px solid var(--border);
+      padding: 0 22px 0px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, padding .3s ease;
+    }
+
+    .card.events-open .events-panel {
+      max-height: 800px;
+      padding: 12px 22px 14px;
+    }
+
+    .event-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .event-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .03);
+      font-size: .8rem;
+      opacity: 0;
+      transform: translateY(4px);
+      animation: fadeUp .35s ease forwards;
+    }
+
+    .event-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .event-player {
+      font-weight: 600;
+    }
+
+    .event-team {
+      color: var(--muted);
+      font-size: .73rem;
+    }
+
+    .event-min {
+      margin-left: auto;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      font-size: .73rem;
+      white-space: nowrap;
+    }
+
+    /* flash animation for new events */
+    @keyframes flashNew {
+      0% {
+        background: rgba(16, 185, 129, .3);
+      }
+
+      100% {
+        background: rgba(255, 255, 255, .03);
+      }
+    }
+
+    .event-item.new {
+      animation: fadeUp .35s ease forwards, flashNew 1.2s ease 0.2s forwards;
+    }
+
+    /* ── Misc ───────────────────────────────── */
+    .loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .4;
+        transform: scale(.8)
+      }
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(6px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @media(max-width:580px) {
+      .team-name {
+        font-size: .82rem
+      }
+
+      .score {
+        font-size: 1.35rem
+      }
+
+      .card-row {
+        padding: 13px 14px;
+        gap: 8px
+      }
+
+      .avatar {
+        width: 36px;
+        height: 36px;
+        font-size: .8rem
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="hdr">
+      <div class="logo">Aji<span>T9aser</span></div>
+      <div class="clock-pill">
+        <span class="clock-dot"></span>
+        Sim:&nbsp;<strong id="simClock">–</strong>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>⚽ Fixtures</h1>
+    <p class="sub">Premier League 2024/25 · Live simulation replay</p>
+
+    <div class="tabs" id="gwTabs"></div>
+
+    <div class="toolbar">
+      <span class="count" id="matchCount"></span>
+      <button class="refresh-btn" id="refreshBtn" onclick="refresh()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="1 4 1 10 7 10" />
+          <path d="M3.51 15a9 9 0 1 0 .49-3.51" />
+        </svg>
+        Refresh
+      </button>
+    </div>
+
+    <div id="fixtures"></div>
+  </main>
+
+  <script>
+    // ══════════════════════════════════════════════════════════════════
+    //  State
+    // ══════════════════════════════════════════════════════════════════
+    const API = '/api/matches';
+    let currentGw = 1;
+    let gameweeks = [];
+    let currentMatches = [];
+
+    // Simulated clock sync
+    let simOffset = 0;           // simNow_ms = Date.now() * 60 + simOffset  (see below)
+    let simSynced = false;
+    let syncedSimMs = 0;        // simulated epoch ms at last sync
+    let syncedRealMs = 0;        // real epoch ms at last sync
+
+    // Per-match event tracking  { matchId: Set<eventKey> }
+    const seenEvents = {};
+
+    // Colour palette
+    const palette = ['#6366f1', '#8b5cf6', '#ec4899', '#f43f5e', '#f97316',
+      '#eab308', '#22c55e', '#14b8a6', '#06b6d4', '#3b82f6', '#10b981', '#84cc16'];
+    const teamColors = {};
+    function color(team) {
+      if (!teamColors[team]) teamColors[team] = palette[Object.keys(teamColors).length % palette.length];
+      return teamColors[team];
+    }
+    function abbr(team) { return team.slice(0, 2).toUpperCase(); }
+
+    // ══════════════════════════════════════════════════════════════════
+    //  Simulated clock
+    // ══════════════════════════════════════════════════════════════════
+    const SIM_SPEED = 60; // 60 sim-seconds per real-second
+
+    async function syncClock() {
+      try {
+        const r = await fetch(`${API}/clock`);
+        const d = await r.json();
+        syncedSimMs = new Date(d.simulatedNow).getTime();
+        syncedRealMs = Date.now();
+        simSynced = true;
+      } catch { }
+    }
+
+    /** Returns current simulated DateTime as a JS Date */
+    function simNow() {
+      const realElapsed = (Date.now() - syncedRealMs) / 1000; // real seconds
+      const simElapsed = realElapsed * SIM_SPEED;            // sim seconds
+      return new Date(syncedSimMs + simElapsed * 1000);
+    }
+
+    /** Elapsed simulated minutes since kickoffTime (ISO string) */
+    function elapsedMin(kickoffISO) {
+      const ko = new Date(kickoffISO);
+      const now = simNow();
+      const sec = (now.getTime() - ko.getTime()) / 1000;
+      return Math.max(0, Math.floor(sec / 60));
+    }
+
+    /** Match status from client-side sim clock */
+    function computeStatus(match) {
+      const ko = new Date(match.kickoffTime);
+      const now = simNow();
+      if (ko > now) return 'SCHEDULED';
+      const end = new Date(ko.getTime() + 105 * 60 * 1000);
+      if (now < end) return 'LIVE';
+      return 'FINISHED';
+    }
+
+    // ══════════════════════════════════════════════════════════════════
+    //  Gameweek tabs
+    // ══════════════════════════════════════════════════════════════════
+    async function loadGameweeks() {
+      const r = await fetch(`${API}/gameweeks`);
+      gameweeks = await r.json();
+      renderTabs();
+      const active = gameweeks.find(g => g.status === 'LIVE' || g.status === 'ACTIVE');
+      currentGw = active ? active.gameweekNumber : (gameweeks[0]?.gameweekNumber ?? 1);
+      selectGw(currentGw);
+    }
+
+    function renderTabs() {
+      document.getElementById('gwTabs').innerHTML = gameweeks.map(g => `
+    <button class="tab ${g.gameweekNumber === currentGw ? 'active' : ''}"
+            id="tab-${g.gameweekNumber}"
+            onclick="selectGw(${g.gameweekNumber})">
+      GW${g.gameweekNumber}
+      ${g.status === 'LIVE' ? '<span class="live-pip"></span>' : ''}
+    </button>`).join('');
+    }
+
+    function selectGw(gw) {
+      currentGw = gw;
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      const tab = document.getElementById(`tab-${gw}`);
+      if (tab) { tab.classList.add('active'); tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); }
+      fetchFixtures();
+    }
+
+    // ══════════════════════════════════════════════════════════════════
+    //  Fetch fixtures from API  (once per ~30s or manual)
+    // ══════════════════════════════════════════════════════════════════
+    async function fetchFixtures() {
+      const el = document.getElementById('fixtures');
+      el.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+      try {
+        const r = await fetch(`${API}/gameweek/${currentGw}`);
+        currentMatches = await r.json();
+        buildDOM(currentMatches);
+      } catch { el.innerHTML = '<div class="loading"><p style="color:#ef4444">⚠ Failed to load fixtures</p></div>'; }
+    }
+
+    // ══════════════════════════════════════════════════════════════════
+    //  Build DOM (called once per fetch; seconds-level updates are done by tick())
+    // ══════════════════════════════════════════════════════════════════
+    function buildDOM(matches) {
+      if (!matches.length) {
+        document.getElementById('fixtures').innerHTML = '<div class="loading">No fixtures.</div>';
+        return;
+      }
+
+      // Group by date
+      const byDate = {};
+      matches.forEach(m => {
+        const d = m.kickoffTime.slice(0, 10);
+        (byDate[d] = byDate[d] || []).push(m);
+      });
+
+      let html = '';
+      for (const [date, ms] of Object.entries(byDate)) {
+        const label = new Date(date + 'T12:00:00').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+        html += `<div class="date-label">${label}</div>`;
+        ms.forEach(m => { html += cardHTML(m); });
+      }
+      document.getElementById('fixtures').innerHTML = html;
+
+      // Init seen-events sets
+      matches.forEach(m => { if (!seenEvents[m.id]) seenEvents[m.id] = new Set(); });
+
+      updateAll(); // Initial state
+    }
+
+    // ══════════════════════════════════════════════════════════════════
+    //  Card HTML skeleton
+    // ══════════════════════════════════════════════════════════════════
+    function cardHTML(m) {
+      const hc = color(m.homeTeam), ac = color(m.awayTeam);
+      return `
+  <div class="card" id="card-${m.id}">
+    <div class="card-row">
+      <div class="team">
+        <div class="avatar" style="background:${hc}">${abbr(m.homeTeam)}</div>
+        <div class="team-name">${m.homeTeam}</div>
+      </div>
+      <div class="centre" id="centre-${m.id}"><!-- filled by tick --></div>
+      <div class="team away">
+        <div class="avatar" style="background:${ac}">${abbr(m.awayTeam)}</div>
+        <div class="team-name">${m.awayTeam}</div>
+      </div>
+    </div>
+    <div class="events-panel" id="evpanel-${m.id}">
+      <div class="event-list" id="evlist-${m.id}"></div>
+    </div>
+  </div>`;
+    }
+
+    // ══════════════════════════════════════════════════════════════════
+    //  Tick — called every real second to update clocks & events
+    // ══════════════════════════════════════════════════════════════════
+    function tick() {
+      if (!simSynced || !currentMatches.length) return;
+      updateAll();
+      updateClockPill();
+    }
+
+    function updateAll() {
+      let liveCount = 0, ftCount = 0, upCount = 0;
+      currentMatches.forEach(m => {
+        const status = computeStatus(m);
+        if (status === 'LIVE') liveCount++;
+        else if (status === 'FINISHED') ftCount++;
+        else upCount++;
+        updateCard(m, status);
+      });
+      document.getElementById('matchCount').textContent =
+        `${currentMatches.length} fixtures: ${liveCount} Live · ${ftCount} FT · ${upCount} Upcoming`;
+      renderTabs(); // Update live-pip on tabs
+    }
+
+    function updateCard(m, status) {
+      const card = document.getElementById(`card-${m.id}`);
+      const centre = document.getElementById(`centre-${m.id}`);
+      const evpanel = document.getElementById(`evpanel-${m.id}`);
+      const evlist = document.getElementById(`evlist-${m.id}`);
+      if (!card || !centre) return;
+
+      const isLive = status === 'LIVE';
+      const isFin = status === 'FINISHED';
+
+      // Card classes
+      card.classList.toggle('is-live', isLive);
+      card.classList.toggle('is-finished', isFin);
+      card.classList.toggle('events-open', isLive || isFin);
+
+      // Centre block
+      if (isLive) {
+        const min = elapsedMin(m.kickoffTime);
+        // Count only goals whose simulated minute has already been reached
+        const events = m.events || [];
+        const liveHome = events.filter(e => e.type === 'GOAL' && e.team === m.homeTeam && e.minute <= min).length;
+        const liveAway = events.filter(e => e.type === 'GOAL' && e.team === m.awayTeam && e.minute <= min).length;
+        centre.innerHTML = `
+      <div class="score live">${liveHome} – ${liveAway}</div>
+      <div class="badge live">Live</div>
+      <div class="minute" id="min-${m.id}">${min}'</div>`;
+      } else if (isFin) {
+        centre.innerHTML = `
+      <div class="score">${m.homeScore} – ${m.awayScore}</div>
+      <div class="badge ft">FT</div>`;
+      } else {
+        const ko = new Date(m.kickoffTime);
+        const t = ko.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+        centre.innerHTML = `<div class="ko-time">${t}</div><div class="badge up">Upcoming</div>`;
+      }
+
+      // Events feed (only for live or finished)
+      if ((isLive || isFin) && m.events && m.events.length) {
+        const elapsed = isLive ? elapsedMin(m.kickoffTime) : 999;
+        const visible = m.events.filter(e => e.minute <= elapsed);
+
+        visible.forEach(e => {
+          const key = `${e.type}_${e.minute}_${e.player}`;
+          if (!seenEvents[m.id]) seenEvents[m.id] = new Set();
+          if (!seenEvents[m.id].has(key)) {
+            seenEvents[m.id].add(key);
+            // Prepend the new event with flash animation
+            const div = document.createElement('div');
+            div.className = 'event-item new';
+            div.innerHTML = eventHTML(e);
+            evlist.prepend(div);
+          }
+        });
+      }
+    }
+
+    // Only update the minute number (no DOM rebuild)
+    function updateCard_minuteOnly(m) {
+      const el = document.getElementById(`min-${m.id}`);
+      if (el) el.textContent = elapsedMin(m.kickoffTime) + "'";
+    }
+
+    // ══════════════════════════════════════════════════════════════════
+    //  Event rendering
+    // ══════════════════════════════════════════════════════════════════
+    const ICONS = { GOAL: '⚽', ASSIST: '🎯', YELLOW_CARD: '🟨', RED_CARD: '🟥' };
+    function eventHTML(e) {
+      const icon = ICONS[e.type] || '📋';
+      const label = e.type.replace('_', ' ').toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+      return `
+    <span class="event-icon">${icon}</span>
+    <span>
+      <span class="event-player">${e.player}</span>
+      <span class="event-team"> · ${e.team}</span>
+    </span>
+    <span class="event-min">${e.minute}'</span>`;
+    }
+
+    // ══════════════════════════════════════════════════════════════════
+    //  Clock pill update
+    // ══════════════════════════════════════════════════════════════════
+    function updateClockPill() {
+      const el = document.getElementById('simClock');
+      if (el) {
+        const d = simNow();
+        el.textContent = d.toLocaleString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+      }
+    }
+
+    // ══════════════════════════════════════════════════════════════════
+    //  Manual refresh — re-fetches from server
+    // ══════════════════════════════════════════════════════════════════
+    async function refresh() {
+      const btn = document.getElementById('refreshBtn');
+      btn.classList.add('spin');
+      await Promise.all([syncClock(), fetchFixtures()]);
+      setTimeout(() => btn.classList.remove('spin'), 500);
+    }
+
+    // ══════════════════════════════════════════════════════════════════
+    //  Boot
+    // ══════════════════════════════════════════════════════════════════
+    (async () => {
+      await syncClock();
+      await loadGameweeks();
+      // Tick every 1 real second = 1 simulated minute
+      setInterval(tick, 1000);
+      // Re-sync clock with backend every 60s to prevent drift
+      setInterval(syncClock, 60_000);
+      // Re-fetch from backend every 2 minutes (picks up gameweek tab changes)
+      setInterval(fetchFixtures, 120_000);
+    })();
+  </script>
+</body>
+
+</html>
