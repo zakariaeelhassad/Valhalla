@@ -14,17 +14,6 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.*;
 
-/**
- * Loads match events from fique_data JSON and assigns each event a simulated
- * match-minute so they can be revealed progressively during live simulation.
- *
- * Events are cached in memory keyed by "{homeTeam}_{awayTeam}_{gameweek}".
- *
- * Minute assignment strategy (deterministic, no random):
- * - Goals / Assists: spread evenly across [10, 88], offset by event index
- * - Yellow cards: spread evenly across [15, 85]
- * - Red cards: spread evenly across [55, 88]
- */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -32,7 +21,6 @@ public class MatchEventCacheService {
 
     private final ObjectMapper objectMapper;
 
-    /** Key: homeTeam_awayTeam_gameweekNumber → ordered events */
     private final Map<String, List<MatchEventDTO>> cache = new HashMap<>();
 
     @PostConstruct
@@ -55,9 +43,6 @@ public class MatchEventCacheService {
         }
     }
 
-    /**
-     * Returns the event list for a match, or an empty list if not found.
-     */
     public List<MatchEventDTO> getEvents(String homeTeam, String awayTeam, int gameweek) {
         return cache.getOrDefault(homeTeam + "_" + awayTeam + "_" + gameweek, List.of());
     }
@@ -101,7 +86,6 @@ public class MatchEventCacheService {
         return events;
     }
 
-    /** Deterministically spread event index i across [low, high] range */
     private int spreadMinute(int low, int high, int index, int total, long seed) {
         int range = high - low;
         // Base spread
