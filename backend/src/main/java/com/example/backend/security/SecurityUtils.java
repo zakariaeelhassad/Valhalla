@@ -14,10 +14,6 @@ public class SecurityUtils {
 
     private final UserRepository userRepository;
 
-    /**
-     * Returns the currently authenticated User entity.
-     * The JWT subject is the user's email.
-     */
     public User getCurrentUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth == null || !auth.isAuthenticated()) {
@@ -28,9 +24,6 @@ public class SecurityUtils {
                 .orElseThrow(() -> new ResourceNotFoundException("User not found: " + email));
     }
 
-    /**
-     * Returns the ID of the currently authenticated user.
-     */
     public Long getCurrentUserId() {
         return getCurrentUser().getId();
     }
