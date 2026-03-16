@@ -2,9 +2,6 @@ package com.example.backend.dto;
 
 import java.time.LocalDateTime;
 
-/**
- * DTO for match information
- */
 public record MatchResponse(
         Long id,
         Integer gameweekNumber,
