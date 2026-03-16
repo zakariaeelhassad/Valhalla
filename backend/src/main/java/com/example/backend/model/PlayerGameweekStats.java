@@ -57,13 +57,6 @@ public class PlayerGameweekStats {
     @Builder.Default
     private Integer pointsEarned = 0;
 
-    /**
-     * Calculate fantasy points based on scoring rules:
-     * - Goal: +4 (FWD), +5 (MID), +6 (DEF/GK)
-     * - Assist: +3
-     * - Yellow Card: -1
-     * - Red Card: -3
-     */
     public void calculatePoints() {
         int points = 0;
 
