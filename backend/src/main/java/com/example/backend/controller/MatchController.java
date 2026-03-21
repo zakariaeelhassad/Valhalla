@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -89,6 +90,40 @@ public class MatchController {
                 return ResponseEntity.ok(Map.of("simulatedNow", clockService.getSimulatedNow().toString()));
         }
 
+        @GetMapping("/current")
+        @Operation(summary = "Current backend date with DB-derived current gameweek and its fixtures")
+        public ResponseEntity<CurrentGameweekResponse> getCurrentGameweekFromDb() {
+                List<Gameweek> gameweeks = gameweekRepository.findAll();
+                if (gameweeks.isEmpty()) {
+                        return ResponseEntity.ok(new CurrentGameweekResponse(
+                                        LocalDateTime.now(ZoneOffset.UTC).toString(),
+                                        null,
+                                        List.of()));
+                }
+
+                gameweeks.sort(Comparator.comparingInt(Gameweek::getGameweekNumber));
+                LocalDateTime now = LocalDateTime.now(ZoneOffset.UTC);
+
+                Optional<Gameweek> active = gameweeks.stream()
+                                .filter(gw -> !gw.getStartDate().isAfter(now) && !gw.getEndDate().isBefore(now))
+                                .findFirst();
+
+                Gameweek currentGw = active.orElseGet(() -> gameweeks.stream()
+                                .filter(gw -> gw.getStartDate().isAfter(now))
+                                .findFirst()
+                                .orElse(gameweeks.get(gameweeks.size() - 1)));
+
+                List<MatchStatusResponse> matches = matchRepository.findByGameweekId(currentGw.getId()).stream()
+                                .sorted(Comparator.comparing(Match::getKickoffTime))
+                                .map(m -> toDto(m, currentGw.getGameweekNumber()))
+                                .collect(Collectors.toList());
+
+                return ResponseEntity.ok(new CurrentGameweekResponse(
+                                now.toString(),
+                                currentGw.getGameweekNumber(),
+                                matches));
+        }
+
         private MatchStatusResponse toDto(Match m, int gwNumber) {
                 String status = clockService.computeStatus(m.getKickoffTime(), m.getFinished());
                 int elapsed = "LIVE".equals(status) ? clockService.getElapsedMinutes(m.getKickoffTime()) : 0;
@@ -103,5 +138,9 @@ public class MatchController {
 
         public record GameweekSummary(int gameweekNumber, int totalMatches, int liveMatches, int finishedMatches,
                         String status) {
+        }
+
+        public record CurrentGameweekResponse(String currentDate, Integer currentGameweek,
+                        List<MatchStatusResponse> matches) {
         }
 }
