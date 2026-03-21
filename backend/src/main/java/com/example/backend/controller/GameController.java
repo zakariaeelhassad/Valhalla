@@ -4,6 +4,7 @@ import com.example.backend.dto.LeaderboardEntryResponse;
 import com.example.backend.model.UserTeam;
 import com.example.backend.repository.UserTeamRepository;
 import com.example.backend.service.GameEngineService;
+import com.example.backend.service.TransferWindowService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -22,12 +23,19 @@ import java.util.Map;
 public class GameController {
 
     private final GameEngineService gameEngineService;
+    private final TransferWindowService transferWindowService;
     private final UserTeamRepository userTeamRepository;
 
     @GetMapping("/state")
     @Operation(summary = "Get current game engine state")
     public ResponseEntity<GameEngineService.GameState> getState() {
         return ResponseEntity.ok(gameEngineService.getGameState());
+    }
+
+    @GetMapping("/transfer-window")
+    @Operation(summary = "Get transfer window status based on backend date and DB gameweek dates")
+    public ResponseEntity<TransferWindowService.TransferWindowStatus> getTransferWindowStatus() {
+        return ResponseEntity.ok(transferWindowService.getTransferWindowStatus());
     }
 
     @PostMapping("/start")
