@@ -2,7 +2,7 @@
   {
     "id": 1,
     "gameweek": 1,
-    "kickoff_time": "2024-08-16T19:00:00Z",
+    "kickoff_time": "2026-03-19T15:00:00Z",
     "home_team": "Man Utd",
     "away_team": "Fulham",
     "home_score": 1,
@@ -341,7 +341,7 @@
   {
     "id": 4,
     "gameweek": 1,
-    "kickoff_time": "2024-08-17T11:30:00Z",
+    "kickoff_time": "2026-03-19T17:00:00Z",
     "home_team": "Ipswich",
     "away_team": "Liverpool",
     "home_score": 0,
@@ -699,7 +699,7 @@
   {
     "id": 2,
     "gameweek": 1,
-    "kickoff_time": "2024-08-17T14:00:00Z",
+    "kickoff_time": "2026-03-19T19:00:00Z",
     "home_team": "Arsenal",
     "away_team": "Wolves",
     "home_score": 2,
@@ -1067,7 +1067,7 @@
   {
     "id": 3,
     "gameweek": 1,
-    "kickoff_time": "2024-08-17T14:00:00Z",
+    "kickoff_time": "2026-03-19T19:00:00Z",
     "home_team": "Everton",
     "away_team": "Brighton",
     "home_score": 0,
@@ -1465,7 +1465,7 @@
   {
     "id": 5,
     "gameweek": 1,
-    "kickoff_time": "2024-08-17T14:00:00Z",
+    "kickoff_time": "2026-03-19T19:00:00Z",
     "home_team": "Newcastle",
     "away_team": "Southampton",
     "home_score": 1,
@@ -1868,7 +1868,7 @@
   {
     "id": 6,
     "gameweek": 1,
-    "kickoff_time": "2024-08-17T14:00:00Z",
+    "kickoff_time": "2026-03-19T19:00:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Bournemouth",
     "home_score": 1,
@@ -2227,7 +2227,7 @@
   {
     "id": 7,
     "gameweek": 1,
-    "kickoff_time": "2024-08-17T16:30:00Z",
+    "kickoff_time": "2026-03-19T21:00:00Z",
     "home_team": "West Ham",
     "away_team": "Aston Villa",
     "home_score": 1,
@@ -2609,7 +2609,7 @@
   {
     "id": 8,
     "gameweek": 1,
-    "kickoff_time": "2024-08-18T13:00:00Z",
+    "kickoff_time": "2026-03-20T18:00:00Z",
     "home_team": "Brentford",
     "away_team": "Crystal Palace",
     "home_score": 2,
@@ -2974,7 +2974,7 @@
   {
     "id": 9,
     "gameweek": 1,
-    "kickoff_time": "2024-08-18T15:30:00Z",
+    "kickoff_time": "2026-03-20T20:00:00Z",
     "home_team": "Chelsea",
     "away_team": "Man City",
     "home_score": 0,
@@ -3370,7 +3370,7 @@
   {
     "id": 10,
     "gameweek": 1,
-    "kickoff_time": "2024-08-19T19:00:00Z",
+    "kickoff_time": "2026-03-21T20:00:00Z",
     "home_team": "Leicester",
     "away_team": "Spurs",
     "home_score": 1,
@@ -3760,7 +3760,7 @@
   {
     "id": 13,
     "gameweek": 2,
-    "kickoff_time": "2024-08-24T11:30:00Z",
+    "kickoff_time": "2026-03-26T11:30:00Z",
     "home_team": "Brighton",
     "away_team": "Man Utd",
     "home_score": 2,
@@ -4182,7 +4182,7 @@
   {
     "id": 14,
     "gameweek": 2,
-    "kickoff_time": "2024-08-24T14:00:00Z",
+    "kickoff_time": "2026-03-26T14:00:00Z",
     "home_team": "Crystal Palace",
     "away_team": "West Ham",
     "home_score": 0,
@@ -4503,7 +4503,7 @@
   {
     "id": 15,
     "gameweek": 2,
-    "kickoff_time": "2024-08-24T14:00:00Z",
+    "kickoff_time": "2026-03-26T14:00:00Z",
     "home_team": "Fulham",
     "away_team": "Leicester",
     "home_score": 2,
@@ -4874,7 +4874,7 @@
   {
     "id": 17,
     "gameweek": 2,
-    "kickoff_time": "2024-08-24T14:00:00Z",
+    "kickoff_time": "2026-03-26T14:00:00Z",
     "home_team": "Man City",
     "away_team": "Ipswich",
     "home_score": 4,
@@ -5251,7 +5251,7 @@
   {
     "id": 18,
     "gameweek": 2,
-    "kickoff_time": "2024-08-24T14:00:00Z",
+    "kickoff_time": "2026-03-26T14:00:00Z",
     "home_team": "Southampton",
     "away_team": "Nott'm Forest",
     "home_score": 0,
@@ -5644,7 +5644,7 @@
   {
     "id": 19,
     "gameweek": 2,
-    "kickoff_time": "2024-08-24T14:00:00Z",
+    "kickoff_time": "2026-03-26T14:00:00Z",
     "home_team": "Spurs",
     "away_team": "Everton",
     "home_score": 4,
@@ -6022,7 +6022,7 @@
   {
     "id": 11,
     "gameweek": 2,
-    "kickoff_time": "2024-08-24T16:30:00Z",
+    "kickoff_time": "2026-03-26T16:30:00Z",
     "home_team": "Aston Villa",
     "away_team": "Arsenal",
     "home_score": 0,
@@ -6386,7 +6386,7 @@
   {
     "id": 12,
     "gameweek": 2,
-    "kickoff_time": "2024-08-25T13:00:00Z",
+    "kickoff_time": "2026-03-27T13:00:00Z",
     "home_team": "Bournemouth",
     "away_team": "Newcastle",
     "home_score": 1,
@@ -6774,7 +6774,7 @@
   {
     "id": 20,
     "gameweek": 2,
-    "kickoff_time": "2024-08-25T13:00:00Z",
+    "kickoff_time": "2026-03-27T13:00:00Z",
     "home_team": "Wolves",
     "away_team": "Chelsea",
     "home_score": 2,
@@ -7275,7 +7275,7 @@
   {
     "id": 16,
     "gameweek": 2,
-    "kickoff_time": "2024-08-25T15:30:00Z",
+    "kickoff_time": "2026-03-27T15:30:00Z",
     "home_team": "Liverpool",
     "away_team": "Brentford",
     "home_score": 2,
@@ -7637,7 +7637,7 @@
   {
     "id": 21,
     "gameweek": 3,
-    "kickoff_time": "2024-08-31T11:30:00Z",
+    "kickoff_time": "2026-04-02T11:30:00Z",
     "home_team": "Arsenal",
     "away_team": "Brighton",
     "home_score": 1,
@@ -8069,7 +8069,7 @@
   {
     "id": 22,
     "gameweek": 3,
-    "kickoff_time": "2024-08-31T14:00:00Z",
+    "kickoff_time": "2026-04-02T14:00:00Z",
     "home_team": "Brentford",
     "away_team": "Southampton",
     "home_score": 3,
@@ -8489,7 +8489,7 @@
   {
     "id": 24,
     "gameweek": 3,
-    "kickoff_time": "2024-08-31T14:00:00Z",
+    "kickoff_time": "2026-04-02T14:00:00Z",
     "home_team": "Everton",
     "away_team": "Bournemouth",
     "home_score": 2,
@@ -8867,7 +8867,7 @@
   {
     "id": 25,
     "gameweek": 3,
-    "kickoff_time": "2024-08-31T14:00:00Z",
+    "kickoff_time": "2026-04-02T14:00:00Z",
     "home_team": "Ipswich",
     "away_team": "Fulham",
     "home_score": 1,
@@ -9249,7 +9249,7 @@
   {
     "id": 26,
     "gameweek": 3,
-    "kickoff_time": "2024-08-31T14:00:00Z",
+    "kickoff_time": "2026-04-02T14:00:00Z",
     "home_team": "Leicester",
     "away_team": "Aston Villa",
     "home_score": 1,
@@ -9690,7 +9690,7 @@
   {
     "id": 29,
     "gameweek": 3,
-    "kickoff_time": "2024-08-31T14:00:00Z",
+    "kickoff_time": "2026-04-02T14:00:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Wolves",
     "home_score": 1,
@@ -10115,7 +10115,7 @@
   {
     "id": 30,
     "gameweek": 3,
-    "kickoff_time": "2024-08-31T16:30:00Z",
+    "kickoff_time": "2026-04-02T16:30:00Z",
     "home_team": "West Ham",
     "away_team": "Man City",
     "home_score": 1,
@@ -10464,7 +10464,7 @@
   {
     "id": 23,
     "gameweek": 3,
-    "kickoff_time": "2024-09-01T12:30:00Z",
+    "kickoff_time": "2026-04-03T12:30:00Z",
     "home_team": "Chelsea",
     "away_team": "Crystal Palace",
     "home_score": 1,
@@ -10890,7 +10890,7 @@
   {
     "id": 28,
     "gameweek": 3,
-    "kickoff_time": "2024-09-01T12:30:00Z",
+    "kickoff_time": "2026-04-03T12:30:00Z",
     "home_team": "Newcastle",
     "away_team": "Spurs",
     "home_score": 2,
@@ -11323,7 +11323,7 @@
   {
     "id": 27,
     "gameweek": 3,
-    "kickoff_time": "2024-09-01T15:00:00Z",
+    "kickoff_time": "2026-04-03T15:00:00Z",
     "home_team": "Man Utd",
     "away_team": "Liverpool",
     "home_score": 0,
@@ -11698,7 +11698,7 @@
   {
     "id": 38,
     "gameweek": 4,
-    "kickoff_time": "2024-09-14T11:30:00Z",
+    "kickoff_time": "2026-04-09T11:30:00Z",
     "home_team": "Southampton",
     "away_team": "Man Utd",
     "home_score": 0,
@@ -12118,7 +12118,7 @@
   {
     "id": 33,
     "gameweek": 4,
-    "kickoff_time": "2024-09-14T14:00:00Z",
+    "kickoff_time": "2026-04-09T14:00:00Z",
     "home_team": "Brighton",
     "away_team": "Ipswich",
     "home_score": 0,
@@ -12560,7 +12560,7 @@
   {
     "id": 34,
     "gameweek": 4,
-    "kickoff_time": "2024-09-14T14:00:00Z",
+    "kickoff_time": "2026-04-09T14:00:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Leicester",
     "home_score": 2,
@@ -12965,7 +12965,7 @@
   {
     "id": 35,
     "gameweek": 4,
-    "kickoff_time": "2024-09-14T14:00:00Z",
+    "kickoff_time": "2026-04-09T14:00:00Z",
     "home_team": "Fulham",
     "away_team": "West Ham",
     "home_score": 1,
@@ -13317,7 +13317,7 @@
   {
     "id": 36,
     "gameweek": 4,
-    "kickoff_time": "2024-09-14T14:00:00Z",
+    "kickoff_time": "2026-04-09T14:00:00Z",
     "home_team": "Liverpool",
     "away_team": "Nott'm Forest",
     "home_score": 0,
@@ -13703,7 +13703,7 @@
   {
     "id": 37,
     "gameweek": 4,
-    "kickoff_time": "2024-09-14T14:00:00Z",
+    "kickoff_time": "2026-04-09T14:00:00Z",
     "home_team": "Man City",
     "away_team": "Brentford",
     "home_score": 2,
@@ -14066,7 +14066,7 @@
   {
     "id": 31,
     "gameweek": 4,
-    "kickoff_time": "2024-09-14T16:30:00Z",
+    "kickoff_time": "2026-04-09T16:30:00Z",
     "home_team": "Aston Villa",
     "away_team": "Everton",
     "home_score": 3,
@@ -14484,7 +14484,7 @@
   {
     "id": 32,
     "gameweek": 4,
-    "kickoff_time": "2024-09-14T19:00:00Z",
+    "kickoff_time": "2026-04-09T19:00:00Z",
     "home_team": "Bournemouth",
     "away_team": "Chelsea",
     "home_score": 0,
@@ -14934,7 +14934,7 @@
   {
     "id": 39,
     "gameweek": 4,
-    "kickoff_time": "2024-09-15T13:00:00Z",
+    "kickoff_time": "2026-04-10T13:00:00Z",
     "home_team": "Spurs",
     "away_team": "Arsenal",
     "home_score": 0,
@@ -15345,7 +15345,7 @@
   {
     "id": 40,
     "gameweek": 4,
-    "kickoff_time": "2024-09-15T15:30:00Z",
+    "kickoff_time": "2026-04-10T15:30:00Z",
     "home_team": "Wolves",
     "away_team": "Newcastle",
     "home_score": 1,
@@ -15784,7 +15784,7 @@
   {
     "id": 50,
     "gameweek": 5,
-    "kickoff_time": "2024-09-21T11:30:00Z",
+    "kickoff_time": "2026-04-16T11:30:00Z",
     "home_team": "West Ham",
     "away_team": "Chelsea",
     "home_score": 0,
@@ -16207,7 +16207,7 @@
   {
     "id": 41,
     "gameweek": 5,
-    "kickoff_time": "2024-09-21T14:00:00Z",
+    "kickoff_time": "2026-04-16T14:00:00Z",
     "home_team": "Aston Villa",
     "away_team": "Wolves",
     "home_score": 3,
@@ -16682,7 +16682,7 @@
   {
     "id": 44,
     "gameweek": 5,
-    "kickoff_time": "2024-09-21T14:00:00Z",
+    "kickoff_time": "2026-04-16T14:00:00Z",
     "home_team": "Fulham",
     "away_team": "Newcastle",
     "home_score": 3,
@@ -17084,7 +17084,7 @@
   {
     "id": 45,
     "gameweek": 5,
-    "kickoff_time": "2024-09-21T14:00:00Z",
+    "kickoff_time": "2026-04-16T14:00:00Z",
     "home_team": "Leicester",
     "away_team": "Everton",
     "home_score": 1,
@@ -17454,7 +17454,7 @@
   {
     "id": 46,
     "gameweek": 5,
-    "kickoff_time": "2024-09-21T14:00:00Z",
+    "kickoff_time": "2026-04-16T14:00:00Z",
     "home_team": "Liverpool",
     "away_team": "Bournemouth",
     "home_score": 3,
@@ -17834,7 +17834,7 @@
   {
     "id": 48,
     "gameweek": 5,
-    "kickoff_time": "2024-09-21T14:00:00Z",
+    "kickoff_time": "2026-04-16T14:00:00Z",
     "home_team": "Southampton",
     "away_team": "Ipswich",
     "home_score": 1,
@@ -18264,7 +18264,7 @@
   {
     "id": 49,
     "gameweek": 5,
-    "kickoff_time": "2024-09-21T14:00:00Z",
+    "kickoff_time": "2026-04-16T14:00:00Z",
     "home_team": "Spurs",
     "away_team": "Brentford",
     "home_score": 3,
@@ -18693,7 +18693,7 @@
   {
     "id": 43,
     "gameweek": 5,
-    "kickoff_time": "2024-09-21T16:30:00Z",
+    "kickoff_time": "2026-04-16T16:30:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Man Utd",
     "home_score": 0,
@@ -19057,7 +19057,7 @@
   {
     "id": 42,
     "gameweek": 5,
-    "kickoff_time": "2024-09-22T13:00:00Z",
+    "kickoff_time": "2026-04-17T13:00:00Z",
     "home_team": "Brighton",
     "away_team": "Nott'm Forest",
     "home_score": 2,
@@ -19538,7 +19538,7 @@
   {
     "id": 47,
     "gameweek": 5,
-    "kickoff_time": "2024-09-22T15:30:00Z",
+    "kickoff_time": "2026-04-17T15:30:00Z",
     "home_team": "Man City",
     "away_team": "Arsenal",
     "home_score": 2,
@@ -19929,7 +19929,7 @@
   {
     "id": 58,
     "gameweek": 6,
-    "kickoff_time": "2024-09-28T11:30:00Z",
+    "kickoff_time": "2026-04-23T11:30:00Z",
     "home_team": "Newcastle",
     "away_team": "Man City",
     "home_score": 1,
@@ -20309,7 +20309,7 @@
   {
     "id": 51,
     "gameweek": 6,
-    "kickoff_time": "2024-09-28T14:00:00Z",
+    "kickoff_time": "2026-04-23T14:00:00Z",
     "home_team": "Arsenal",
     "away_team": "Leicester",
     "home_score": 4,
@@ -20734,7 +20734,7 @@
   {
     "id": 53,
     "gameweek": 6,
-    "kickoff_time": "2024-09-28T14:00:00Z",
+    "kickoff_time": "2026-04-23T14:00:00Z",
     "home_team": "Brentford",
     "away_team": "West Ham",
     "home_score": 1,
@@ -21106,7 +21106,7 @@
   {
     "id": 54,
     "gameweek": 6,
-    "kickoff_time": "2024-09-28T14:00:00Z",
+    "kickoff_time": "2026-04-23T14:00:00Z",
     "home_team": "Chelsea",
     "away_team": "Brighton",
     "home_score": 4,
@@ -21626,7 +21626,7 @@
   {
     "id": 55,
     "gameweek": 6,
-    "kickoff_time": "2024-09-28T14:00:00Z",
+    "kickoff_time": "2026-04-23T14:00:00Z",
     "home_team": "Everton",
     "away_team": "Crystal Palace",
     "home_score": 2,
@@ -21999,7 +21999,7 @@
   {
     "id": 59,
     "gameweek": 6,
-    "kickoff_time": "2024-09-28T14:00:00Z",
+    "kickoff_time": "2026-04-23T14:00:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Fulham",
     "home_score": 0,
@@ -22377,7 +22377,7 @@
   {
     "id": 60,
     "gameweek": 6,
-    "kickoff_time": "2024-09-28T16:30:00Z",
+    "kickoff_time": "2026-04-23T16:30:00Z",
     "home_team": "Wolves",
     "away_team": "Liverpool",
     "home_score": 1,
@@ -22798,7 +22798,7 @@
   {
     "id": 56,
     "gameweek": 6,
-    "kickoff_time": "2024-09-29T13:00:00Z",
+    "kickoff_time": "2026-04-24T13:00:00Z",
     "home_team": "Ipswich",
     "away_team": "Aston Villa",
     "home_score": 2,
@@ -23236,7 +23236,7 @@
   {
     "id": 57,
     "gameweek": 6,
-    "kickoff_time": "2024-09-29T15:30:00Z",
+    "kickoff_time": "2026-04-24T15:30:00Z",
     "home_team": "Man Utd",
     "away_team": "Spurs",
     "home_score": 0,
@@ -23663,7 +23663,7 @@
   {
     "id": 52,
     "gameweek": 6,
-    "kickoff_time": "2024-09-30T19:00:00Z",
+    "kickoff_time": "2026-04-25T19:00:00Z",
     "home_team": "Bournemouth",
     "away_team": "Southampton",
     "home_score": 3,
@@ -24090,7 +24090,7 @@
   {
     "id": 66,
     "gameweek": 7,
-    "kickoff_time": "2024-10-05T11:30:00Z",
+    "kickoff_time": "2026-04-30T11:30:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Liverpool",
     "home_score": 0,
@@ -24473,7 +24473,7 @@
   {
     "id": 61,
     "gameweek": 7,
-    "kickoff_time": "2024-10-05T14:00:00Z",
+    "kickoff_time": "2026-04-30T14:00:00Z",
     "home_team": "Arsenal",
     "away_team": "Southampton",
     "home_score": 3,
@@ -24899,7 +24899,7 @@
   {
     "id": 63,
     "gameweek": 7,
-    "kickoff_time": "2024-10-05T14:00:00Z",
+    "kickoff_time": "2026-04-30T14:00:00Z",
     "home_team": "Brentford",
     "away_team": "Wolves",
     "home_score": 5,
@@ -25379,7 +25379,7 @@
   {
     "id": 68,
     "gameweek": 7,
-    "kickoff_time": "2024-10-05T14:00:00Z",
+    "kickoff_time": "2026-04-30T14:00:00Z",
     "home_team": "Leicester",
     "away_team": "Bournemouth",
     "home_score": 1,
@@ -25758,7 +25758,7 @@
   {
     "id": 69,
     "gameweek": 7,
-    "kickoff_time": "2024-10-05T14:00:00Z",
+    "kickoff_time": "2026-04-30T14:00:00Z",
     "home_team": "Man City",
     "away_team": "Fulham",
     "home_score": 3,
@@ -26122,7 +26122,7 @@
   {
     "id": 70,
     "gameweek": 7,
-    "kickoff_time": "2024-10-05T14:00:00Z",
+    "kickoff_time": "2026-04-30T14:00:00Z",
     "home_team": "West Ham",
     "away_team": "Ipswich",
     "home_score": 4,
@@ -26498,7 +26498,7 @@
   {
     "id": 67,
     "gameweek": 7,
-    "kickoff_time": "2024-10-05T16:30:00Z",
+    "kickoff_time": "2026-04-30T16:30:00Z",
     "home_team": "Everton",
     "away_team": "Newcastle",
     "home_score": 0,
@@ -26854,7 +26854,7 @@
   {
     "id": 62,
     "gameweek": 7,
-    "kickoff_time": "2024-10-06T13:00:00Z",
+    "kickoff_time": "2026-05-01T13:00:00Z",
     "home_team": "Aston Villa",
     "away_team": "Man Utd",
     "home_score": 0,
@@ -27247,7 +27247,7 @@
   {
     "id": 65,
     "gameweek": 7,
-    "kickoff_time": "2024-10-06T13:00:00Z",
+    "kickoff_time": "2026-05-01T13:00:00Z",
     "home_team": "Chelsea",
     "away_team": "Nott'm Forest",
     "home_score": 1,
@@ -27701,7 +27701,7 @@
   {
     "id": 64,
     "gameweek": 7,
-    "kickoff_time": "2024-10-06T15:30:00Z",
+    "kickoff_time": "2026-05-01T15:30:00Z",
     "home_team": "Brighton",
     "away_team": "Spurs",
     "home_score": 3,
@@ -28189,7 +28189,7 @@
   {
     "id": 79,
     "gameweek": 8,
-    "kickoff_time": "2024-10-19T11:30:00Z",
+    "kickoff_time": "2026-05-07T11:30:00Z",
     "home_team": "Spurs",
     "away_team": "West Ham",
     "home_score": 4,
@@ -28589,7 +28589,7 @@
   {
     "id": 72,
     "gameweek": 8,
-    "kickoff_time": "2024-10-19T14:00:00Z",
+    "kickoff_time": "2026-05-07T14:00:00Z",
     "home_team": "Fulham",
     "away_team": "Aston Villa",
     "home_score": 1,
@@ -29016,7 +29016,7 @@
   {
     "id": 75,
     "gameweek": 8,
-    "kickoff_time": "2024-10-19T14:00:00Z",
+    "kickoff_time": "2026-05-07T14:00:00Z",
     "home_team": "Man Utd",
     "away_team": "Brentford",
     "home_score": 2,
@@ -29412,7 +29412,7 @@
   {
     "id": 76,
     "gameweek": 8,
-    "kickoff_time": "2024-10-19T14:00:00Z",
+    "kickoff_time": "2026-05-07T14:00:00Z",
     "home_team": "Newcastle",
     "away_team": "Brighton",
     "home_score": 0,
@@ -29857,7 +29857,7 @@
   {
     "id": 78,
     "gameweek": 8,
-    "kickoff_time": "2024-10-19T14:00:00Z",
+    "kickoff_time": "2026-05-07T14:00:00Z",
     "home_team": "Southampton",
     "away_team": "Leicester",
     "home_score": 2,
@@ -30316,7 +30316,7 @@
   {
     "id": 73,
     "gameweek": 8,
-    "kickoff_time": "2024-10-19T14:15:00Z",
+    "kickoff_time": "2026-05-07T14:15:00Z",
     "home_team": "Ipswich",
     "away_team": "Everton",
     "home_score": 0,
@@ -30682,7 +30682,7 @@
   {
     "id": 71,
     "gameweek": 8,
-    "kickoff_time": "2024-10-19T16:30:00Z",
+    "kickoff_time": "2026-05-07T16:30:00Z",
     "home_team": "Bournemouth",
     "away_team": "Arsenal",
     "home_score": 2,
@@ -31062,7 +31062,7 @@
   {
     "id": 80,
     "gameweek": 8,
-    "kickoff_time": "2024-10-20T13:00:00Z",
+    "kickoff_time": "2026-05-08T13:00:00Z",
     "home_team": "Wolves",
     "away_team": "Man City",
     "home_score": 1,
@@ -31472,7 +31472,7 @@
   {
     "id": 74,
     "gameweek": 8,
-    "kickoff_time": "2024-10-20T15:30:00Z",
+    "kickoff_time": "2026-05-08T15:30:00Z",
     "home_team": "Liverpool",
     "away_team": "Chelsea",
     "home_score": 2,
@@ -31910,7 +31910,7 @@
   {
     "id": 77,
     "gameweek": 8,
-    "kickoff_time": "2024-10-21T19:00:00Z",
+    "kickoff_time": "2026-05-09T19:00:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Crystal Palace",
     "home_score": 1,
@@ -32299,7 +32299,7 @@
   {
     "id": 88,
     "gameweek": 9,
-    "kickoff_time": "2024-10-25T19:00:00Z",
+    "kickoff_time": "2026-05-14T19:00:00Z",
     "home_team": "Leicester",
     "away_team": "Nott'm Forest",
     "home_score": 1,
@@ -32725,7 +32725,7 @@
   {
     "id": 82,
     "gameweek": 9,
-    "kickoff_time": "2024-10-26T14:00:00Z",
+    "kickoff_time": "2026-05-15T14:00:00Z",
     "home_team": "Aston Villa",
     "away_team": "Bournemouth",
     "home_score": 1,
@@ -33164,7 +33164,7 @@
   {
     "id": 83,
     "gameweek": 9,
-    "kickoff_time": "2024-10-26T14:00:00Z",
+    "kickoff_time": "2026-05-15T14:00:00Z",
     "home_team": "Brentford",
     "away_team": "Ipswich",
     "home_score": 4,
@@ -33591,7 +33591,7 @@
   {
     "id": 84,
     "gameweek": 9,
-    "kickoff_time": "2024-10-26T14:00:00Z",
+    "kickoff_time": "2026-05-15T14:00:00Z",
     "home_team": "Brighton",
     "away_team": "Wolves",
     "home_score": 2,
@@ -34103,7 +34103,7 @@
   {
     "id": 89,
     "gameweek": 9,
-    "kickoff_time": "2024-10-26T14:00:00Z",
+    "kickoff_time": "2026-05-15T14:00:00Z",
     "home_team": "Man City",
     "away_team": "Southampton",
     "home_score": 1,
@@ -34483,7 +34483,7 @@
   {
     "id": 87,
     "gameweek": 9,
-    "kickoff_time": "2024-10-26T16:30:00Z",
+    "kickoff_time": "2026-05-15T16:30:00Z",
     "home_team": "Everton",
     "away_team": "Fulham",
     "home_score": 1,
@@ -34829,7 +34829,7 @@
   {
     "id": 85,
     "gameweek": 9,
-    "kickoff_time": "2024-10-27T14:00:00Z",
+    "kickoff_time": "2026-05-16T14:00:00Z",
     "home_team": "Chelsea",
     "away_team": "Newcastle",
     "home_score": 2,
@@ -35290,7 +35290,7 @@
   {
     "id": 86,
     "gameweek": 9,
-    "kickoff_time": "2024-10-27T14:00:00Z",
+    "kickoff_time": "2026-05-16T14:00:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Spurs",
     "home_score": 1,
@@ -35711,7 +35711,7 @@
   {
     "id": 90,
     "gameweek": 9,
-    "kickoff_time": "2024-10-27T14:00:00Z",
+    "kickoff_time": "2026-05-16T14:00:00Z",
     "home_team": "West Ham",
     "away_team": "Man Utd",
     "home_score": 2,
@@ -36090,7 +36090,7 @@
   {
     "id": 81,
     "gameweek": 9,
-    "kickoff_time": "2024-10-27T16:30:00Z",
+    "kickoff_time": "2026-05-16T16:30:00Z",
     "home_team": "Arsenal",
     "away_team": "Liverpool",
     "home_score": 2,
@@ -36494,7 +36494,7 @@
   {
     "id": 96,
     "gameweek": 10,
-    "kickoff_time": "2024-11-02T12:30:00Z",
+    "kickoff_time": "2026-05-21T12:30:00Z",
     "home_team": "Newcastle",
     "away_team": "Arsenal",
     "home_score": 1,
@@ -36900,7 +36900,7 @@
   {
     "id": 91,
     "gameweek": 10,
-    "kickoff_time": "2024-11-02T15:00:00Z",
+    "kickoff_time": "2026-05-21T15:00:00Z",
     "home_team": "Bournemouth",
     "away_team": "Man City",
     "home_score": 2,
@@ -37267,7 +37267,7 @@
   {
     "id": 93,
     "gameweek": 10,
-    "kickoff_time": "2024-11-02T15:00:00Z",
+    "kickoff_time": "2026-05-21T15:00:00Z",
     "home_team": "Ipswich",
     "away_team": "Leicester",
     "home_score": 1,
@@ -37678,7 +37678,7 @@
   {
     "id": 94,
     "gameweek": 10,
-    "kickoff_time": "2024-11-02T15:00:00Z",
+    "kickoff_time": "2026-05-21T15:00:00Z",
     "home_team": "Liverpool",
     "away_team": "Brighton",
     "home_score": 2,
@@ -38126,7 +38126,7 @@
   {
     "id": 97,
     "gameweek": 10,
-    "kickoff_time": "2024-11-02T15:00:00Z",
+    "kickoff_time": "2026-05-21T15:00:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "West Ham",
     "home_score": 3,
@@ -38499,7 +38499,7 @@
   {
     "id": 98,
     "gameweek": 10,
-    "kickoff_time": "2024-11-02T15:00:00Z",
+    "kickoff_time": "2026-05-21T15:00:00Z",
     "home_team": "Southampton",
     "away_team": "Everton",
     "home_score": 1,
@@ -38897,7 +38897,7 @@
   {
     "id": 100,
     "gameweek": 10,
-    "kickoff_time": "2024-11-02T17:30:00Z",
+    "kickoff_time": "2026-05-21T17:30:00Z",
     "home_team": "Wolves",
     "away_team": "Crystal Palace",
     "home_score": 2,
@@ -39333,7 +39333,7 @@
   {
     "id": 99,
     "gameweek": 10,
-    "kickoff_time": "2024-11-03T14:00:00Z",
+    "kickoff_time": "2026-05-22T14:00:00Z",
     "home_team": "Spurs",
     "away_team": "Aston Villa",
     "home_score": 4,
@@ -39778,7 +39778,7 @@
   {
     "id": 95,
     "gameweek": 10,
-    "kickoff_time": "2024-11-03T16:30:00Z",
+    "kickoff_time": "2026-05-22T16:30:00Z",
     "home_team": "Man Utd",
     "away_team": "Chelsea",
     "home_score": 1,
@@ -40223,7 +40223,7 @@
   {
     "id": 92,
     "gameweek": 10,
-    "kickoff_time": "2024-11-04T20:00:00Z",
+    "kickoff_time": "2026-05-23T20:00:00Z",
     "home_team": "Fulham",
     "away_team": "Brentford",
     "home_score": 2,
@@ -40610,7 +40610,7 @@
   {
     "id": 101,
     "gameweek": 11,
-    "kickoff_time": "2024-11-09T15:00:00Z",
+    "kickoff_time": "2026-05-28T15:00:00Z",
     "home_team": "Brentford",
     "away_team": "Bournemouth",
     "home_score": 3,
@@ -41022,7 +41022,7 @@
   {
     "id": 104,
     "gameweek": 11,
-    "kickoff_time": "2024-11-09T15:00:00Z",
+    "kickoff_time": "2026-05-28T15:00:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Fulham",
     "home_score": 0,
@@ -41402,7 +41402,7 @@
   {
     "id": 109,
     "gameweek": 11,
-    "kickoff_time": "2024-11-09T15:00:00Z",
+    "kickoff_time": "2026-05-28T15:00:00Z",
     "home_team": "West Ham",
     "away_team": "Everton",
     "home_score": 0,
@@ -41738,7 +41738,7 @@
   {
     "id": 110,
     "gameweek": 11,
-    "kickoff_time": "2024-11-09T15:00:00Z",
+    "kickoff_time": "2026-05-28T15:00:00Z",
     "home_team": "Wolves",
     "away_team": "Southampton",
     "home_score": 2,
@@ -42190,7 +42190,7 @@
   {
     "id": 102,
     "gameweek": 11,
-    "kickoff_time": "2024-11-09T17:30:00Z",
+    "kickoff_time": "2026-05-28T17:30:00Z",
     "home_team": "Brighton",
     "away_team": "Man City",
     "home_score": 2,
@@ -42641,7 +42641,7 @@
   {
     "id": 105,
     "gameweek": 11,
-    "kickoff_time": "2024-11-09T20:00:00Z",
+    "kickoff_time": "2026-05-28T20:00:00Z",
     "home_team": "Liverpool",
     "away_team": "Aston Villa",
     "home_score": 2,
@@ -43041,7 +43041,7 @@
   {
     "id": 106,
     "gameweek": 11,
-    "kickoff_time": "2024-11-10T14:00:00Z",
+    "kickoff_time": "2026-05-29T14:00:00Z",
     "home_team": "Man Utd",
     "away_team": "Leicester",
     "home_score": 3,
@@ -43431,7 +43431,7 @@
   {
     "id": 107,
     "gameweek": 11,
-    "kickoff_time": "2024-11-10T14:00:00Z",
+    "kickoff_time": "2026-05-29T14:00:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Newcastle",
     "home_score": 1,
@@ -43837,7 +43837,7 @@
   {
     "id": 108,
     "gameweek": 11,
-    "kickoff_time": "2024-11-10T14:00:00Z",
+    "kickoff_time": "2026-05-29T14:00:00Z",
     "home_team": "Spurs",
     "away_team": "Ipswich",
     "home_score": 1,
@@ -44262,7 +44262,7 @@
   {
     "id": 103,
     "gameweek": 11,
-    "kickoff_time": "2024-11-10T16:30:00Z",
+    "kickoff_time": "2026-05-29T16:30:00Z",
     "home_team": "Chelsea",
     "away_team": "Arsenal",
     "home_score": 1,
@@ -44703,7 +44703,7 @@
   {
     "id": 117,
     "gameweek": 12,
-    "kickoff_time": "2024-11-23T12:30:00Z",
+    "kickoff_time": "2026-06-04T12:30:00Z",
     "home_team": "Leicester",
     "away_team": "Chelsea",
     "home_score": 1,
@@ -45156,7 +45156,7 @@
   {
     "id": 111,
     "gameweek": 12,
-    "kickoff_time": "2024-11-23T15:00:00Z",
+    "kickoff_time": "2026-06-04T15:00:00Z",
     "home_team": "Arsenal",
     "away_team": "Nott'm Forest",
     "home_score": 3,
@@ -45566,7 +45566,7 @@
   {
     "id": 112,
     "gameweek": 12,
-    "kickoff_time": "2024-11-23T15:00:00Z",
+    "kickoff_time": "2026-06-04T15:00:00Z",
     "home_team": "Aston Villa",
     "away_team": "Crystal Palace",
     "home_score": 2,
@@ -46014,7 +46014,7 @@
   {
     "id": 113,
     "gameweek": 12,
-    "kickoff_time": "2024-11-23T15:00:00Z",
+    "kickoff_time": "2026-06-04T15:00:00Z",
     "home_team": "Bournemouth",
     "away_team": "Brighton",
     "home_score": 1,
@@ -46480,7 +46480,7 @@
   {
     "id": 114,
     "gameweek": 12,
-    "kickoff_time": "2024-11-23T15:00:00Z",
+    "kickoff_time": "2026-06-04T15:00:00Z",
     "home_team": "Everton",
     "away_team": "Brentford",
     "home_score": 0,
@@ -46838,7 +46838,7 @@
   {
     "id": 115,
     "gameweek": 12,
-    "kickoff_time": "2024-11-23T15:00:00Z",
+    "kickoff_time": "2026-06-04T15:00:00Z",
     "home_team": "Fulham",
     "away_team": "Wolves",
     "home_score": 1,
@@ -47271,7 +47271,7 @@
   {
     "id": 118,
     "gameweek": 12,
-    "kickoff_time": "2024-11-23T17:30:00Z",
+    "kickoff_time": "2026-06-04T17:30:00Z",
     "home_team": "Man City",
     "away_team": "Spurs",
     "home_score": 0,
@@ -47703,7 +47703,7 @@
   {
     "id": 120,
     "gameweek": 12,
-    "kickoff_time": "2024-11-24T14:00:00Z",
+    "kickoff_time": "2026-06-05T14:00:00Z",
     "home_team": "Southampton",
     "away_team": "Liverpool",
     "home_score": 2,
@@ -48135,7 +48135,7 @@
   {
     "id": 116,
     "gameweek": 12,
-    "kickoff_time": "2024-11-24T16:30:00Z",
+    "kickoff_time": "2026-06-05T16:30:00Z",
     "home_team": "Ipswich",
     "away_team": "Man Utd",
     "home_score": 1,
@@ -48516,7 +48516,7 @@
   {
     "id": 119,
     "gameweek": 12,
-    "kickoff_time": "2024-11-25T20:00:00Z",
+    "kickoff_time": "2026-06-06T20:00:00Z",
     "home_team": "Newcastle",
     "away_team": "West Ham",
     "home_score": 0,
@@ -48877,7 +48877,7 @@
   {
     "id": 122,
     "gameweek": 13,
-    "kickoff_time": "2024-11-29T20:00:00Z",
+    "kickoff_time": "2026-06-11T20:00:00Z",
     "home_team": "Brighton",
     "away_team": "Southampton",
     "home_score": 1,
@@ -49373,7 +49373,7 @@
   {
     "id": 121,
     "gameweek": 13,
-    "kickoff_time": "2024-11-30T15:00:00Z",
+    "kickoff_time": "2026-06-12T15:00:00Z",
     "home_team": "Brentford",
     "away_team": "Leicester",
     "home_score": 4,
@@ -49788,7 +49788,7 @@
   {
     "id": 124,
     "gameweek": 13,
-    "kickoff_time": "2024-11-30T15:00:00Z",
+    "kickoff_time": "2026-06-12T15:00:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Newcastle",
     "home_score": 1,
@@ -50195,7 +50195,7 @@
   {
     "id": 127,
     "gameweek": 13,
-    "kickoff_time": "2024-11-30T15:00:00Z",
+    "kickoff_time": "2026-06-12T15:00:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Ipswich",
     "home_score": 1,
@@ -50585,7 +50585,7 @@
   {
     "id": 130,
     "gameweek": 13,
-    "kickoff_time": "2024-11-30T15:00:00Z",
+    "kickoff_time": "2026-06-12T15:00:00Z",
     "home_team": "Wolves",
     "away_team": "Bournemouth",
     "home_score": 2,
@@ -51053,7 +51053,7 @@
   {
     "id": 129,
     "gameweek": 13,
-    "kickoff_time": "2024-11-30T17:30:00Z",
+    "kickoff_time": "2026-06-12T17:30:00Z",
     "home_team": "West Ham",
     "away_team": "Arsenal",
     "home_score": 2,
@@ -51475,7 +51475,7 @@
   {
     "id": 123,
     "gameweek": 13,
-    "kickoff_time": "2024-12-01T13:30:00Z",
+    "kickoff_time": "2026-06-13T13:30:00Z",
     "home_team": "Chelsea",
     "away_team": "Aston Villa",
     "home_score": 3,
@@ -51941,7 +51941,7 @@
   {
     "id": 126,
     "gameweek": 13,
-    "kickoff_time": "2024-12-01T13:30:00Z",
+    "kickoff_time": "2026-06-13T13:30:00Z",
     "home_team": "Man Utd",
     "away_team": "Everton",
     "home_score": 4,
@@ -52344,7 +52344,7 @@
   {
     "id": 128,
     "gameweek": 13,
-    "kickoff_time": "2024-12-01T13:30:00Z",
+    "kickoff_time": "2026-06-13T13:30:00Z",
     "home_team": "Spurs",
     "away_team": "Fulham",
     "home_score": 1,
@@ -52750,7 +52750,7 @@
   {
     "id": 125,
     "gameweek": 13,
-    "kickoff_time": "2024-12-01T16:00:00Z",
+    "kickoff_time": "2026-06-13T16:00:00Z",
     "home_team": "Liverpool",
     "away_team": "Man City",
     "home_score": 2,
@@ -53128,7 +53128,7 @@
   {
     "id": 136,
     "gameweek": 14,
-    "kickoff_time": "2024-12-03T19:30:00Z",
+    "kickoff_time": "2026-06-18T19:30:00Z",
     "home_team": "Ipswich",
     "away_team": "Crystal Palace",
     "home_score": 0,
@@ -53531,7 +53531,7 @@
   {
     "id": 137,
     "gameweek": 14,
-    "kickoff_time": "2024-12-03T20:15:00Z",
+    "kickoff_time": "2026-06-18T20:15:00Z",
     "home_team": "Leicester",
     "away_team": "West Ham",
     "home_score": 3,
@@ -53925,7 +53925,7 @@
   {
     "id": 134,
     "gameweek": 14,
-    "kickoff_time": "2024-12-04T19:30:00Z",
+    "kickoff_time": "2026-06-19T19:30:00Z",
     "home_team": "Everton",
     "away_team": "Wolves",
     "home_score": 4,
@@ -54343,7 +54343,7 @@
   {
     "id": 138,
     "gameweek": 14,
-    "kickoff_time": "2024-12-04T19:30:00Z",
+    "kickoff_time": "2026-06-19T19:30:00Z",
     "home_team": "Man City",
     "away_team": "Nott'm Forest",
     "home_score": 3,
@@ -54742,7 +54742,7 @@
   {
     "id": 139,
     "gameweek": 14,
-    "kickoff_time": "2024-12-04T19:30:00Z",
+    "kickoff_time": "2026-06-19T19:30:00Z",
     "home_team": "Newcastle",
     "away_team": "Liverpool",
     "home_score": 3,
@@ -55184,7 +55184,7 @@
   {
     "id": 140,
     "gameweek": 14,
-    "kickoff_time": "2024-12-04T19:30:00Z",
+    "kickoff_time": "2026-06-19T19:30:00Z",
     "home_team": "Southampton",
     "away_team": "Chelsea",
     "home_score": 1,
@@ -55667,7 +55667,7 @@
   {
     "id": 131,
     "gameweek": 14,
-    "kickoff_time": "2024-12-04T20:15:00Z",
+    "kickoff_time": "2026-06-19T20:15:00Z",
     "home_team": "Arsenal",
     "away_team": "Man Utd",
     "home_score": 2,
@@ -56070,7 +56070,7 @@
   {
     "id": 132,
     "gameweek": 14,
-    "kickoff_time": "2024-12-04T20:15:00Z",
+    "kickoff_time": "2026-06-19T20:15:00Z",
     "home_team": "Aston Villa",
     "away_team": "Brentford",
     "home_score": 3,
@@ -56506,7 +56506,7 @@
   {
     "id": 135,
     "gameweek": 14,
-    "kickoff_time": "2024-12-05T19:30:00Z",
+    "kickoff_time": "2026-06-20T19:30:00Z",
     "home_team": "Fulham",
     "away_team": "Brighton",
     "home_score": 3,
@@ -56967,7 +56967,7 @@
   {
     "id": 133,
     "gameweek": 14,
-    "kickoff_time": "2024-12-05T20:15:00Z",
+    "kickoff_time": "2026-06-20T20:15:00Z",
     "home_team": "Bournemouth",
     "away_team": "Spurs",
     "home_score": 1,
@@ -57382,7 +57382,7 @@
   {
     "id": 141,
     "gameweek": 15,
-    "kickoff_time": "2024-12-07T15:00:00Z",
+    "kickoff_time": "2026-06-25T15:00:00Z",
     "home_team": "Aston Villa",
     "away_team": "Southampton",
     "home_score": 1,
@@ -57817,7 +57817,7 @@
   {
     "id": 142,
     "gameweek": 15,
-    "kickoff_time": "2024-12-07T15:00:00Z",
+    "kickoff_time": "2026-06-25T15:00:00Z",
     "home_team": "Brentford",
     "away_team": "Newcastle",
     "home_score": 4,
@@ -58244,7 +58244,7 @@
   {
     "id": 143,
     "gameweek": 15,
-    "kickoff_time": "2024-12-07T15:00:00Z",
+    "kickoff_time": "2026-06-25T15:00:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Man City",
     "home_score": 2,
@@ -58641,7 +58641,7 @@
   {
     "id": 148,
     "gameweek": 15,
-    "kickoff_time": "2024-12-07T17:30:00Z",
+    "kickoff_time": "2026-06-25T17:30:00Z",
     "home_team": "Man Utd",
     "away_team": "Nott'm Forest",
     "home_score": 2,
@@ -59060,7 +59060,7 @@
   {
     "id": 145,
     "gameweek": 15,
-    "kickoff_time": "2024-12-08T14:00:00Z",
+    "kickoff_time": "2026-06-26T14:00:00Z",
     "home_team": "Fulham",
     "away_team": "Arsenal",
     "home_score": 1,
@@ -59451,7 +59451,7 @@
   {
     "id": 146,
     "gameweek": 15,
-    "kickoff_time": "2024-12-08T14:00:00Z",
+    "kickoff_time": "2026-06-26T14:00:00Z",
     "home_team": "Ipswich",
     "away_team": "Bournemouth",
     "home_score": 1,
@@ -59848,7 +59848,7 @@
   {
     "id": 147,
     "gameweek": 15,
-    "kickoff_time": "2024-12-08T14:00:00Z",
+    "kickoff_time": "2026-06-26T14:00:00Z",
     "home_team": "Leicester",
     "away_team": "Brighton",
     "home_score": 2,
@@ -60328,7 +60328,7 @@
   {
     "id": 149,
     "gameweek": 15,
-    "kickoff_time": "2024-12-08T16:30:00Z",
+    "kickoff_time": "2026-06-26T16:30:00Z",
     "home_team": "Spurs",
     "away_team": "Chelsea",
     "home_score": 3,
@@ -60831,7 +60831,7 @@
   {
     "id": 150,
     "gameweek": 15,
-    "kickoff_time": "2024-12-09T20:00:00Z",
+    "kickoff_time": "2026-06-27T20:00:00Z",
     "home_team": "West Ham",
     "away_team": "Wolves",
     "home_score": 2,
@@ -61272,7 +61272,7 @@
   {
     "id": 151,
     "gameweek": 16,
-    "kickoff_time": "2024-12-14T15:00:00Z",
+    "kickoff_time": "2026-07-02T15:00:00Z",
     "home_team": "Arsenal",
     "away_team": "Everton",
     "home_score": 0,
@@ -61633,7 +61633,7 @@
   {
     "id": 155,
     "gameweek": 16,
-    "kickoff_time": "2024-12-14T15:00:00Z",
+    "kickoff_time": "2026-07-02T15:00:00Z",
     "home_team": "Liverpool",
     "away_team": "Fulham",
     "home_score": 2,
@@ -62049,7 +62049,7 @@
   {
     "id": 157,
     "gameweek": 16,
-    "kickoff_time": "2024-12-14T15:00:00Z",
+    "kickoff_time": "2026-07-02T15:00:00Z",
     "home_team": "Newcastle",
     "away_team": "Leicester",
     "home_score": 4,
@@ -62476,7 +62476,7 @@
   {
     "id": 160,
     "gameweek": 16,
-    "kickoff_time": "2024-12-14T15:00:00Z",
+    "kickoff_time": "2026-07-02T15:00:00Z",
     "home_team": "Wolves",
     "away_team": "Ipswich",
     "home_score": 1,
@@ -62914,7 +62914,7 @@
   {
     "id": 158,
     "gameweek": 16,
-    "kickoff_time": "2024-12-14T17:30:00Z",
+    "kickoff_time": "2026-07-02T17:30:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Aston Villa",
     "home_score": 2,
@@ -63333,7 +63333,7 @@
   {
     "id": 153,
     "gameweek": 16,
-    "kickoff_time": "2024-12-15T14:00:00Z",
+    "kickoff_time": "2026-07-03T14:00:00Z",
     "home_team": "Brighton",
     "away_team": "Crystal Palace",
     "home_score": 1,
@@ -63818,7 +63818,7 @@
   {
     "id": 156,
     "gameweek": 16,
-    "kickoff_time": "2024-12-15T16:30:00Z",
+    "kickoff_time": "2026-07-03T16:30:00Z",
     "home_team": "Man City",
     "away_team": "Man Utd",
     "home_score": 1,
@@ -64211,7 +64211,7 @@
   {
     "id": 154,
     "gameweek": 16,
-    "kickoff_time": "2024-12-15T19:00:00Z",
+    "kickoff_time": "2026-07-03T19:00:00Z",
     "home_team": "Chelsea",
     "away_team": "Brentford",
     "home_score": 2,
@@ -64669,7 +64669,7 @@
   {
     "id": 159,
     "gameweek": 16,
-    "kickoff_time": "2024-12-15T19:00:00Z",
+    "kickoff_time": "2026-07-03T19:00:00Z",
     "home_team": "Southampton",
     "away_team": "Spurs",
     "home_score": 0,
@@ -65152,7 +65152,7 @@
   {
     "id": 152,
     "gameweek": 16,
-    "kickoff_time": "2024-12-16T20:00:00Z",
+    "kickoff_time": "2026-07-04T20:00:00Z",
     "home_team": "Bournemouth",
     "away_team": "West Ham",
     "home_score": 1,
@@ -65518,7 +65518,7 @@
   {
     "id": 161,
     "gameweek": 17,
-    "kickoff_time": "2024-12-21T12:30:00Z",
+    "kickoff_time": "2026-07-09T12:30:00Z",
     "home_team": "Aston Villa",
     "away_team": "Man City",
     "home_score": 2,
@@ -65943,7 +65943,7 @@
   {
     "id": 162,
     "gameweek": 17,
-    "kickoff_time": "2024-12-21T15:00:00Z",
+    "kickoff_time": "2026-07-09T15:00:00Z",
     "home_team": "Brentford",
     "away_team": "Nott'm Forest",
     "home_score": 0,
@@ -66354,7 +66354,7 @@
   {
     "id": 166,
     "gameweek": 17,
-    "kickoff_time": "2024-12-21T15:00:00Z",
+    "kickoff_time": "2026-07-09T15:00:00Z",
     "home_team": "Ipswich",
     "away_team": "Newcastle",
     "home_score": 0,
@@ -66756,7 +66756,7 @@
   {
     "id": 170,
     "gameweek": 17,
-    "kickoff_time": "2024-12-21T15:00:00Z",
+    "kickoff_time": "2026-07-09T15:00:00Z",
     "home_team": "West Ham",
     "away_team": "Brighton",
     "home_score": 1,
@@ -67209,7 +67209,7 @@
   {
     "id": 163,
     "gameweek": 17,
-    "kickoff_time": "2024-12-21T17:30:00Z",
+    "kickoff_time": "2026-07-09T17:30:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Arsenal",
     "home_score": 1,
@@ -67644,7 +67644,7 @@
   {
     "id": 164,
     "gameweek": 17,
-    "kickoff_time": "2024-12-22T14:00:00Z",
+    "kickoff_time": "2026-07-10T14:00:00Z",
     "home_team": "Everton",
     "away_team": "Chelsea",
     "home_score": 0,
@@ -68063,7 +68063,7 @@
   {
     "id": 165,
     "gameweek": 17,
-    "kickoff_time": "2024-12-22T14:00:00Z",
+    "kickoff_time": "2026-07-10T14:00:00Z",
     "home_team": "Fulham",
     "away_team": "Southampton",
     "home_score": 0,
@@ -68453,7 +68453,7 @@
   {
     "id": 167,
     "gameweek": 17,
-    "kickoff_time": "2024-12-22T14:00:00Z",
+    "kickoff_time": "2026-07-10T14:00:00Z",
     "home_team": "Leicester",
     "away_team": "Wolves",
     "home_score": 0,
@@ -68891,7 +68891,7 @@
   {
     "id": 168,
     "gameweek": 17,
-    "kickoff_time": "2024-12-22T14:00:00Z",
+    "kickoff_time": "2026-07-10T14:00:00Z",
     "home_team": "Man Utd",
     "away_team": "Bournemouth",
     "home_score": 0,
@@ -69293,7 +69293,7 @@
   {
     "id": 169,
     "gameweek": 17,
-    "kickoff_time": "2024-12-22T16:30:00Z",
+    "kickoff_time": "2026-07-10T16:30:00Z",
     "home_team": "Spurs",
     "away_team": "Liverpool",
     "home_score": 3,
@@ -69779,7 +69779,7 @@
   {
     "id": 176,
     "gameweek": 18,
-    "kickoff_time": "2024-12-26T12:30:00Z",
+    "kickoff_time": "2026-07-16T12:30:00Z",
     "home_team": "Man City",
     "away_team": "Everton",
     "home_score": 1,
@@ -70162,7 +70162,7 @@
   {
     "id": 172,
     "gameweek": 18,
-    "kickoff_time": "2024-12-26T15:00:00Z",
+    "kickoff_time": "2026-07-16T15:00:00Z",
     "home_team": "Bournemouth",
     "away_team": "Crystal Palace",
     "home_score": 0,
@@ -70547,7 +70547,7 @@
   {
     "id": 174,
     "gameweek": 18,
-    "kickoff_time": "2024-12-26T15:00:00Z",
+    "kickoff_time": "2026-07-16T15:00:00Z",
     "home_team": "Chelsea",
     "away_team": "Fulham",
     "home_score": 1,
@@ -70988,7 +70988,7 @@
   {
     "id": 177,
     "gameweek": 18,
-    "kickoff_time": "2024-12-26T15:00:00Z",
+    "kickoff_time": "2026-07-16T15:00:00Z",
     "home_team": "Newcastle",
     "away_team": "Aston Villa",
     "home_score": 3,
@@ -71416,7 +71416,7 @@
   {
     "id": 178,
     "gameweek": 18,
-    "kickoff_time": "2024-12-26T15:00:00Z",
+    "kickoff_time": "2026-07-16T15:00:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Spurs",
     "home_score": 1,
@@ -71855,7 +71855,7 @@
   {
     "id": 179,
     "gameweek": 18,
-    "kickoff_time": "2024-12-26T15:00:00Z",
+    "kickoff_time": "2026-07-16T15:00:00Z",
     "home_team": "Southampton",
     "away_team": "West Ham",
     "home_score": 0,
@@ -72251,7 +72251,7 @@
   {
     "id": 180,
     "gameweek": 18,
-    "kickoff_time": "2024-12-26T17:30:00Z",
+    "kickoff_time": "2026-07-16T17:30:00Z",
     "home_team": "Wolves",
     "away_team": "Man Utd",
     "home_score": 2,
@@ -72690,7 +72690,7 @@
   {
     "id": 175,
     "gameweek": 18,
-    "kickoff_time": "2024-12-26T20:00:00Z",
+    "kickoff_time": "2026-07-16T20:00:00Z",
     "home_team": "Liverpool",
     "away_team": "Leicester",
     "home_score": 3,
@@ -73113,7 +73113,7 @@
   {
     "id": 173,
     "gameweek": 18,
-    "kickoff_time": "2024-12-27T19:30:00Z",
+    "kickoff_time": "2026-07-17T19:30:00Z",
     "home_team": "Brighton",
     "away_team": "Brentford",
     "home_score": 0,
@@ -73565,7 +73565,7 @@
   {
     "id": 171,
     "gameweek": 18,
-    "kickoff_time": "2024-12-27T20:15:00Z",
+    "kickoff_time": "2026-07-17T20:15:00Z",
     "home_team": "Arsenal",
     "away_team": "Ipswich",
     "home_score": 1,
@@ -73947,7 +73947,7 @@
   {
     "id": 187,
     "gameweek": 19,
-    "kickoff_time": "2024-12-29T14:30:00Z",
+    "kickoff_time": "2026-07-23T14:30:00Z",
     "home_team": "Leicester",
     "away_team": "Man City",
     "home_score": 0,
@@ -74351,7 +74351,7 @@
   {
     "id": 183,
     "gameweek": 19,
-    "kickoff_time": "2024-12-29T15:00:00Z",
+    "kickoff_time": "2026-07-23T15:00:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Southampton",
     "home_score": 2,
@@ -74787,7 +74787,7 @@
   {
     "id": 184,
     "gameweek": 19,
-    "kickoff_time": "2024-12-29T15:00:00Z",
+    "kickoff_time": "2026-07-23T15:00:00Z",
     "home_team": "Everton",
     "away_team": "Nott'm Forest",
     "home_score": 0,
@@ -75179,7 +75179,7 @@
   {
     "id": 185,
     "gameweek": 19,
-    "kickoff_time": "2024-12-29T15:00:00Z",
+    "kickoff_time": "2026-07-23T15:00:00Z",
     "home_team": "Fulham",
     "away_team": "Bournemouth",
     "home_score": 2,
@@ -75583,7 +75583,7 @@
   {
     "id": 189,
     "gameweek": 19,
-    "kickoff_time": "2024-12-29T15:00:00Z",
+    "kickoff_time": "2026-07-23T15:00:00Z",
     "home_team": "Spurs",
     "away_team": "Wolves",
     "home_score": 2,
@@ -76068,7 +76068,7 @@
   {
     "id": 190,
     "gameweek": 19,
-    "kickoff_time": "2024-12-29T17:15:00Z",
+    "kickoff_time": "2026-07-23T17:15:00Z",
     "home_team": "West Ham",
     "away_team": "Liverpool",
     "home_score": 0,
@@ -76459,7 +76459,7 @@
   {
     "id": 181,
     "gameweek": 19,
-    "kickoff_time": "2024-12-30T19:45:00Z",
+    "kickoff_time": "2026-07-24T19:45:00Z",
     "home_team": "Aston Villa",
     "away_team": "Brighton",
     "home_score": 2,
@@ -76972,7 +76972,7 @@
   {
     "id": 186,
     "gameweek": 19,
-    "kickoff_time": "2024-12-30T19:45:00Z",
+    "kickoff_time": "2026-07-24T19:45:00Z",
     "home_team": "Ipswich",
     "away_team": "Chelsea",
     "home_score": 2,
@@ -77432,7 +77432,7 @@
   {
     "id": 188,
     "gameweek": 19,
-    "kickoff_time": "2024-12-30T20:00:00Z",
+    "kickoff_time": "2026-07-24T20:00:00Z",
     "home_team": "Man Utd",
     "away_team": "Newcastle",
     "home_score": 0,
@@ -77827,7 +77827,7 @@
   {
     "id": 182,
     "gameweek": 19,
-    "kickoff_time": "2025-01-01T17:30:00Z",
+    "kickoff_time": "2026-07-26T17:30:00Z",
     "home_team": "Brentford",
     "away_team": "Arsenal",
     "home_score": 1,
@@ -78243,7 +78243,7 @@
   {
     "id": 199,
     "gameweek": 20,
-    "kickoff_time": "2025-01-04T12:30:00Z",
+    "kickoff_time": "2026-07-30T12:30:00Z",
     "home_team": "Spurs",
     "away_team": "Newcastle",
     "home_score": 1,
@@ -78693,7 +78693,7 @@
   {
     "id": 191,
     "gameweek": 20,
-    "kickoff_time": "2025-01-04T15:00:00Z",
+    "kickoff_time": "2026-07-30T15:00:00Z",
     "home_team": "Aston Villa",
     "away_team": "Leicester",
     "home_score": 2,
@@ -79123,7 +79123,7 @@
   {
     "id": 192,
     "gameweek": 20,
-    "kickoff_time": "2025-01-04T15:00:00Z",
+    "kickoff_time": "2026-07-30T15:00:00Z",
     "home_team": "Bournemouth",
     "away_team": "Everton",
     "home_score": 1,
@@ -79503,7 +79503,7 @@
   {
     "id": 194,
     "gameweek": 20,
-    "kickoff_time": "2025-01-04T15:00:00Z",
+    "kickoff_time": "2026-07-30T15:00:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Chelsea",
     "home_score": 1,
@@ -79948,7 +79948,7 @@
   {
     "id": 197,
     "gameweek": 20,
-    "kickoff_time": "2025-01-04T15:00:00Z",
+    "kickoff_time": "2026-07-30T15:00:00Z",
     "home_team": "Man City",
     "away_team": "West Ham",
     "home_score": 4,
@@ -80347,7 +80347,7 @@
   {
     "id": 198,
     "gameweek": 20,
-    "kickoff_time": "2025-01-04T15:00:00Z",
+    "kickoff_time": "2026-07-30T15:00:00Z",
     "home_team": "Southampton",
     "away_team": "Brentford",
     "home_score": 0,
@@ -80792,7 +80792,7 @@
   {
     "id": 193,
     "gameweek": 20,
-    "kickoff_time": "2025-01-04T17:30:00Z",
+    "kickoff_time": "2026-07-30T17:30:00Z",
     "home_team": "Brighton",
     "away_team": "Arsenal",
     "home_score": 1,
@@ -81260,7 +81260,7 @@
   {
     "id": 195,
     "gameweek": 20,
-    "kickoff_time": "2025-01-05T14:00:00Z",
+    "kickoff_time": "2026-07-31T14:00:00Z",
     "home_team": "Fulham",
     "away_team": "Ipswich",
     "home_score": 2,
@@ -81655,7 +81655,7 @@
   {
     "id": 196,
     "gameweek": 20,
-    "kickoff_time": "2025-01-05T16:30:00Z",
+    "kickoff_time": "2026-07-31T16:30:00Z",
     "home_team": "Liverpool",
     "away_team": "Man Utd",
     "home_score": 2,
@@ -82083,7 +82083,7 @@
   {
     "id": 200,
     "gameweek": 20,
-    "kickoff_time": "2025-01-06T20:00:00Z",
+    "kickoff_time": "2026-08-01T20:00:00Z",
     "home_team": "Wolves",
     "away_team": "Nott'm Forest",
     "home_score": 0,
@@ -82530,7 +82530,7 @@
   {
     "id": 202,
     "gameweek": 21,
-    "kickoff_time": "2025-01-14T19:30:00Z",
+    "kickoff_time": "2026-08-06T19:30:00Z",
     "home_team": "Brentford",
     "away_team": "Man City",
     "home_score": 2,
@@ -82937,7 +82937,7 @@
   {
     "id": 208,
     "gameweek": 21,
-    "kickoff_time": "2025-01-14T19:30:00Z",
+    "kickoff_time": "2026-08-06T19:30:00Z",
     "home_team": "Chelsea",
     "away_team": "Bournemouth",
     "home_score": 2,
@@ -83430,7 +83430,7 @@
   {
     "id": 207,
     "gameweek": 21,
-    "kickoff_time": "2025-01-14T19:30:00Z",
+    "kickoff_time": "2026-08-06T19:30:00Z",
     "home_team": "West Ham",
     "away_team": "Fulham",
     "home_score": 3,
@@ -83826,7 +83826,7 @@
   {
     "id": 206,
     "gameweek": 21,
-    "kickoff_time": "2025-01-14T20:00:00Z",
+    "kickoff_time": "2026-08-06T20:00:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Liverpool",
     "home_score": 1,
@@ -84235,7 +84235,7 @@
   {
     "id": 203,
     "gameweek": 21,
-    "kickoff_time": "2025-01-15T19:30:00Z",
+    "kickoff_time": "2026-08-07T19:30:00Z",
     "home_team": "Everton",
     "away_team": "Aston Villa",
     "home_score": 0,
@@ -84641,7 +84641,7 @@
   {
     "id": 205,
     "gameweek": 21,
-    "kickoff_time": "2025-01-15T19:30:00Z",
+    "kickoff_time": "2026-08-07T19:30:00Z",
     "home_team": "Leicester",
     "away_team": "Crystal Palace",
     "home_score": 0,
@@ -85037,7 +85037,7 @@
   {
     "id": 210,
     "gameweek": 21,
-    "kickoff_time": "2025-01-15T19:30:00Z",
+    "kickoff_time": "2026-08-07T19:30:00Z",
     "home_team": "Newcastle",
     "away_team": "Wolves",
     "home_score": 3,
@@ -85476,7 +85476,7 @@
   {
     "id": 201,
     "gameweek": 21,
-    "kickoff_time": "2025-01-15T20:00:00Z",
+    "kickoff_time": "2026-08-07T20:00:00Z",
     "home_team": "Arsenal",
     "away_team": "Spurs",
     "home_score": 2,
@@ -85920,7 +85920,7 @@
   {
     "id": 204,
     "gameweek": 21,
-    "kickoff_time": "2025-01-16T19:30:00Z",
+    "kickoff_time": "2026-08-08T19:30:00Z",
     "home_team": "Ipswich",
     "away_team": "Brighton",
     "home_score": 0,
@@ -86394,7 +86394,7 @@
   {
     "id": 209,
     "gameweek": 21,
-    "kickoff_time": "2025-01-16T20:00:00Z",
+    "kickoff_time": "2026-08-08T20:00:00Z",
     "home_team": "Man Utd",
     "away_team": "Southampton",
     "home_score": 3,
@@ -86836,7 +86836,7 @@
   {
     "id": 218,
     "gameweek": 22,
-    "kickoff_time": "2025-01-18T12:30:00Z",
+    "kickoff_time": "2026-08-13T12:30:00Z",
     "home_team": "Newcastle",
     "away_team": "Bournemouth",
     "home_score": 1,
@@ -87305,7 +87305,7 @@
   {
     "id": 212,
     "gameweek": 22,
-    "kickoff_time": "2025-01-18T15:00:00Z",
+    "kickoff_time": "2026-08-13T15:00:00Z",
     "home_team": "Brentford",
     "away_team": "Liverpool",
     "home_score": 0,
@@ -87722,7 +87722,7 @@
   {
     "id": 216,
     "gameweek": 22,
-    "kickoff_time": "2025-01-18T15:00:00Z",
+    "kickoff_time": "2026-08-13T15:00:00Z",
     "home_team": "Leicester",
     "away_team": "Fulham",
     "home_score": 0,
@@ -88120,7 +88120,7 @@
   {
     "id": 220,
     "gameweek": 22,
-    "kickoff_time": "2025-01-18T15:00:00Z",
+    "kickoff_time": "2026-08-13T15:00:00Z",
     "home_team": "West Ham",
     "away_team": "Crystal Palace",
     "home_score": 0,
@@ -88496,7 +88496,7 @@
   {
     "id": 211,
     "gameweek": 22,
-    "kickoff_time": "2025-01-18T17:30:00Z",
+    "kickoff_time": "2026-08-13T17:30:00Z",
     "home_team": "Arsenal",
     "away_team": "Aston Villa",
     "home_score": 2,
@@ -88944,7 +88944,7 @@
   {
     "id": 214,
     "gameweek": 22,
-    "kickoff_time": "2025-01-19T14:00:00Z",
+    "kickoff_time": "2026-08-14T14:00:00Z",
     "home_team": "Everton",
     "away_team": "Spurs",
     "home_score": 3,
@@ -89399,7 +89399,7 @@
   {
     "id": 217,
     "gameweek": 22,
-    "kickoff_time": "2025-01-19T14:00:00Z",
+    "kickoff_time": "2026-08-14T14:00:00Z",
     "home_team": "Man Utd",
     "away_team": "Brighton",
     "home_score": 1,
@@ -89897,7 +89897,7 @@
   {
     "id": 219,
     "gameweek": 22,
-    "kickoff_time": "2025-01-19T14:00:00Z",
+    "kickoff_time": "2026-08-14T14:00:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Southampton",
     "home_score": 3,
@@ -90364,7 +90364,7 @@
   {
     "id": 215,
     "gameweek": 22,
-    "kickoff_time": "2025-01-19T16:30:00Z",
+    "kickoff_time": "2026-08-14T16:30:00Z",
     "home_team": "Ipswich",
     "away_team": "Man City",
     "home_score": 0,
@@ -90792,7 +90792,7 @@
   {
     "id": 213,
     "gameweek": 22,
-    "kickoff_time": "2025-01-20T20:00:00Z",
+    "kickoff_time": "2026-08-15T20:00:00Z",
     "home_team": "Chelsea",
     "away_team": "Wolves",
     "home_score": 3,
@@ -91310,7 +91310,7 @@
   {
     "id": 222,
     "gameweek": 23,
-    "kickoff_time": "2025-01-25T15:00:00Z",
+    "kickoff_time": "2026-08-20T15:00:00Z",
     "home_team": "Bournemouth",
     "away_team": "Nott'm Forest",
     "home_score": 5,
@@ -91791,7 +91791,7 @@
   {
     "id": 223,
     "gameweek": 23,
-    "kickoff_time": "2025-01-25T15:00:00Z",
+    "kickoff_time": "2026-08-20T15:00:00Z",
     "home_team": "Brighton",
     "away_team": "Everton",
     "home_score": 0,
@@ -92262,7 +92262,7 @@
   {
     "id": 226,
     "gameweek": 23,
-    "kickoff_time": "2025-01-25T15:00:00Z",
+    "kickoff_time": "2026-08-20T15:00:00Z",
     "home_team": "Liverpool",
     "away_team": "Ipswich",
     "home_score": 4,
@@ -92706,7 +92706,7 @@
   {
     "id": 228,
     "gameweek": 23,
-    "kickoff_time": "2025-01-25T15:00:00Z",
+    "kickoff_time": "2026-08-20T15:00:00Z",
     "home_team": "Southampton",
     "away_team": "Newcastle",
     "home_score": 1,
@@ -93154,7 +93154,7 @@
   {
     "id": 230,
     "gameweek": 23,
-    "kickoff_time": "2025-01-25T15:00:00Z",
+    "kickoff_time": "2026-08-20T15:00:00Z",
     "home_team": "Wolves",
     "away_team": "Arsenal",
     "home_score": 0,
@@ -93596,7 +93596,7 @@
   {
     "id": 227,
     "gameweek": 23,
-    "kickoff_time": "2025-01-25T17:30:00Z",
+    "kickoff_time": "2026-08-20T17:30:00Z",
     "home_team": "Man City",
     "away_team": "Chelsea",
     "home_score": 3,
@@ -94094,7 +94094,7 @@
   {
     "id": 224,
     "gameweek": 23,
-    "kickoff_time": "2025-01-26T14:00:00Z",
+    "kickoff_time": "2026-08-21T14:00:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Brentford",
     "home_score": 1,
@@ -94525,7 +94525,7 @@
   {
     "id": 229,
     "gameweek": 23,
-    "kickoff_time": "2025-01-26T14:00:00Z",
+    "kickoff_time": "2026-08-21T14:00:00Z",
     "home_team": "Spurs",
     "away_team": "Leicester",
     "home_score": 1,
@@ -95019,7 +95019,7 @@
   {
     "id": 221,
     "gameweek": 23,
-    "kickoff_time": "2025-01-26T16:30:00Z",
+    "kickoff_time": "2026-08-21T16:30:00Z",
     "home_team": "Aston Villa",
     "away_team": "West Ham",
     "home_score": 1,
@@ -95451,7 +95451,7 @@
   {
     "id": 225,
     "gameweek": 23,
-    "kickoff_time": "2025-01-26T19:00:00Z",
+    "kickoff_time": "2026-08-21T19:00:00Z",
     "home_team": "Fulham",
     "away_team": "Man Utd",
     "home_score": 0,
@@ -95824,7 +95824,7 @@
   {
     "id": 239,
     "gameweek": 24,
-    "kickoff_time": "2025-02-01T12:30:00Z",
+    "kickoff_time": "2026-08-27T12:30:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Brighton",
     "home_score": 7,
@@ -96349,7 +96349,7 @@
   {
     "id": 232,
     "gameweek": 24,
-    "kickoff_time": "2025-02-01T15:00:00Z",
+    "kickoff_time": "2026-08-27T15:00:00Z",
     "home_team": "Bournemouth",
     "away_team": "Liverpool",
     "home_score": 0,
@@ -96801,7 +96801,7 @@
   {
     "id": 235,
     "gameweek": 24,
-    "kickoff_time": "2025-02-01T15:00:00Z",
+    "kickoff_time": "2026-08-27T15:00:00Z",
     "home_team": "Everton",
     "away_team": "Leicester",
     "home_score": 4,
@@ -97219,7 +97219,7 @@
   {
     "id": 236,
     "gameweek": 24,
-    "kickoff_time": "2025-02-01T15:00:00Z",
+    "kickoff_time": "2026-08-27T15:00:00Z",
     "home_team": "Ipswich",
     "away_team": "Southampton",
     "home_score": 1,
@@ -97673,7 +97673,7 @@
   {
     "id": 238,
     "gameweek": 24,
-    "kickoff_time": "2025-02-01T15:00:00Z",
+    "kickoff_time": "2026-08-27T15:00:00Z",
     "home_team": "Newcastle",
     "away_team": "Fulham",
     "home_score": 1,
@@ -98086,7 +98086,7 @@
   {
     "id": 240,
     "gameweek": 24,
-    "kickoff_time": "2025-02-01T17:30:00Z",
+    "kickoff_time": "2026-08-27T17:30:00Z",
     "home_team": "Wolves",
     "away_team": "Aston Villa",
     "home_score": 2,
@@ -98578,7 +98578,7 @@
   {
     "id": 233,
     "gameweek": 24,
-    "kickoff_time": "2025-02-02T14:00:00Z",
+    "kickoff_time": "2026-08-28T14:00:00Z",
     "home_team": "Brentford",
     "away_team": "Spurs",
     "home_score": 0,
@@ -99050,7 +99050,7 @@
   {
     "id": 237,
     "gameweek": 24,
-    "kickoff_time": "2025-02-02T14:00:00Z",
+    "kickoff_time": "2026-08-28T14:00:00Z",
     "home_team": "Man Utd",
     "away_team": "Crystal Palace",
     "home_score": 0,
@@ -99473,7 +99473,7 @@
   {
     "id": 231,
     "gameweek": 24,
-    "kickoff_time": "2025-02-02T16:30:00Z",
+    "kickoff_time": "2026-08-28T16:30:00Z",
     "home_team": "Arsenal",
     "away_team": "Man City",
     "home_score": 5,
@@ -99921,7 +99921,7 @@
   {
     "id": 234,
     "gameweek": 24,
-    "kickoff_time": "2025-02-03T20:00:00Z",
+    "kickoff_time": "2026-08-29T20:00:00Z",
     "home_team": "Chelsea",
     "away_team": "West Ham",
     "home_score": 2,
@@ -100369,7 +100369,7 @@
   {
     "id": 144,
     "gameweek": 24,
-    "kickoff_time": "2025-02-12T19:30:00Z",
+    "kickoff_time": "2026-09-07T19:30:00Z",
     "home_team": "Everton",
     "away_team": "Liverpool",
     "home_score": 2,
@@ -100807,7 +100807,7 @@
   {
     "id": 242,
     "gameweek": 25,
-    "kickoff_time": "2025-02-14T20:00:00Z",
+    "kickoff_time": "2026-09-03T20:00:00Z",
     "home_team": "Brighton",
     "away_team": "Chelsea",
     "home_score": 3,
@@ -101349,7 +101349,7 @@
   {
     "id": 245,
     "gameweek": 25,
-    "kickoff_time": "2025-02-15T12:30:00Z",
+    "kickoff_time": "2026-09-04T12:30:00Z",
     "home_team": "Leicester",
     "away_team": "Arsenal",
     "home_score": 0,
@@ -101768,7 +101768,7 @@
   {
     "id": 241,
     "gameweek": 25,
-    "kickoff_time": "2025-02-15T15:00:00Z",
+    "kickoff_time": "2026-09-04T15:00:00Z",
     "home_team": "Aston Villa",
     "away_team": "Ipswich",
     "home_score": 1,
@@ -102247,7 +102247,7 @@
   {
     "id": 244,
     "gameweek": 25,
-    "kickoff_time": "2025-02-15T15:00:00Z",
+    "kickoff_time": "2026-09-04T15:00:00Z",
     "home_team": "Fulham",
     "away_team": "Nott'm Forest",
     "home_score": 2,
@@ -102641,7 +102641,7 @@
   {
     "id": 247,
     "gameweek": 25,
-    "kickoff_time": "2025-02-15T15:00:00Z",
+    "kickoff_time": "2026-09-04T15:00:00Z",
     "home_team": "Man City",
     "away_team": "Newcastle",
     "home_score": 4,
@@ -103073,7 +103073,7 @@
   {
     "id": 248,
     "gameweek": 25,
-    "kickoff_time": "2025-02-15T15:00:00Z",
+    "kickoff_time": "2026-09-04T15:00:00Z",
     "home_team": "Southampton",
     "away_team": "Bournemouth",
     "home_score": 1,
@@ -103567,7 +103567,7 @@
   {
     "id": 250,
     "gameweek": 25,
-    "kickoff_time": "2025-02-15T15:00:00Z",
+    "kickoff_time": "2026-09-04T15:00:00Z",
     "home_team": "West Ham",
     "away_team": "Brentford",
     "home_score": 0,
@@ -103969,7 +103969,7 @@
   {
     "id": 243,
     "gameweek": 25,
-    "kickoff_time": "2025-02-15T17:30:00Z",
+    "kickoff_time": "2026-09-04T17:30:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Everton",
     "home_score": 1,
@@ -104388,7 +104388,7 @@
   {
     "id": 246,
     "gameweek": 25,
-    "kickoff_time": "2025-02-16T14:00:00Z",
+    "kickoff_time": "2026-09-05T14:00:00Z",
     "home_team": "Liverpool",
     "away_team": "Wolves",
     "home_score": 2,
@@ -104860,7 +104860,7 @@
   {
     "id": 249,
     "gameweek": 25,
-    "kickoff_time": "2025-02-16T16:30:00Z",
+    "kickoff_time": "2026-09-05T16:30:00Z",
     "home_team": "Spurs",
     "away_team": "Man Utd",
     "home_score": 1,
@@ -105361,7 +105361,7 @@
   {
     "id": 282,
     "gameweek": 25,
-    "kickoff_time": "2025-02-19T19:30:00Z",
+    "kickoff_time": "2026-09-08T19:30:00Z",
     "home_team": "Aston Villa",
     "away_team": "Liverpool",
     "home_score": 2,
@@ -105828,7 +105828,7 @@
   {
     "id": 257,
     "gameweek": 26,
-    "kickoff_time": "2025-02-21T20:00:00Z",
+    "kickoff_time": "2026-09-10T20:00:00Z",
     "home_team": "Leicester",
     "away_team": "Brentford",
     "home_score": 0,
@@ -106288,7 +106288,7 @@
   {
     "id": 254,
     "gameweek": 26,
-    "kickoff_time": "2025-02-22T12:30:00Z",
+    "kickoff_time": "2026-09-11T12:30:00Z",
     "home_team": "Everton",
     "away_team": "Man Utd",
     "home_score": 2,
@@ -106753,7 +106753,7 @@
   {
     "id": 251,
     "gameweek": 26,
-    "kickoff_time": "2025-02-22T15:00:00Z",
+    "kickoff_time": "2026-09-11T15:00:00Z",
     "home_team": "Arsenal",
     "away_team": "West Ham",
     "home_score": 0,
@@ -107153,7 +107153,7 @@
   {
     "id": 253,
     "gameweek": 26,
-    "kickoff_time": "2025-02-22T15:00:00Z",
+    "kickoff_time": "2026-09-11T15:00:00Z",
     "home_team": "Bournemouth",
     "away_team": "Wolves",
     "home_score": 0,
@@ -107656,7 +107656,7 @@
   {
     "id": 255,
     "gameweek": 26,
-    "kickoff_time": "2025-02-22T15:00:00Z",
+    "kickoff_time": "2026-09-11T15:00:00Z",
     "home_team": "Fulham",
     "away_team": "Crystal Palace",
     "home_score": 0,
@@ -108060,7 +108060,7 @@
   {
     "id": 256,
     "gameweek": 26,
-    "kickoff_time": "2025-02-22T15:00:00Z",
+    "kickoff_time": "2026-09-11T15:00:00Z",
     "home_team": "Ipswich",
     "away_team": "Spurs",
     "home_score": 1,
@@ -108578,7 +108578,7 @@
   {
     "id": 260,
     "gameweek": 26,
-    "kickoff_time": "2025-02-22T15:00:00Z",
+    "kickoff_time": "2026-09-11T15:00:00Z",
     "home_team": "Southampton",
     "away_team": "Brighton",
     "home_score": 0,
@@ -109100,7 +109100,7 @@
   {
     "id": 252,
     "gameweek": 26,
-    "kickoff_time": "2025-02-22T17:30:00Z",
+    "kickoff_time": "2026-09-11T17:30:00Z",
     "home_team": "Aston Villa",
     "away_team": "Chelsea",
     "home_score": 2,
@@ -109631,7 +109631,7 @@
   {
     "id": 259,
     "gameweek": 26,
-    "kickoff_time": "2025-02-23T14:00:00Z",
+    "kickoff_time": "2026-09-12T14:00:00Z",
     "home_team": "Newcastle",
     "away_team": "Nott'm Forest",
     "home_score": 4,
@@ -110080,7 +110080,7 @@
   {
     "id": 258,
     "gameweek": 26,
-    "kickoff_time": "2025-02-23T16:30:00Z",
+    "kickoff_time": "2026-09-12T16:30:00Z",
     "home_team": "Man City",
     "away_team": "Liverpool",
     "home_score": 0,
@@ -110496,7 +110496,7 @@
   {
     "id": 262,
     "gameweek": 27,
-    "kickoff_time": "2025-02-25T19:30:00Z",
+    "kickoff_time": "2026-09-17T19:30:00Z",
     "home_team": "Brighton",
     "away_team": "Bournemouth",
     "home_score": 2,
@@ -111014,7 +111014,7 @@
   {
     "id": 263,
     "gameweek": 27,
-    "kickoff_time": "2025-02-25T19:30:00Z",
+    "kickoff_time": "2026-09-17T19:30:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Aston Villa",
     "home_score": 4,
@@ -111506,7 +111506,7 @@
   {
     "id": 267,
     "gameweek": 27,
-    "kickoff_time": "2025-02-25T19:30:00Z",
+    "kickoff_time": "2026-09-17T19:30:00Z",
     "home_team": "Wolves",
     "away_team": "Fulham",
     "home_score": 1,
@@ -111972,7 +111972,7 @@
   {
     "id": 268,
     "gameweek": 27,
-    "kickoff_time": "2025-02-25T20:15:00Z",
+    "kickoff_time": "2026-09-17T20:15:00Z",
     "home_team": "Chelsea",
     "away_team": "Southampton",
     "home_score": 4,
@@ -112492,7 +112492,7 @@
   {
     "id": 261,
     "gameweek": 27,
-    "kickoff_time": "2025-02-26T19:30:00Z",
+    "kickoff_time": "2026-09-18T19:30:00Z",
     "home_team": "Brentford",
     "away_team": "Everton",
     "home_score": 1,
@@ -112926,7 +112926,7 @@
   {
     "id": 270,
     "gameweek": 27,
-    "kickoff_time": "2025-02-26T19:30:00Z",
+    "kickoff_time": "2026-09-18T19:30:00Z",
     "home_team": "Man Utd",
     "away_team": "Ipswich",
     "home_score": 3,
@@ -113431,7 +113431,7 @@
   {
     "id": 264,
     "gameweek": 27,
-    "kickoff_time": "2025-02-26T19:30:00Z",
+    "kickoff_time": "2026-09-18T19:30:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Arsenal",
     "home_score": 0,
@@ -113818,7 +113818,7 @@
   {
     "id": 265,
     "gameweek": 27,
-    "kickoff_time": "2025-02-26T19:30:00Z",
+    "kickoff_time": "2026-09-18T19:30:00Z",
     "home_team": "Spurs",
     "away_team": "Man City",
     "home_score": 0,
@@ -114299,7 +114299,7 @@
   {
     "id": 269,
     "gameweek": 27,
-    "kickoff_time": "2025-02-26T20:15:00Z",
+    "kickoff_time": "2026-09-18T20:15:00Z",
     "home_team": "Liverpool",
     "away_team": "Newcastle",
     "home_score": 2,
@@ -114700,7 +114700,7 @@
   {
     "id": 266,
     "gameweek": 27,
-    "kickoff_time": "2025-02-27T20:00:00Z",
+    "kickoff_time": "2026-09-19T20:00:00Z",
     "home_team": "West Ham",
     "away_team": "Leicester",
     "home_score": 2,
@@ -115097,7 +115097,7 @@
   {
     "id": 277,
     "gameweek": 28,
-    "kickoff_time": "2025-03-08T12:30:00Z",
+    "kickoff_time": "2026-09-24T12:30:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Man City",
     "home_score": 1,
@@ -115531,7 +115531,7 @@
   {
     "id": 272,
     "gameweek": 28,
-    "kickoff_time": "2025-03-08T15:00:00Z",
+    "kickoff_time": "2026-09-24T15:00:00Z",
     "home_team": "Brighton",
     "away_team": "Fulham",
     "home_score": 2,
@@ -116000,7 +116000,7 @@
   {
     "id": 274,
     "gameweek": 28,
-    "kickoff_time": "2025-03-08T15:00:00Z",
+    "kickoff_time": "2026-09-24T15:00:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Ipswich",
     "home_score": 1,
@@ -116437,7 +116437,7 @@
   {
     "id": 275,
     "gameweek": 28,
-    "kickoff_time": "2025-03-08T15:00:00Z",
+    "kickoff_time": "2026-09-24T15:00:00Z",
     "home_team": "Liverpool",
     "away_team": "Southampton",
     "home_score": 3,
@@ -116889,7 +116889,7 @@
   {
     "id": 271,
     "gameweek": 28,
-    "kickoff_time": "2025-03-08T17:30:00Z",
+    "kickoff_time": "2026-09-24T17:30:00Z",
     "home_team": "Brentford",
     "away_team": "Aston Villa",
     "home_score": 0,
@@ -117369,7 +117369,7 @@
   {
     "id": 280,
     "gameweek": 28,
-    "kickoff_time": "2025-03-08T20:00:00Z",
+    "kickoff_time": "2026-09-24T20:00:00Z",
     "home_team": "Wolves",
     "away_team": "Everton",
     "home_score": 1,
@@ -117842,7 +117842,7 @@
   {
     "id": 273,
     "gameweek": 28,
-    "kickoff_time": "2025-03-09T14:00:00Z",
+    "kickoff_time": "2026-09-25T14:00:00Z",
     "home_team": "Chelsea",
     "away_team": "Leicester",
     "home_score": 1,
@@ -118315,7 +118315,7 @@
   {
     "id": 278,
     "gameweek": 28,
-    "kickoff_time": "2025-03-09T14:00:00Z",
+    "kickoff_time": "2026-09-25T14:00:00Z",
     "home_team": "Spurs",
     "away_team": "Bournemouth",
     "home_score": 2,
@@ -118848,7 +118848,7 @@
   {
     "id": 276,
     "gameweek": 28,
-    "kickoff_time": "2025-03-09T16:30:00Z",
+    "kickoff_time": "2026-09-25T16:30:00Z",
     "home_team": "Man Utd",
     "away_team": "Arsenal",
     "home_score": 1,
@@ -119289,7 +119289,7 @@
   {
     "id": 279,
     "gameweek": 28,
-    "kickoff_time": "2025-03-10T20:00:00Z",
+    "kickoff_time": "2026-09-26T20:00:00Z",
     "home_team": "West Ham",
     "away_team": "Newcastle",
     "home_score": 0,
@@ -119677,7 +119677,7 @@
   {
     "id": 284,
     "gameweek": 29,
-    "kickoff_time": "2025-03-15T15:00:00Z",
+    "kickoff_time": "2026-10-01T15:00:00Z",
     "home_team": "Everton",
     "away_team": "West Ham",
     "home_score": 1,
@@ -120081,7 +120081,7 @@
   {
     "id": 286,
     "gameweek": 29,
-    "kickoff_time": "2025-03-15T15:00:00Z",
+    "kickoff_time": "2026-10-01T15:00:00Z",
     "home_team": "Ipswich",
     "away_team": "Nott'm Forest",
     "home_score": 2,
@@ -120534,7 +120534,7 @@
   {
     "id": 288,
     "gameweek": 29,
-    "kickoff_time": "2025-03-15T15:00:00Z",
+    "kickoff_time": "2026-10-01T15:00:00Z",
     "home_team": "Man City",
     "away_team": "Brighton",
     "home_score": 2,
@@ -121066,7 +121066,7 @@
   {
     "id": 290,
     "gameweek": 29,
-    "kickoff_time": "2025-03-15T15:00:00Z",
+    "kickoff_time": "2026-10-01T15:00:00Z",
     "home_team": "Southampton",
     "away_team": "Wolves",
     "home_score": 1,
@@ -121560,7 +121560,7 @@
   {
     "id": 283,
     "gameweek": 29,
-    "kickoff_time": "2025-03-15T17:30:00Z",
+    "kickoff_time": "2026-10-01T17:30:00Z",
     "home_team": "Bournemouth",
     "away_team": "Brentford",
     "home_score": 1,
@@ -122029,7 +122029,7 @@
   {
     "id": 281,
     "gameweek": 29,
-    "kickoff_time": "2025-03-16T13:30:00Z",
+    "kickoff_time": "2026-10-02T13:30:00Z",
     "home_team": "Arsenal",
     "away_team": "Chelsea",
     "home_score": 1,
@@ -122507,7 +122507,7 @@
   {
     "id": 285,
     "gameweek": 29,
-    "kickoff_time": "2025-03-16T13:30:00Z",
+    "kickoff_time": "2026-10-02T13:30:00Z",
     "home_team": "Fulham",
     "away_team": "Spurs",
     "home_score": 2,
@@ -122958,7 +122958,7 @@
   {
     "id": 287,
     "gameweek": 29,
-    "kickoff_time": "2025-03-16T19:00:00Z",
+    "kickoff_time": "2026-10-02T19:00:00Z",
     "home_team": "Leicester",
     "away_team": "Man Utd",
     "home_score": 0,
@@ -123426,7 +123426,7 @@
   {
     "id": 291,
     "gameweek": 30,
-    "kickoff_time": "2025-04-01T18:45:00Z",
+    "kickoff_time": "2026-10-08T18:45:00Z",
     "home_team": "Arsenal",
     "away_team": "Fulham",
     "home_score": 2,
@@ -123837,7 +123837,7 @@
   {
     "id": 295,
     "gameweek": 30,
-    "kickoff_time": "2025-04-01T18:45:00Z",
+    "kickoff_time": "2026-10-08T18:45:00Z",
     "home_team": "Wolves",
     "away_team": "West Ham",
     "home_score": 1,
@@ -124295,7 +124295,7 @@
   {
     "id": 294,
     "gameweek": 30,
-    "kickoff_time": "2025-04-01T19:00:00Z",
+    "kickoff_time": "2026-10-08T19:00:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Man Utd",
     "home_score": 1,
@@ -124745,7 +124745,7 @@
   {
     "id": 292,
     "gameweek": 30,
-    "kickoff_time": "2025-04-02T18:45:00Z",
+    "kickoff_time": "2026-10-09T18:45:00Z",
     "home_team": "Bournemouth",
     "away_team": "Ipswich",
     "home_score": 1,
@@ -125212,7 +125212,7 @@
   {
     "id": 293,
     "gameweek": 30,
-    "kickoff_time": "2025-04-02T18:45:00Z",
+    "kickoff_time": "2026-10-09T18:45:00Z",
     "home_team": "Brighton",
     "away_team": "Aston Villa",
     "home_score": 0,
@@ -125762,7 +125762,7 @@
   {
     "id": 298,
     "gameweek": 30,
-    "kickoff_time": "2025-04-02T18:45:00Z",
+    "kickoff_time": "2026-10-09T18:45:00Z",
     "home_team": "Man City",
     "away_team": "Leicester",
     "home_score": 2,
@@ -126210,7 +126210,7 @@
   {
     "id": 299,
     "gameweek": 30,
-    "kickoff_time": "2025-04-02T18:45:00Z",
+    "kickoff_time": "2026-10-09T18:45:00Z",
     "home_team": "Newcastle",
     "away_team": "Brentford",
     "home_score": 2,
@@ -126653,7 +126653,7 @@
   {
     "id": 300,
     "gameweek": 30,
-    "kickoff_time": "2025-04-02T18:45:00Z",
+    "kickoff_time": "2026-10-09T18:45:00Z",
     "home_team": "Southampton",
     "away_team": "Crystal Palace",
     "home_score": 1,
@@ -127102,7 +127102,7 @@
   {
     "id": 297,
     "gameweek": 30,
-    "kickoff_time": "2025-04-02T19:00:00Z",
+    "kickoff_time": "2026-10-09T19:00:00Z",
     "home_team": "Liverpool",
     "away_team": "Everton",
     "home_score": 1,
@@ -127512,7 +127512,7 @@
   {
     "id": 296,
     "gameweek": 30,
-    "kickoff_time": "2025-04-03T19:00:00Z",
+    "kickoff_time": "2026-10-10T19:00:00Z",
     "home_team": "Chelsea",
     "away_team": "Spurs",
     "home_score": 1,
@@ -128076,7 +128076,7 @@
   {
     "id": 304,
     "gameweek": 31,
-    "kickoff_time": "2025-04-05T11:30:00Z",
+    "kickoff_time": "2026-10-15T11:30:00Z",
     "home_team": "Everton",
     "away_team": "Arsenal",
     "home_score": 1,
@@ -128494,7 +128494,7 @@
   {
     "id": 303,
     "gameweek": 31,
-    "kickoff_time": "2025-04-05T14:00:00Z",
+    "kickoff_time": "2026-10-15T14:00:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Brighton",
     "home_score": 2,
@@ -129001,7 +129001,7 @@
   {
     "id": 306,
     "gameweek": 31,
-    "kickoff_time": "2025-04-05T14:00:00Z",
+    "kickoff_time": "2026-10-15T14:00:00Z",
     "home_team": "Ipswich",
     "away_team": "Wolves",
     "home_score": 1,
@@ -129493,7 +129493,7 @@
   {
     "id": 310,
     "gameweek": 31,
-    "kickoff_time": "2025-04-05T14:00:00Z",
+    "kickoff_time": "2026-10-15T14:00:00Z",
     "home_team": "West Ham",
     "away_team": "Bournemouth",
     "home_score": 2,
@@ -129947,7 +129947,7 @@
   {
     "id": 301,
     "gameweek": 31,
-    "kickoff_time": "2025-04-05T16:30:00Z",
+    "kickoff_time": "2026-10-15T16:30:00Z",
     "home_team": "Aston Villa",
     "away_team": "Nott'm Forest",
     "home_score": 2,
@@ -130418,7 +130418,7 @@
   {
     "id": 302,
     "gameweek": 31,
-    "kickoff_time": "2025-04-06T13:00:00Z",
+    "kickoff_time": "2026-10-16T13:00:00Z",
     "home_team": "Brentford",
     "away_team": "Chelsea",
     "home_score": 0,
@@ -130908,7 +130908,7 @@
   {
     "id": 305,
     "gameweek": 31,
-    "kickoff_time": "2025-04-06T13:00:00Z",
+    "kickoff_time": "2026-10-16T13:00:00Z",
     "home_team": "Fulham",
     "away_team": "Liverpool",
     "home_score": 3,
@@ -131323,7 +131323,7 @@
   {
     "id": 309,
     "gameweek": 31,
-    "kickoff_time": "2025-04-06T13:00:00Z",
+    "kickoff_time": "2026-10-16T13:00:00Z",
     "home_team": "Spurs",
     "away_team": "Southampton",
     "home_score": 3,
@@ -131844,7 +131844,7 @@
   {
     "id": 308,
     "gameweek": 31,
-    "kickoff_time": "2025-04-06T15:30:00Z",
+    "kickoff_time": "2026-10-16T15:30:00Z",
     "home_team": "Man Utd",
     "away_team": "Man City",
     "home_score": 0,
@@ -132308,7 +132308,7 @@
   {
     "id": 307,
     "gameweek": 31,
-    "kickoff_time": "2025-04-07T19:00:00Z",
+    "kickoff_time": "2026-10-17T19:00:00Z",
     "home_team": "Leicester",
     "away_team": "Newcastle",
     "home_score": 0,
@@ -132741,7 +132741,7 @@
   {
     "id": 316,
     "gameweek": 32,
-    "kickoff_time": "2025-04-12T11:30:00Z",
+    "kickoff_time": "2026-10-22T11:30:00Z",
     "home_team": "Man City",
     "away_team": "Crystal Palace",
     "home_score": 5,
@@ -133224,7 +133224,7 @@
   {
     "id": 313,
     "gameweek": 32,
-    "kickoff_time": "2025-04-12T14:00:00Z",
+    "kickoff_time": "2026-10-22T14:00:00Z",
     "home_team": "Brighton",
     "away_team": "Leicester",
     "home_score": 2,
@@ -133776,7 +133776,7 @@
   {
     "id": 318,
     "gameweek": 32,
-    "kickoff_time": "2025-04-12T14:00:00Z",
+    "kickoff_time": "2026-10-22T14:00:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Everton",
     "home_score": 0,
@@ -134182,7 +134182,7 @@
   {
     "id": 319,
     "gameweek": 32,
-    "kickoff_time": "2025-04-12T14:00:00Z",
+    "kickoff_time": "2026-10-22T14:00:00Z",
     "home_team": "Southampton",
     "away_team": "Aston Villa",
     "home_score": 0,
@@ -134688,7 +134688,7 @@
   {
     "id": 311,
     "gameweek": 32,
-    "kickoff_time": "2025-04-12T16:30:00Z",
+    "kickoff_time": "2026-10-22T16:30:00Z",
     "home_team": "Arsenal",
     "away_team": "Brentford",
     "home_score": 1,
@@ -135136,7 +135136,7 @@
   {
     "id": 314,
     "gameweek": 32,
-    "kickoff_time": "2025-04-13T13:00:00Z",
+    "kickoff_time": "2026-10-23T13:00:00Z",
     "home_team": "Chelsea",
     "away_team": "Ipswich",
     "home_score": 2,
@@ -135646,7 +135646,7 @@
   {
     "id": 315,
     "gameweek": 32,
-    "kickoff_time": "2025-04-13T13:00:00Z",
+    "kickoff_time": "2026-10-23T13:00:00Z",
     "home_team": "Liverpool",
     "away_team": "West Ham",
     "home_score": 2,
@@ -136046,7 +136046,7 @@
   {
     "id": 320,
     "gameweek": 32,
-    "kickoff_time": "2025-04-13T13:00:00Z",
+    "kickoff_time": "2026-10-23T13:00:00Z",
     "home_team": "Wolves",
     "away_team": "Spurs",
     "home_score": 4,
@@ -136600,7 +136600,7 @@
   {
     "id": 317,
     "gameweek": 32,
-    "kickoff_time": "2025-04-13T15:30:00Z",
+    "kickoff_time": "2026-10-23T15:30:00Z",
     "home_team": "Newcastle",
     "away_team": "Man Utd",
     "home_score": 4,
@@ -137070,7 +137070,7 @@
   {
     "id": 312,
     "gameweek": 32,
-    "kickoff_time": "2025-04-14T19:00:00Z",
+    "kickoff_time": "2026-10-24T19:00:00Z",
     "home_team": "Bournemouth",
     "away_team": "Fulham",
     "home_score": 1,
@@ -137494,7 +137494,7 @@
   {
     "id": 289,
     "gameweek": 32,
-    "kickoff_time": "2025-04-16T18:30:00Z",
+    "kickoff_time": "2026-10-26T18:30:00Z",
     "home_team": "Newcastle",
     "away_team": "Crystal Palace",
     "home_score": 5,
@@ -137941,7 +137941,7 @@
   {
     "id": 322,
     "gameweek": 33,
-    "kickoff_time": "2025-04-19T14:00:00Z",
+    "kickoff_time": "2026-10-29T14:00:00Z",
     "home_team": "Brentford",
     "away_team": "Brighton",
     "home_score": 4,
@@ -138514,7 +138514,7 @@
   {
     "id": 323,
     "gameweek": 33,
-    "kickoff_time": "2025-04-19T14:00:00Z",
+    "kickoff_time": "2026-10-29T14:00:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Bournemouth",
     "home_score": 0,
@@ -138966,7 +138966,7 @@
   {
     "id": 324,
     "gameweek": 33,
-    "kickoff_time": "2025-04-19T14:00:00Z",
+    "kickoff_time": "2026-10-29T14:00:00Z",
     "home_team": "Everton",
     "away_team": "Man City",
     "home_score": 0,
@@ -139404,7 +139404,7 @@
   {
     "id": 330,
     "gameweek": 33,
-    "kickoff_time": "2025-04-19T14:00:00Z",
+    "kickoff_time": "2026-10-29T14:00:00Z",
     "home_team": "West Ham",
     "away_team": "Southampton",
     "home_score": 1,
@@ -139843,7 +139843,7 @@
   {
     "id": 321,
     "gameweek": 33,
-    "kickoff_time": "2025-04-19T16:30:00Z",
+    "kickoff_time": "2026-10-29T16:30:00Z",
     "home_team": "Aston Villa",
     "away_team": "Newcastle",
     "home_score": 4,
@@ -140322,7 +140322,7 @@
   {
     "id": 325,
     "gameweek": 33,
-    "kickoff_time": "2025-04-20T13:00:00Z",
+    "kickoff_time": "2026-10-30T13:00:00Z",
     "home_team": "Fulham",
     "away_team": "Chelsea",
     "home_score": 1,
@@ -140794,7 +140794,7 @@
   {
     "id": 326,
     "gameweek": 33,
-    "kickoff_time": "2025-04-20T13:00:00Z",
+    "kickoff_time": "2026-10-30T13:00:00Z",
     "home_team": "Ipswich",
     "away_team": "Arsenal",
     "home_score": 0,
@@ -141241,7 +141241,7 @@
   {
     "id": 328,
     "gameweek": 33,
-    "kickoff_time": "2025-04-20T13:00:00Z",
+    "kickoff_time": "2026-10-30T13:00:00Z",
     "home_team": "Man Utd",
     "away_team": "Wolves",
     "home_score": 0,
@@ -141750,7 +141750,7 @@
   {
     "id": 327,
     "gameweek": 33,
-    "kickoff_time": "2025-04-20T15:30:00Z",
+    "kickoff_time": "2026-10-30T15:30:00Z",
     "home_team": "Leicester",
     "away_team": "Liverpool",
     "home_score": 0,
@@ -142176,7 +142176,7 @@
   {
     "id": 329,
     "gameweek": 33,
-    "kickoff_time": "2025-04-21T19:00:00Z",
+    "kickoff_time": "2026-10-31T19:00:00Z",
     "home_team": "Spurs",
     "away_team": "Nott'm Forest",
     "home_score": 1,
@@ -142671,7 +142671,7 @@
   {
     "id": 336,
     "gameweek": 33,
-    "kickoff_time": "2025-04-22T19:00:00Z",
+    "kickoff_time": "2026-11-01T19:00:00Z",
     "home_team": "Man City",
     "away_team": "Aston Villa",
     "home_score": 2,
@@ -143166,7 +143166,7 @@
   {
     "id": 331,
     "gameweek": 33,
-    "kickoff_time": "2025-04-23T19:00:00Z",
+    "kickoff_time": "2026-11-02T19:00:00Z",
     "home_team": "Arsenal",
     "away_team": "Crystal Palace",
     "home_score": 2,
@@ -143598,7 +143598,7 @@
   {
     "id": 334,
     "gameweek": 34,
-    "kickoff_time": "2025-04-26T11:30:00Z",
+    "kickoff_time": "2026-11-05T11:30:00Z",
     "home_team": "Chelsea",
     "away_team": "Everton",
     "home_score": 1,
@@ -144056,7 +144056,7 @@
   {
     "id": 333,
     "gameweek": 34,
-    "kickoff_time": "2025-04-26T14:00:00Z",
+    "kickoff_time": "2026-11-05T14:00:00Z",
     "home_team": "Brighton",
     "away_team": "West Ham",
     "home_score": 3,
@@ -144569,7 +144569,7 @@
   {
     "id": 337,
     "gameweek": 34,
-    "kickoff_time": "2025-04-26T14:00:00Z",
+    "kickoff_time": "2026-11-05T14:00:00Z",
     "home_team": "Newcastle",
     "away_team": "Ipswich",
     "home_score": 3,
@@ -145021,7 +145021,7 @@
   {
     "id": 339,
     "gameweek": 34,
-    "kickoff_time": "2025-04-26T14:00:00Z",
+    "kickoff_time": "2026-11-05T14:00:00Z",
     "home_team": "Southampton",
     "away_team": "Fulham",
     "home_score": 1,
@@ -145459,7 +145459,7 @@
   {
     "id": 340,
     "gameweek": 34,
-    "kickoff_time": "2025-04-26T14:00:00Z",
+    "kickoff_time": "2026-11-05T14:00:00Z",
     "home_team": "Wolves",
     "away_team": "Leicester",
     "home_score": 3,
@@ -145969,7 +145969,7 @@
   {
     "id": 332,
     "gameweek": 34,
-    "kickoff_time": "2025-04-27T13:00:00Z",
+    "kickoff_time": "2026-11-06T13:00:00Z",
     "home_team": "Bournemouth",
     "away_team": "Man Utd",
     "home_score": 1,
@@ -146470,7 +146470,7 @@
   {
     "id": 335,
     "gameweek": 34,
-    "kickoff_time": "2025-04-27T15:30:00Z",
+    "kickoff_time": "2026-11-06T15:30:00Z",
     "home_team": "Liverpool",
     "away_team": "Spurs",
     "home_score": 5,
@@ -146973,7 +146973,7 @@
   {
     "id": 338,
     "gameweek": 34,
-    "kickoff_time": "2025-05-01T18:30:00Z",
+    "kickoff_time": "2026-11-10T18:30:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Brentford",
     "home_score": 0,
@@ -147432,7 +147432,7 @@
   {
     "id": 349,
     "gameweek": 35,
-    "kickoff_time": "2025-05-02T19:00:00Z",
+    "kickoff_time": "2026-11-12T19:00:00Z",
     "home_team": "Man City",
     "away_team": "Wolves",
     "home_score": 1,
@@ -147900,7 +147900,7 @@
   {
     "id": 342,
     "gameweek": 35,
-    "kickoff_time": "2025-05-03T11:30:00Z",
+    "kickoff_time": "2026-11-13T11:30:00Z",
     "home_team": "Aston Villa",
     "away_team": "Fulham",
     "home_score": 1,
@@ -148344,7 +148344,7 @@
   {
     "id": 347,
     "gameweek": 35,
-    "kickoff_time": "2025-05-03T14:00:00Z",
+    "kickoff_time": "2026-11-13T14:00:00Z",
     "home_team": "Everton",
     "away_team": "Ipswich",
     "home_score": 2,
@@ -148819,7 +148819,7 @@
   {
     "id": 348,
     "gameweek": 35,
-    "kickoff_time": "2025-05-03T14:00:00Z",
+    "kickoff_time": "2026-11-13T14:00:00Z",
     "home_team": "Leicester",
     "away_team": "Southampton",
     "home_score": 2,
@@ -149293,7 +149293,7 @@
   {
     "id": 341,
     "gameweek": 35,
-    "kickoff_time": "2025-05-03T16:30:00Z",
+    "kickoff_time": "2026-11-13T16:30:00Z",
     "home_team": "Arsenal",
     "away_team": "Bournemouth",
     "home_score": 1,
@@ -149751,7 +149751,7 @@
   {
     "id": 343,
     "gameweek": 35,
-    "kickoff_time": "2025-05-04T13:00:00Z",
+    "kickoff_time": "2026-11-14T13:00:00Z",
     "home_team": "Brentford",
     "away_team": "Man Utd",
     "home_score": 4,
@@ -150262,7 +150262,7 @@
   {
     "id": 344,
     "gameweek": 35,
-    "kickoff_time": "2025-05-04T13:00:00Z",
+    "kickoff_time": "2026-11-14T13:00:00Z",
     "home_team": "Brighton",
     "away_team": "Newcastle",
     "home_score": 1,
@@ -150761,7 +150761,7 @@
   {
     "id": 350,
     "gameweek": 35,
-    "kickoff_time": "2025-05-04T13:00:00Z",
+    "kickoff_time": "2026-11-14T13:00:00Z",
     "home_team": "West Ham",
     "away_team": "Spurs",
     "home_score": 1,
@@ -151234,7 +151234,7 @@
   {
     "id": 345,
     "gameweek": 35,
-    "kickoff_time": "2025-05-04T15:30:00Z",
+    "kickoff_time": "2026-11-14T15:30:00Z",
     "home_team": "Chelsea",
     "away_team": "Liverpool",
     "home_score": 3,
@@ -151725,7 +151725,7 @@
   {
     "id": 346,
     "gameweek": 35,
-    "kickoff_time": "2025-05-05T19:00:00Z",
+    "kickoff_time": "2026-11-15T19:00:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Nott'm Forest",
     "home_score": 1,
@@ -152176,7 +152176,7 @@
   {
     "id": 352,
     "gameweek": 36,
-    "kickoff_time": "2025-05-10T14:00:00Z",
+    "kickoff_time": "2026-11-19T14:00:00Z",
     "home_team": "Fulham",
     "away_team": "Everton",
     "home_score": 1,
@@ -152583,7 +152583,7 @@
   {
     "id": 353,
     "gameweek": 36,
-    "kickoff_time": "2025-05-10T14:00:00Z",
+    "kickoff_time": "2026-11-19T14:00:00Z",
     "home_team": "Ipswich",
     "away_team": "Brentford",
     "home_score": 0,
@@ -153051,7 +153051,7 @@
   {
     "id": 358,
     "gameweek": 36,
-    "kickoff_time": "2025-05-10T14:00:00Z",
+    "kickoff_time": "2026-11-19T14:00:00Z",
     "home_team": "Southampton",
     "away_team": "Man City",
     "home_score": 0,
@@ -153498,7 +153498,7 @@
   {
     "id": 360,
     "gameweek": 36,
-    "kickoff_time": "2025-05-10T14:00:00Z",
+    "kickoff_time": "2026-11-19T14:00:00Z",
     "home_team": "Wolves",
     "away_team": "Brighton",
     "home_score": 0,
@@ -154048,7 +154048,7 @@
   {
     "id": 351,
     "gameweek": 36,
-    "kickoff_time": "2025-05-10T16:30:00Z",
+    "kickoff_time": "2026-11-19T16:30:00Z",
     "home_team": "Bournemouth",
     "away_team": "Aston Villa",
     "home_score": 0,
@@ -154550,7 +154550,7 @@
   {
     "id": 356,
     "gameweek": 36,
-    "kickoff_time": "2025-05-11T11:00:00Z",
+    "kickoff_time": "2026-11-20T11:00:00Z",
     "home_team": "Newcastle",
     "away_team": "Chelsea",
     "home_score": 2,
@@ -155046,7 +155046,7 @@
   {
     "id": 355,
     "gameweek": 36,
-    "kickoff_time": "2025-05-11T13:15:00Z",
+    "kickoff_time": "2026-11-20T13:15:00Z",
     "home_team": "Man Utd",
     "away_team": "West Ham",
     "home_score": 0,
@@ -155482,7 +155482,7 @@
   {
     "id": 357,
     "gameweek": 36,
-    "kickoff_time": "2025-05-11T13:15:00Z",
+    "kickoff_time": "2026-11-20T13:15:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Leicester",
     "home_score": 2,
@@ -155949,7 +155949,7 @@
   {
     "id": 359,
     "gameweek": 36,
-    "kickoff_time": "2025-05-11T13:15:00Z",
+    "kickoff_time": "2026-11-20T13:15:00Z",
     "home_team": "Spurs",
     "away_team": "Crystal Palace",
     "home_score": 0,
@@ -156429,7 +156429,7 @@
   {
     "id": 354,
     "gameweek": 36,
-    "kickoff_time": "2025-05-11T15:30:00Z",
+    "kickoff_time": "2026-11-20T15:30:00Z",
     "home_team": "Liverpool",
     "away_team": "Arsenal",
     "home_score": 2,
@@ -156870,7 +156870,7 @@
   {
     "id": 362,
     "gameweek": 37,
-    "kickoff_time": "2025-05-16T18:30:00Z",
+    "kickoff_time": "2026-11-26T18:30:00Z",
     "home_team": "Aston Villa",
     "away_team": "Spurs",
     "home_score": 2,
@@ -157394,7 +157394,7 @@
   {
     "id": 365,
     "gameweek": 37,
-    "kickoff_time": "2025-05-16T19:15:00Z",
+    "kickoff_time": "2026-11-26T19:15:00Z",
     "home_team": "Chelsea",
     "away_team": "Man Utd",
     "home_score": 1,
@@ -157921,7 +157921,7 @@
   {
     "id": 367,
     "gameweek": 37,
-    "kickoff_time": "2025-05-18T11:00:00Z",
+    "kickoff_time": "2026-11-28T11:00:00Z",
     "home_team": "Everton",
     "away_team": "Southampton",
     "home_score": 2,
@@ -158362,7 +158362,7 @@
   {
     "id": 370,
     "gameweek": 37,
-    "kickoff_time": "2025-05-18T13:15:00Z",
+    "kickoff_time": "2026-11-28T13:15:00Z",
     "home_team": "West Ham",
     "away_team": "Nott'm Forest",
     "home_score": 1,
@@ -158790,7 +158790,7 @@
   {
     "id": 363,
     "gameweek": 37,
-    "kickoff_time": "2025-05-18T14:00:00Z",
+    "kickoff_time": "2026-11-28T14:00:00Z",
     "home_team": "Brentford",
     "away_team": "Fulham",
     "home_score": 2,
@@ -159254,7 +159254,7 @@
   {
     "id": 368,
     "gameweek": 37,
-    "kickoff_time": "2025-05-18T14:00:00Z",
+    "kickoff_time": "2026-11-28T14:00:00Z",
     "home_team": "Leicester",
     "away_team": "Ipswich",
     "home_score": 2,
@@ -159710,7 +159710,7 @@
   {
     "id": 361,
     "gameweek": 37,
-    "kickoff_time": "2025-05-18T15:30:00Z",
+    "kickoff_time": "2026-11-28T15:30:00Z",
     "home_team": "Arsenal",
     "away_team": "Newcastle",
     "home_score": 1,
@@ -160138,7 +160138,7 @@
   {
     "id": 364,
     "gameweek": 37,
-    "kickoff_time": "2025-05-19T19:00:00Z",
+    "kickoff_time": "2026-11-29T19:00:00Z",
     "home_team": "Brighton",
     "away_team": "Liverpool",
     "home_score": 3,
@@ -160653,7 +160653,7 @@
   {
     "id": 366,
     "gameweek": 37,
-    "kickoff_time": "2025-05-20T19:00:00Z",
+    "kickoff_time": "2026-11-30T19:00:00Z",
     "home_team": "Crystal Palace",
     "away_team": "Wolves",
     "home_score": 4,
@@ -161159,7 +161159,7 @@
   {
     "id": 369,
     "gameweek": 37,
-    "kickoff_time": "2025-05-20T19:00:00Z",
+    "kickoff_time": "2026-11-30T19:00:00Z",
     "home_team": "Man City",
     "away_team": "Bournemouth",
     "home_score": 3,
@@ -161648,7 +161648,7 @@
   {
     "id": 371,
     "gameweek": 38,
-    "kickoff_time": "2025-05-25T15:00:00Z",
+    "kickoff_time": "2026-12-03T15:00:00Z",
     "home_team": "Bournemouth",
     "away_team": "Leicester",
     "home_score": 2,
@@ -162118,7 +162118,7 @@
   {
     "id": 372,
     "gameweek": 38,
-    "kickoff_time": "2025-05-25T15:00:00Z",
+    "kickoff_time": "2026-12-03T15:00:00Z",
     "home_team": "Fulham",
     "away_team": "Man City",
     "home_score": 0,
@@ -162524,7 +162524,7 @@
   {
     "id": 373,
     "gameweek": 38,
-    "kickoff_time": "2025-05-25T15:00:00Z",
+    "kickoff_time": "2026-12-03T15:00:00Z",
     "home_team": "Ipswich",
     "away_team": "West Ham",
     "home_score": 1,
@@ -162965,7 +162965,7 @@
   {
     "id": 374,
     "gameweek": 38,
-    "kickoff_time": "2025-05-25T15:00:00Z",
+    "kickoff_time": "2026-12-03T15:00:00Z",
     "home_team": "Liverpool",
     "away_team": "Crystal Palace",
     "home_score": 1,
@@ -163381,7 +163381,7 @@
   {
     "id": 375,
     "gameweek": 38,
-    "kickoff_time": "2025-05-25T15:00:00Z",
+    "kickoff_time": "2026-12-03T15:00:00Z",
     "home_team": "Man Utd",
     "away_team": "Aston Villa",
     "home_score": 2,
@@ -163889,7 +163889,7 @@
   {
     "id": 376,
     "gameweek": 38,
-    "kickoff_time": "2025-05-25T15:00:00Z",
+    "kickoff_time": "2026-12-03T15:00:00Z",
     "home_team": "Newcastle",
     "away_team": "Everton",
     "home_score": 0,
@@ -164308,7 +164308,7 @@
   {
     "id": 377,
     "gameweek": 38,
-    "kickoff_time": "2025-05-25T15:00:00Z",
+    "kickoff_time": "2026-12-03T15:00:00Z",
     "home_team": "Nott'm Forest",
     "away_team": "Chelsea",
     "home_score": 0,
@@ -164783,7 +164783,7 @@
   {
     "id": 378,
     "gameweek": 38,
-    "kickoff_time": "2025-05-25T15:00:00Z",
+    "kickoff_time": "2026-12-03T15:00:00Z",
     "home_team": "Southampton",
     "away_team": "Arsenal",
     "home_score": 1,
@@ -165242,7 +165242,7 @@
   {
     "id": 379,
     "gameweek": 38,
-    "kickoff_time": "2025-05-25T15:00:00Z",
+    "kickoff_time": "2026-12-03T15:00:00Z",
     "home_team": "Spurs",
     "away_team": "Brighton",
     "home_score": 1,
@@ -165830,7 +165830,7 @@
   {
     "id": 380,
     "gameweek": 38,
-    "kickoff_time": "2025-05-25T15:00:00Z",
+    "kickoff_time": "2026-12-03T15:00:00Z",
     "home_team": "Wolves",
     "away_team": "Brentford",
     "home_score": 1,
