@@ -1,0 +1,240 @@
+<div class="min-h-screen flex flex-col" style="background:#070b14">
+    <app-navbar />
+
+    <div
+        class="max-w-[1400px] mx-auto w-full px-4 lg:px-6 py-8 grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-6 flex-1 items-start relative">
+
+        <aside class="flex flex-col gap-4 h-full">
+            <div class="glass-card p-6 flex flex-col h-[calc(100vh-140px)]" style="background: rgba(20, 10, 30, 0.6);">
+                <h2 class="text-3xl font-black text-white mb-2">Substitutions</h2>
+                <p class="text-xs text-slate-400 mb-6">Click Player 1, then Player 2 to swap. Save all your changes when ready.</p>
+
+                @if (loadingLineup) {
+                <div class="flex justify-center py-8">
+                    <div class="w-8 h-8 border-4 border-sky-400/20 border-t-sky-400 rounded-full animate-spin"></div>
+                </div>
+                } @else {
+                <div class="space-y-4 overflow-y-auto pr-2 custom-scrollbar">
+                    <div class="bg-black/30 border border-emerald-500/30 rounded-lg p-3">
+                        <div class="text-xs uppercase tracking-widest text-emerald-300 font-bold mb-2">Starting XI</div>
+                        <div class="space-y-2">
+                            @for (slot of starterSlots; track slot.id) {
+                            <button (click)="selectOrSwap(slot)"
+                                class="w-full text-left px-3 py-2 rounded border text-sm transition-colors"
+                                [class.border-sky-400]="isSelected(slot)"
+                                [class.bg-sky-500/20]="isSelected(slot)"
+                                [class.border-white/10]="!isSelected(slot)"
+                                [class.bg-white/5]="!isSelected(slot)">
+                                <div class="flex items-center justify-between gap-2">
+                                    <span class="text-white font-semibold truncate">{{ slot.player?.name || 'Empty slot' }}</span>
+                                    <span class="text-[10px] text-slate-300 uppercase">{{ slot.player?.position || '--' }}</span>
+                                </div>
+                                <div class="text-[10px] text-slate-400">{{ slot.player?.realTeam || 'No player' }}</div>
+                            </button>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 border border-purple-500/30 rounded-lg p-3">
+                        <div class="text-xs uppercase tracking-widest text-purple-300 font-bold mb-2">Bench</div>
+                        <div class="space-y-2">
+                            @for (slot of benchSlots; track slot.id) {
+                            <button (click)="selectOrSwap(slot)"
+                                class="w-full text-left px-3 py-2 rounded border text-sm transition-colors"
+                                [class.border-purple-400]="isSelected(slot)"
+                                [class.bg-purple-500/20]="isSelected(slot)"
+                                [class.border-white/10]="!isSelected(slot)"
+                                [class.bg-white/5]="!isSelected(slot)">
+                                <div class="flex items-center justify-between gap-2">
+                                    <span class="text-white font-semibold truncate">{{ slot.player?.name || 'Empty slot' }}</span>
+                                    <span class="text-[10px] text-slate-300 uppercase">{{ slot.player?.position || '--' }}</span>
+                                </div>
+                                <div class="text-[10px] text-slate-400">{{ slot.player?.realTeam || 'No player' }}</div>
+                            </button>
+                            }
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </aside>
+
+        <main class="flex flex-col gap-4">
+            <div class="flex justify-between items-center bg-black/20 p-4 rounded-xl border border-white/5">
+                <div>
+                    <h1 class="text-2xl lg:text-3xl font-black text-white">Lineup Substitutions</h1>
+                    <p class="text-xs text-slate-400 mt-1">{{ teamName }}</p>
+                </div>
+                <div class="flex gap-2">
+                    <button
+                        class="bg-[#1e0a30] text-slate-300 hover:text-white border border-purple-500/30 font-semibold px-4 py-1.5 rounded-l-lg rounded-r-none text-xs transition-colors">Pitch
+                        View</button>
+                    <button
+                        class="bg-black/40 text-white font-bold px-4 py-1.5 rounded-r-lg rounded-l-none text-xs border border-white/10">List
+                        View</button>
+                </div>
+            </div>
+
+            @if (!loadingGameState && !gameweekLocked) {
+            <div
+                class="flex items-center gap-3 bg-emerald-900/40 border border-emerald-500/60 text-emerald-200 px-4 py-3 rounded-xl text-sm font-semibold">
+                <span class="text-lg">✅</span>
+                <div>
+                    <div class="font-bold text-emerald-100">
+                        You have the right to make substitutions.
+                        @if (transferWindowStatus?.nextGameweek) {
+                        Changes are allowed until {{ nextDeadlineLabel }}.
+                        }
+                    </div>
+                    <div class="text-xs text-emerald-300/80 mt-0.5 font-normal">{{ transferWindowStatus?.message }}</div>
+                </div>
+            </div>
+            }
+
+            @if (!loadingGameState && gameweekLocked) {
+            <div
+                class="flex items-center gap-3 bg-red-900/40 border border-red-500/60 text-red-200 px-4 py-3 rounded-xl text-sm font-semibold">
+                <span class="text-lg">🔒</span>
+                <div>
+                    <div class="font-bold text-red-100">You cannot make substitutions right now. We are currently in Gameweek {{ transferWindowStatus?.activeGameweek || currentGameweek }}.</div>
+                    <div class="text-xs text-red-300/80 mt-0.5 font-normal">{{ transferWindowStatus?.message }}</div>
+                </div>
+            </div>
+            }
+
+            <div
+                class="relative w-full aspect-[4/5] sm:aspect-[4/3] lg:aspect-[16/11] overflow-hidden rounded-xl border-t-[8px] border-emerald-400 shadow-[0_10px_30px_rgba(0,0,0,0.5)] bg-emerald-500 mb-4 p-2">
+                <div class="absolute inset-x-0 bottom-0 top-[10%] bg-emerald-500 overflow-hidden"
+                    style="background-image: repeating-linear-gradient(to right, transparent, transparent 10%, rgba(255,255,255,0.05) 10%, rgba(255,255,255,0.05) 20%); z-index: 0">
+                    <div
+                        class="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] h-[15%] border-b-2 border-l-2 border-r-2 border-white/40">
+                    </div>
+                    <div
+                        class="absolute top-0 left-1/2 -translate-x-1/2 w-[20%] h-[6%] border-b-2 border-l-2 border-r-2 border-white/40">
+                    </div>
+                    <div
+                        class="absolute top-[15%] left-1/2 -translate-x-1/2 w-[16%] h-[6%] rounded-b-full border-b-2 border-white/40 border-r-0 border-l-0 border-t-0">
+                    </div>
+                    <div class="absolute inset-4 border-2 border-white/40"></div>
+                </div>
+
+                <div class="relative w-full h-full z-10 perspective-[1000px] flex flex-col justify-between py-[4%]">
+                    <div class="flex justify-center gap-16 sm:gap-32 w-full z-40">
+                        @for (slot of starterGks; track slot.id) {
+                        <div class="flex flex-col items-center w-[75px] sm:w-[85px] cursor-pointer transition-transform hover:scale-105"
+                            (click)="selectOrSwap(slot)"
+                            [class.drop-shadow-[0_0_15px_rgba(56,189,248,0.8)]]="isSelected(slot)">
+                            <div class="w-14 sm:w-16 h-14 sm:h-16 rounded-t-md opacity-90 flex items-center justify-center text-3xl shadow-sm"
+                                style="background: linear-gradient(135deg, #10b981, #047857)">👕</div>
+                            <div class="bg-white text-slate-900 font-bold text-[10px] px-1 w-[110%] text-center rounded-t-sm truncate shadow-md mt-[-5px]">
+                                {{ slot.player?.name?.split(' ')?.pop() || 'Empty' }}</div>
+                            <div
+                                class="bg-purple-900 text-white font-bold text-[10px] px-1 w-[110%] text-center rounded-b-sm shadow-md border-t border-purple-800 truncate">
+                                {{ slot.player?.realTeam || slot.player?.position }}</div>
+                        </div>
+                        }
+                    </div>
+
+                    <div class="flex justify-center gap-2 sm:gap-4 w-full z-30 mt-4">
+                        @for (slot of starterDefs; track slot.id) {
+                        <div class="flex flex-col items-center w-[60px] sm:w-[80px] cursor-pointer transition-transform hover:scale-105"
+                            (click)="selectOrSwap(slot)"
+                            [class.drop-shadow-[0_0_15px_rgba(56,189,248,0.8)]]="isSelected(slot)">
+                            <div class="w-12 sm:w-16 h-12 sm:h-16 rounded-t-md opacity-90 flex items-center justify-center text-3xl shadow-sm"
+                                style="background: linear-gradient(135deg, #ef4444, #991b1b)">👕</div>
+                            <div class="bg-white text-slate-900 font-bold text-[9px] sm:text-[10px] px-1 w-[114%] text-center rounded-t-sm truncate shadow-md mt-[-5px]">
+                                {{ slot.player?.name?.split(' ')?.pop() || 'Empty' }}</div>
+                            <div
+                                class="bg-purple-900 text-white font-bold text-[9px] sm:text-[10px] px-1 w-[114%] text-center rounded-b-sm shadow-md border-t border-purple-800 truncate">
+                                {{ slot.player?.realTeam || slot.player?.position }}</div>
+                        </div>
+                        }
+                    </div>
+
+                    <div class="flex justify-center gap-2 sm:gap-4 w-full z-20">
+                        @for (slot of starterMids; track slot.id) {
+                        <div class="flex flex-col items-center w-[60px] sm:w-[80px] cursor-pointer transition-transform hover:scale-105"
+                            (click)="selectOrSwap(slot)"
+                            [class.drop-shadow-[0_0_15px_rgba(56,189,248,0.8)]]="isSelected(slot)">
+                            <div class="w-12 sm:w-16 h-12 sm:h-16 rounded-t-md opacity-90 flex items-center justify-center text-3xl shadow-sm"
+                                style="background: linear-gradient(135deg, #3b82f6, #1e3a8a)">👕</div>
+                            <div class="bg-white text-slate-900 font-bold text-[9px] sm:text-[10px] px-1 w-[114%] text-center rounded-t-sm truncate shadow-md mt-[-5px]">
+                                {{ slot.player?.name?.split(' ')?.pop() || 'Empty' }}</div>
+                            <div
+                                class="bg-purple-900 text-white font-bold text-[9px] sm:text-[10px] px-1 w-[114%] text-center rounded-b-sm shadow-md border-t border-purple-800 truncate">
+                                {{ slot.player?.realTeam || slot.player?.position }}</div>
+                        </div>
+                        }
+                    </div>
+
+                    <div class="flex justify-center gap-8 sm:gap-16 w-full z-10 relative top-2">
+                        @for (slot of starterFwds; track slot.id) {
+                        <div class="flex flex-col items-center w-[70px] sm:w-[85px] cursor-pointer transition-transform hover:scale-105"
+                            (click)="selectOrSwap(slot)"
+                            [class.drop-shadow-[0_0_15px_rgba(56,189,248,0.8)]]="isSelected(slot)">
+                            <div class="w-14 sm:w-16 h-14 sm:h-16 rounded-t-md opacity-90 flex items-center justify-center text-3xl shadow-sm"
+                                style="background: linear-gradient(135deg, #a855f7, #581c87)">👕</div>
+                            <div class="bg-white text-slate-900 font-bold text-[10px] px-1 w-[110%] text-center rounded-t-sm truncate shadow-md mt-[-5px]">
+                                {{ slot.player?.name?.split(' ')?.pop() || 'Empty' }}</div>
+                            <div
+                                class="bg-purple-900 text-white font-bold text-[10px] px-1 w-[110%] text-center rounded-b-sm shadow-md border-t border-purple-800 truncate">
+                                {{ slot.player?.realTeam || slot.player?.position }}</div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-4">
+                <h3 class="text-sm font-bold text-white mb-3">Bench</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    @for (slot of benchSlots; track slot.id) {
+                    <button (click)="selectOrSwap(slot)"
+                        class="border rounded-lg p-3 text-left transition-colors"
+                        [class.border-purple-400]="isSelected(slot)"
+                        [class.bg-purple-500/20]="isSelected(slot)"
+                        [class.border-white/10]="!isSelected(slot)"
+                        [class.bg-black/30]="!isSelected(slot)">
+                        <div class="text-xs text-slate-300 uppercase mb-1">{{ slot.player?.position || '--' }}</div>
+                        <div class="text-white font-semibold text-sm truncate">{{ slot.player?.name || 'Empty slot' }}</div>
+                        <div class="text-[10px] text-slate-400 truncate">{{ slot.player?.realTeam || 'No team' }}</div>
+                    </button>
+                    }
+                </div>
+            </div>
+
+            @if (errorMessage) {
+            <div class="bg-red-600 text-white font-bold text-center py-2 rounded shadow-lg text-sm">{{ errorMessage }}</div>
+            }
+
+            @if (successMessage) {
+            <div class="bg-emerald-600 text-white font-bold text-center py-2 rounded shadow-lg text-sm">{{ successMessage }}</div>
+            }
+
+            <div class="flex flex-col sm:flex-row gap-4 items-center justify-between glass-card p-4 mt-auto border"
+                [class.border-red-500/30]="gameweekLocked" [class.border-purple-500/20]="!gameweekLocked">
+                <div class="flex flex-col gap-1">
+                    <span class="text-white font-bold text-sm">Click any player, then another player to swap their places.</span>
+                    <span class="text-slate-400 text-xs">Valid formation on Save: 1 GK, at least 3 DEF, at least 1 FWD.</span>
+                </div>
+                <div class="flex gap-3">
+                    <button (click)="resetToSaved()" [disabled]="!hasUnsavedChanges || gameweekLocked"
+                        class="py-2 px-5 text-sm text-slate-300 hover:text-white border border-white/10 hover:border-white/30 rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
+                        Reset
+                    </button>
+                    <button (click)="saveLineup()" [disabled]="saving || !hasUnsavedChanges || gameweekLocked"
+                        class="btn-primary py-2 px-6 text-sm disabled:opacity-50 flex items-center gap-2">
+                        @if (saving) {
+                        <div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        Saving...
+                        } @else if (gameweekLocked) {
+                        🔒 Locked
+                        } @else {
+                        Save Changes
+                        }
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
