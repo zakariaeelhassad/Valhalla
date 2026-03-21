@@ -19,6 +19,21 @@ export interface TeamResponse {
     id: number; teamName: string; budget: number; remainingBudget: number;
     totalPoints: number; players: PlayerSummary[]; playerCount: number;
 }
+export interface TeamLineupPlayer {
+    id: number;
+    name: string;
+    position: string;
+    realTeam: string;
+    price: number;
+    totalPoints: number;
+    starter: boolean;
+}
+export interface TeamLineupResponse {
+    teamId: number;
+    teamName: string;
+    remainingBudget: number;
+    players: TeamLineupPlayer[];
+}
 export interface TeamGameweekStats {
     gameweek: number;
     teamPoints: number;
@@ -36,6 +51,20 @@ export interface MatchResponse {
     id: number; gameweekNumber: number; homeTeam: string; awayTeam: string;
     homeScore: number; awayScore: number; kickoffTime: string; finished: boolean;
     status: string; elapsedMinutes: number; events: MatchEvent[];
+}
+export interface CurrentGameweekContext {
+    currentDate: string;
+    currentGameweek: number | null;
+    matches: MatchResponse[];
+}
+export interface TransferWindowStatus {
+    currentDate: string;
+    activeGameweek: number | null;
+    nextGameweek: number | null;
+    nextDeadline: string | null;
+    transfersAllowed: boolean;
+    phase: string;
+    message: string;
 }
 export interface SimClock {
     simulatedNow: string;
@@ -170,6 +199,35 @@ export class ApiService {
         );
     }
 
+    getTeamLineup(): Observable<TeamLineupResponse> {
+        return this.http.get<TeamLineupResponse>(`${BASE}/api/team/lineup`).pipe(
+            catchError(err => {
+                console.error('ApiService.getTeamLineup failed:', err);
+                return throwError(() => err);
+            })
+        );
+    }
+
+    makeSubstitution(starterPlayerId: number, benchPlayerId: number): Observable<TeamLineupResponse> {
+        const payload = { starterPlayerId, benchPlayerId };
+        return this.http.post<TeamLineupResponse>(`${BASE}/api/team/substitutions`, payload).pipe(
+            catchError(err => {
+                console.error('ApiService.makeSubstitution failed:', err);
+                return throwError(() => err);
+            })
+        );
+    }
+
+    saveLineup(starterPlayerIds: number[]): Observable<void> {
+        const payload = { starterPlayerIds };
+        return this.http.post<void>(`${BASE}/api/team/lineup/save`, payload).pipe(
+            catchError(err => {
+                console.error('ApiService.saveLineup failed:', err);
+                return throwError(() => err);
+            })
+        );
+    }
+
 
     // ── Game ──────────────────────────────────────────
     getGameState(): Observable<GameState> {
@@ -193,6 +251,12 @@ export class ApiService {
     }
     getLiveMatches(): Observable<MatchResponse[]> {
         return this.http.get<MatchResponse[]>(`${BASE}/api/matches/live`);
+    }
+    getCurrentGameweekContext(): Observable<CurrentGameweekContext> {
+        return this.http.get<CurrentGameweekContext>(`${BASE}/api/matches/current`);
+    }
+    getTransferWindowStatus(): Observable<TransferWindowStatus> {
+        return this.http.get<TransferWindowStatus>(`${BASE}/api/game/transfer-window`);
     }
     getSimClock(): Observable<SimClock> {
         return this.http.get<SimClock>(`${BASE}/api/matches/clock`);
