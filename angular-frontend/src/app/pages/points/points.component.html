@@ -184,6 +184,13 @@
             </div>
          </div>
 
+         <div class="flex flex-wrap items-center gap-3 mb-2">
+            <span class="badge bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Backend Date: {{
+               backendCurrentDateLabel || 'Loading...' }}</span>
+            <span class="badge bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Current DB Gameweek:
+               {{ dbCurrentGameweek || 1 }}</span>
+         </div>
+
          <!-- Gameweek Points Summary Card -->
          <div class="glass-card p-6 py-8 flex flex-col items-center relative overflow-hidden"
             style="background: rgba(30, 10, 48, 0.4);">
@@ -395,9 +402,12 @@
                   class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center cursor-pointer hover:bg-purple-500/40 text-sm font-bold text-slate-300">
                   &lt;</div>
                <div class="text-center">
-                  <h4 class="font-bold text-slate-100 text-lg">Gameweek {{ gameState?.currentGameweek || 1 }}</h4>
-                  <span class="text-xs text-slate-400">Tue 3 Mar - Thu 5 Mar</span>
-                  <div class="mt-2 text-sm font-semibold text-slate-300">Deadline: Tue 3 Mar, 18:00</div>
+                  <h4 class="font-bold text-slate-100 text-lg">Gameweek {{ viewedGameweek || dbCurrentGameweek || 1
+                     }}</h4>
+                  <span class="text-xs text-slate-400">Current backend date: {{ backendCurrentDateLabel || 'Loading...'
+                     }}</span>
+                  <div class="mt-2 text-sm font-semibold text-slate-300">DB current gameweek: {{ dbCurrentGameweek || 1
+                     }}</div>
                   <div class="text-[10px] text-slate-500">* All times are shown in your local time</div>
                </div>
                <div

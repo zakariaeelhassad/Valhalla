@@ -5,7 +5,7 @@ import { interval, Subscription, switchMap, startWith, forkJoin, of } from 'rxjs
 import { catchError } from 'rxjs/operators';
 import { PointsStateService } from '../../core/services/points-state.service';
 import { AuthService, UserResponse } from '../../core/services/auth.service';
-import { ApiService, GameState, PlayerSummary, MatchResponse, TeamResponse } from '../../core/services/api.service';
+import { ApiService, CurrentGameweekContext, GameState, PlayerSummary, MatchResponse, TeamResponse } from '../../core/services/api.service';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 
@@ -51,6 +51,9 @@ export class PointsComponent implements OnInit, OnDestroy {
   };
   benchSquad: PlayerSummary[] = [];
   matches: MatchResponse[] = [];
+  backendCurrentDate: string = '';
+  backendCurrentDateLabel: string = '';
+  dbCurrentGameweek: number = 0;
 
   // Polling
   private pollingSub?: Subscription;
@@ -77,27 +80,48 @@ export class PointsComponent implements OnInit, OnDestroy {
     // Setup Backend Polling (Every 10 seconds)
     this.pollingSub = interval(10000).pipe(
       startWith(0),
-      switchMap(() => this.api.getGameState().pipe(catchError(() => of(null)))),
-      switchMap(gs => {
-        if (!gs) return of(null);
-        this.gameState = gs;
-        this.currentGameweek = gs.currentGameweek || 1;
-
-        // Set viewed gameweek to current on first load
-        if (this.viewedGameweek === 0) {
-          this.viewedGameweek = this.currentGameweek;
+      switchMap(() => this.api.getCurrentGameweekContext().pipe(catchError(() => of(null)))),
+      switchMap((ctx: CurrentGameweekContext | null) => {
+        if (ctx?.currentDate) {
+          this.backendCurrentDate = ctx.currentDate;
+          this.backendCurrentDateLabel = new Date(ctx.currentDate).toLocaleString('en-GB', {
+            weekday: 'short',
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          });
         }
 
-        const fetchGw = this.viewedGameweek;
+        if (ctx?.currentGameweek != null) {
+          this.dbCurrentGameweek = ctx.currentGameweek;
+          if (this.viewedGameweek === 0) {
+            this.viewedGameweek = ctx.currentGameweek;
+          }
+        }
+
+        const fetchGw = this.viewedGameweek || this.dbCurrentGameweek || 1;
         return forkJoin({
+          ctx: of(ctx),
+          gs: this.api.getGameState().pipe(catchError(() => of(null))),
           fetchGw: of(fetchGw),
-          matches: this.api.getMatchesByGameweek(fetchGw).pipe(catchError(() => of([]))),
+          matches: (ctx?.currentGameweek === fetchGw && ctx?.matches)
+            ? of(ctx.matches)
+            : this.api.getMatchesByGameweek(fetchGw).pipe(catchError(() => of([]))),
           team: this.api.getMyTeam().pipe(catchError(() => of(null))),
           stats: this.api.getGameweekStats(fetchGw).pipe(catchError(() => of(null)))
         });
       })
     ).subscribe((data) => {
       if (!data) return;
+
+      if (data.gs) {
+        this.gameState = data.gs;
+        this.currentGameweek = data.gs.currentGameweek || this.dbCurrentGameweek || 1;
+      } else if (this.dbCurrentGameweek > 0) {
+        this.currentGameweek = this.dbCurrentGameweek;
+      }
 
       // Update Matches only if the user hasn't navigated while request was in flight
       if (this.viewedGameweek === data.fetchGw) {
