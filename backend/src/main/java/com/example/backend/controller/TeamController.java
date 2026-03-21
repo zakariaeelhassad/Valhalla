@@ -2,7 +2,10 @@ package com.example.backend.controller;
 
 import com.example.backend.dto.GameweekStatsResponse;
 import com.example.backend.dto.PlayerSummary;
+import com.example.backend.dto.SaveLineupRequest;
+import com.example.backend.dto.SubstitutionRequest;
 import com.example.backend.dto.TeamResponse;
+import com.example.backend.dto.TeamLineupResponse;
 import com.example.backend.dto.TransferRequest;
 import com.example.backend.model.UserTeam;
 import com.example.backend.model.UserTeamPlayer;
@@ -73,6 +76,32 @@ public class TeamController {
     public ResponseEntity<TeamManagementService.SquadStatistics> getStats() {
         Long userId = securityUtils.getCurrentUserId();
         return ResponseEntity.ok(teamManagementService.getSquadStatistics(userId));
+    }
+
+    @GetMapping("/lineup")
+    @Operation(summary = "Get your squad with starter and bench flags")
+    public ResponseEntity<TeamLineupResponse> getLineup() {
+        Long userId = securityUtils.getCurrentUserId();
+        return ResponseEntity.ok(teamManagementService.getTeamLineup(userId));
+    }
+
+    @PostMapping("/substitutions")
+    @Operation(summary = "Swap a starter with a bench player")
+    public ResponseEntity<TeamLineupResponse> makeSubstitution(@RequestBody SubstitutionRequest request) {
+        Long userId = securityUtils.getCurrentUserId();
+        TeamLineupResponse lineup = teamManagementService.makeSubstitution(
+                userId,
+                request.starterPlayerId(),
+                request.benchPlayerId());
+        return ResponseEntity.ok(lineup);
+    }
+
+    @PostMapping("/lineup/save")
+    @Operation(summary = "Save starter and bench setup in one action")
+    public ResponseEntity<Void> saveLineup(@RequestBody SaveLineupRequest request) {
+        Long userId = securityUtils.getCurrentUserId();
+        teamManagementService.saveLineup(userId, request.starterPlayerIds());
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/gameweek/{gameweek}")
