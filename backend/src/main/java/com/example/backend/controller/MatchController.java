@@ -25,6 +25,9 @@ import java.util.stream.Collectors;
 @Tag(name = "Matches", description = "Gameweek fixtures with simulated live status and events")
 public class MatchController {
 
+        // Temporary fixed datetime for manual UI testing.
+        // private static final LocalDateTime TEST_NOW_UTC = LocalDateTime.of(2026, 3, 21, 20, 00);
+
         private final MatchRepository matchRepository;
         private final GameweekRepository gameweekRepository;
         private final SimulatedClockService clockService;
@@ -96,13 +99,13 @@ public class MatchController {
                 List<Gameweek> gameweeks = gameweekRepository.findAll();
                 if (gameweeks.isEmpty()) {
                         return ResponseEntity.ok(new CurrentGameweekResponse(
-                                        LocalDateTime.now(ZoneOffset.UTC).toString(),
+                                        getDisplayNowUtc().toString(),
                                         null,
                                         List.of()));
                 }
 
                 gameweeks.sort(Comparator.comparingInt(Gameweek::getGameweekNumber));
-                LocalDateTime now = LocalDateTime.now(ZoneOffset.UTC);
+                LocalDateTime now = getDisplayNowUtc();
 
                 Optional<Gameweek> active = gameweeks.stream()
                                 .filter(gw -> !gw.getStartDate().isAfter(now) && !gw.getEndDate().isBefore(now))
@@ -125,8 +128,8 @@ public class MatchController {
         }
 
         private MatchStatusResponse toDto(Match m, int gwNumber) {
-                String status = clockService.computeStatus(m.getKickoffTime(), m.getFinished());
-                int elapsed = "LIVE".equals(status) ? clockService.getElapsedMinutes(m.getKickoffTime()) : 0;
+                String status = computeDisplayStatus(m.getKickoffTime(), Boolean.TRUE.equals(m.getFinished()));
+                int elapsed = "LIVE".equals(status) ? getDisplayElapsedMinutes(m.getKickoffTime()) : 0;
                 List<MatchEventDTO> events = eventCache.getEvents(m.getHomeTeam(), m.getAwayTeam(), gwNumber);
                 return new MatchStatusResponse(
                                 m.getId(), gwNumber,
@@ -134,6 +137,38 @@ public class MatchController {
                                 m.getHomeScore(), m.getAwayScore(),
                                 m.getKickoffTime(), m.getFinished(),
                                 status, elapsed, events);
+        }
+
+        private String computeDisplayStatus(LocalDateTime kickoffTime, boolean finished) {
+                LocalDateTime now = getDisplayNowUtc();
+
+                if (finished) {
+                        return "FINISHED";
+                }
+
+                if (now.isBefore(kickoffTime)) {
+                        return "SCHEDULED";
+                }
+
+                LocalDateTime matchEnd = kickoffTime.plusMinutes(105);
+                if (now.isBefore(matchEnd)) {
+                        return "LIVE";
+                }
+
+                return "FINISHED";
+        }
+
+        private int getDisplayElapsedMinutes(LocalDateTime kickoffTime) {
+                LocalDateTime now = getDisplayNowUtc();
+                if (now.isBefore(kickoffTime)) {
+                        return 0;
+                }
+                long secs = java.time.Duration.between(kickoffTime, now).getSeconds();
+                return (int) Math.min(secs / 60, 90);
+        }
+
+        private LocalDateTime getDisplayNowUtc() {
+                return LocalDateTime.now(ZoneOffset.UTC);
         }
 
         public record GameweekSummary(int gameweekNumber, int totalMatches, int liveMatches, int finishedMatches,
