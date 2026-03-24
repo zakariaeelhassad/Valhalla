@@ -5,9 +5,11 @@ import { interval, Subscription, switchMap, startWith, forkJoin, of } from 'rxjs
 import { catchError } from 'rxjs/operators';
 import { PointsStateService } from '../../core/services/points-state.service';
 import { AuthService, UserResponse } from '../../core/services/auth.service';
-import { ApiService, CurrentGameweekContext, GameState, PlayerSummary, MatchResponse, TeamResponse } from '../../core/services/api.service';
+import { ApiService, CurrentGameweekContext, GameState, PlayerSummary, MatchResponse, TeamResponse, TeamGameweekStats, TeamLineupResponse } from '../../core/services/api.service';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
+
+type PointsPlayer = PlayerSummary & { gameweekPoints: number, starter?: boolean };
 
 @Component({
   selector: 'app-points',
@@ -16,6 +18,7 @@ import { FooterComponent } from '../../shared/components/footer/footer.component
   templateUrl: './points.component.html',
 })
 export class PointsComponent implements OnInit, OnDestroy {
+  private readonly backendBase = 'http://localhost:8080';
   user: UserResponse | null = null;
 
   // Mock League Data to drive template *ngFor iteration
@@ -45,11 +48,11 @@ export class PointsComponent implements OnInit, OnDestroy {
   gwPoints: number = 0;
   highestPoints: number = 0;
   teamResponse: TeamResponse | null = null;
-  mySquad: PlayerSummary[] = [];
-  pitchSquad: { gks: PlayerSummary[], defs: PlayerSummary[], mids: PlayerSummary[], fwds: PlayerSummary[] } = {
+  mySquad: PointsPlayer[] = [];
+  pitchSquad: { gks: PointsPlayer[], defs: PointsPlayer[], mids: PointsPlayer[], fwds: PointsPlayer[] } = {
     gks: [], defs: [], mids: [], fwds: []
   };
-  benchSquad: PlayerSummary[] = [];
+  benchSquad: PointsPlayer[] = [];
   matches: MatchResponse[] = [];
   backendCurrentDate: string = '';
   backendCurrentDateLabel: string = '';
@@ -110,6 +113,7 @@ export class PointsComponent implements OnInit, OnDestroy {
             ? of(ctx.matches)
             : this.api.getMatchesByGameweek(fetchGw).pipe(catchError(() => of([]))),
           team: this.api.getMyTeam().pipe(catchError(() => of(null))),
+          lineup: this.api.getTeamLineup().pipe(catchError(() => of(null))),
           stats: this.api.getGameweekStats(fetchGw).pipe(catchError(() => of(null)))
         });
       })
@@ -130,45 +134,35 @@ export class PointsComponent implements OnInit, OnDestroy {
 
       // Update Team
       const tr = data.team;
+      const lineup = data.lineup as TeamLineupResponse | null;
       const stats = data.stats;
 
       if (tr && tr.players) {
         this.teamResponse = tr;
-        this.mySquad = tr.players;
+        if (lineup?.players?.length) {
+          this.mySquad = lineup.players.map(p => ({
+            id: p.id,
+            name: p.name,
+            position: p.position,
+            realTeam: p.realTeam,
+            price: p.price,
+            totalPoints: p.totalPoints,
+            gameweekPoints: 0,
+            starter: p.starter
+          }));
+        } else {
+          this.mySquad = tr.players.map(p => ({ ...p, gameweekPoints: 0 }));
+        }
 
         if (stats) {
-          console.log("Updated Gameweek Stats: ", stats);
-          this.gwPoints = stats.teamPoints;
-          this.highestPoints = stats.globalHighestPoints;
-          const pointMap = new Map<number, number>();
-          stats.players.forEach((p: any) => pointMap.set(p.playerId, p.points));
-
-          this.mySquad = this.mySquad.map(p => ({
-            ...p,
-            totalPoints: pointMap.get(p.id) || 0
-          }));
+          this.applyGameweekStatsToSquad(stats);
         } else {
           this.gwPoints = 0;
           this.highestPoints = 0;
-          this.mySquad = this.mySquad.map(p => ({ ...p, totalPoints: 0 }));
+          this.mySquad = this.mySquad.map(p => ({ ...p, gameweekPoints: 0 }));
         }
 
-        const gs = this.mySquad.filter(p => p.position === 'GK');
-        const ds = this.mySquad.filter(p => p.position === 'DEF');
-        const ms = this.mySquad.filter(p => p.position === 'MID');
-        const fs = this.mySquad.filter(p => p.position === 'FWD');
-
-        this.pitchSquad.gks = gs.slice(0, 1);
-        this.pitchSquad.defs = ds.slice(0, 4);
-        this.pitchSquad.mids = ms.slice(0, 4);
-        this.pitchSquad.fwds = fs.slice(0, 2);
-
-        this.benchSquad = [
-          ...gs.slice(1),
-          ...ds.slice(4),
-          ...ms.slice(4),
-          ...fs.slice(2)
-        ];
+        this.rebuildPitchFromLineup();
       }
       this.cdr.detectChanges();
     });
@@ -199,16 +193,100 @@ export class PointsComponent implements OnInit, OnDestroy {
     const newGw = this.viewedGameweek + delta;
     if (newGw >= 1 && newGw <= 38) {
       this.viewedGameweek = newGw;
-      // Fetch immediately for responsiveness
-      this.api.getMatchesByGameweek(this.viewedGameweek).subscribe(matches => {
+      // Refresh fixtures and GW player points immediately for responsive navigation.
+      forkJoin({
+        matches: this.api.getMatchesByGameweek(this.viewedGameweek).pipe(catchError(() => of([]))),
+        stats: this.api.getGameweekStats(this.viewedGameweek).pipe(catchError(() => of(null)))
+      }).subscribe(({ matches, stats }) => {
         this.matches = matches || [];
+        if (stats && !this.isFutureHiddenGameweek()) {
+          this.applyGameweekStatsToSquad(stats);
+        } else {
+          this.gwPoints = 0;
+          this.highestPoints = 0;
+          this.mySquad = this.mySquad.map(p => ({ ...p, gameweekPoints: 0 }));
+        }
+        this.rebuildPitchFromLineup();
         this.cdr.detectChanges();
       });
     }
   }
 
+  private applyGameweekStatsToSquad(stats: TeamGameweekStats): void {
+    this.gwPoints = stats.teamPoints;
+    this.highestPoints = stats.globalHighestPoints;
+
+    this.mySquad = stats.players.map(p => ({
+      id: p.playerId,
+      name: p.name,
+      position: p.position,
+      realTeam: p.realTeam,
+      price: p.price,
+      totalPoints: p.totalPoints,
+      gameweekPoints: p.points,
+      starter: p.starter
+    }));
+  }
+
+  private rebuildPitchFromLineup(): void {
+    const starters = this.mySquad.filter(p => p.starter === true);
+    const bench = this.mySquad.filter(p => p.starter !== true);
+
+    this.pitchSquad.gks = starters.filter(p => p.position === 'GK').slice(0, 1);
+    this.pitchSquad.defs = starters.filter(p => p.position === 'DEF');
+    this.pitchSquad.mids = starters.filter(p => p.position === 'MID');
+    this.pitchSquad.fwds = starters.filter(p => p.position === 'FWD');
+
+    this.benchSquad = [
+      ...bench.filter(p => p.position === 'GK'),
+      ...bench.filter(p => p.position === 'DEF'),
+      ...bench.filter(p => p.position === 'MID'),
+      ...bench.filter(p => p.position === 'FWD')
+    ];
+  }
+
+  isFutureHiddenGameweek(): boolean {
+    const viewed = this.viewedGameweek || this.dbCurrentGameweek || 1;
+    const maxVisible = this.dbCurrentGameweek || 1;
+    return viewed > maxVisible;
+  }
+
   getAbbr(team: string): string {
     return team ? team.substring(0, 3).toUpperCase() : '';
+  }
+
+  getTeamImageSrc(): string | null {
+    const value = this.teamResponse?.teamImage ?? null;
+    if (!value) {
+      return null;
+    }
+    if (value.startsWith('data:image/')) {
+      return value;
+    }
+    if (value.startsWith('/')) {
+      return `${this.backendBase}${value}`;
+    }
+    if (value.startsWith('http://') || value.startsWith('https://')) {
+      return value;
+    }
+    return null;
+  }
+
+  getProfileImageSrc(): string | null {
+    const value = this.user?.profileImage ?? null;
+    if (!value) {
+      return null;
+    }
+    if (value.startsWith('data:image/')) {
+      return value;
+    }
+    if (value.startsWith('/')) {
+      return `${this.backendBase}${value}`;
+    }
+    if (value.startsWith('http://') || value.startsWith('https://')) {
+      return value;
+    }
+    return null;
   }
 
   getTeamColor(team: string): string {
@@ -227,5 +305,96 @@ export class PointsComponent implements OnInit, OnDestroy {
     if (!isoTime) return '';
     const ko = new Date(isoTime);
     return ko.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+  }
+
+  getVisibleEvents(match: MatchResponse) {
+    if (!match.events || match.events.length === 0) return [];
+    const uiStatus = this.getMatchDisplayStatus(match);
+    if (uiStatus === 'FINISHED') return match.events;
+    if (uiStatus === 'LIVE') {
+      return match.events.filter(e => e.minute <= this.getDisplayElapsedMinutes(match));
+    }
+    return [];
+  }
+
+  getLiveHomeScore(match: MatchResponse): number {
+    const visibleEvents = this.getVisibleEvents(match);
+    return visibleEvents.filter(e => e.type === 'GOAL' && e.team === match.homeTeam).length;
+  }
+
+  getLiveAwayScore(match: MatchResponse): number {
+    const visibleEvents = this.getVisibleEvents(match);
+    return visibleEvents.filter(e => e.type === 'GOAL' && e.team === match.awayTeam).length;
+  }
+
+  getDisplayHomeScore(match: MatchResponse): number {
+    const uiStatus = this.getMatchDisplayStatus(match);
+    if (uiStatus === 'LIVE') {
+      // During LIVE we only show goals that are visible at the current minute.
+      return this.getLiveHomeScore(match);
+    }
+    if (uiStatus === 'FINISHED') {
+      const goalsFromEvents = this.getLiveHomeScore(match);
+      return goalsFromEvents > 0 ? goalsFromEvents : (match.homeScore || 0);
+    }
+    return match.homeScore || 0;
+  }
+
+  getDisplayAwayScore(match: MatchResponse): number {
+    const uiStatus = this.getMatchDisplayStatus(match);
+    if (uiStatus === 'LIVE') {
+      // During LIVE we only show goals that are visible at the current minute.
+      return this.getLiveAwayScore(match);
+    }
+    if (uiStatus === 'FINISHED') {
+      const goalsFromEvents = this.getLiveAwayScore(match);
+      return goalsFromEvents > 0 ? goalsFromEvents : (match.awayScore || 0);
+    }
+    return match.awayScore || 0;
+  }
+
+  getMatchStat(match: MatchResponse, team: 'home' | 'away', stat: 'goals' | 'yellows' | 'reds'): number {
+    const teamName = team === 'home' ? match.homeTeam : match.awayTeam;
+    const visibleEvents = this.getVisibleEvents(match);
+
+    if (stat === 'goals') {
+      return visibleEvents.filter(e => e.type === 'GOAL' && e.team === teamName).length;
+    }
+    if (stat === 'yellows') {
+      return visibleEvents.filter(e => e.type === 'YELLOW_CARD' && e.team === teamName).length;
+    }
+    return visibleEvents.filter(e => e.type === 'RED_CARD' && e.team === teamName).length;
+  }
+
+  getMatchDisplayStatus(match: MatchResponse): 'SCHEDULED' | 'LIVE' | 'FINISHED' {
+    if (!match.kickoffTime) return 'SCHEDULED';
+
+    const kickoff = new Date(match.kickoffTime);
+    const now = this.getEffectiveNow();
+    const liveEnd = new Date(kickoff.getTime() + 105 * 60 * 1000);
+
+    if (now < kickoff) return 'SCHEDULED';
+    if (now >= kickoff && now < liveEnd) return 'LIVE';
+    return 'FINISHED';
+  }
+
+  getDisplayElapsedMinutes(match: MatchResponse): number {
+    const uiStatus = this.getMatchDisplayStatus(match);
+    if (uiStatus !== 'LIVE') return 0;
+
+    const kickoff = new Date(match.kickoffTime);
+    const now = this.getEffectiveNow();
+    const minutes = Math.floor((now.getTime() - kickoff.getTime()) / 60000);
+    return Math.max(0, Math.min(minutes, 90));
+  }
+
+  private getEffectiveNow(): Date {
+    if (this.backendCurrentDate) {
+      const backendNow = new Date(this.backendCurrentDate);
+      if (!Number.isNaN(backendNow.getTime())) {
+        return backendNow;
+      }
+    }
+    return new Date();
   }
 }
