@@ -1,8 +1,11 @@
- package com.example.backend.service;
+package com.example.backend.service;
 
-import com.example.backend.dto.*;
-import com.example.backend.model.User;
-import com.example.backend.model.UserTeam;
+import com.example.backend.dto.auth.AuthResponse;
+import com.example.backend.dto.auth.LoginRequest;
+import com.example.backend.dto.auth.RegisterRequest;
+import com.example.backend.dto.profile.UserResponse;
+import com.example.backend.model.entity.User;
+import com.example.backend.model.entity.UserTeam;
 import com.example.backend.repository.UserRepository;
 import com.example.backend.repository.UserTeamRepository;
 import com.example.backend.security.JwtUtil;
