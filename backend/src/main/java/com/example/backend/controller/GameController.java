@@ -1,7 +1,7 @@
 package com.example.backend.controller;
 
-import com.example.backend.dto.LeaderboardEntryResponse;
-import com.example.backend.model.UserTeam;
+import com.example.backend.dto.game.LeaderboardEntryResponse;
+import com.example.backend.model.entity.UserTeam;
 import com.example.backend.repository.UserTeamRepository;
 import com.example.backend.service.GameEngineService;
 import com.example.backend.service.TransferWindowService;
