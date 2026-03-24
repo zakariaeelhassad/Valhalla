@@ -16,8 +16,8 @@ export interface PaginatedResponse<T> {
 }
 
 export interface TeamResponse {
-    id: number; teamName: string; budget: number; remainingBudget: number;
-    totalPoints: number; players: PlayerSummary[]; playerCount: number;
+    id: number; teamName: string; teamImage?: string | null; budget: number; remainingBudget: number;
+    totalPoints: number; players: PlayerSummary[]; playerCount: number; currentGameweekTransferCount?: number;
 }
 export interface TeamLineupPlayer {
     id: number;
@@ -38,7 +38,34 @@ export interface TeamGameweekStats {
     gameweek: number;
     teamPoints: number;
     globalHighestPoints: number;
-    players: { playerId: number; name: string; points: number; starter: boolean }[];
+    players: {
+        playerId: number;
+        name: string;
+        position: string;
+        realTeam: string;
+        price: number;
+        totalPoints: number;
+        points: number;
+        starter: boolean;
+    }[];
+}
+export interface ProfileResponse {
+    userId: number;
+    username: string;
+    email: string;
+    teamName: string;
+    profileImage: string | null;
+    teamImage: string | null;
+    token?: string | null;
+}
+export interface ProfileUpdateRequest {
+    username?: string;
+    email?: string;
+    teamName?: string;
+    currentPassword?: string;
+    newPassword?: string;
+    profileImage?: string | null;
+    teamImage?: string | null;
 }
 export interface GameweekResponse {
     id: number; gameweekNumber: number; startDate: string; endDate: string; status: string;
@@ -151,6 +178,15 @@ export class ApiService {
         return this.http.get<TeamGameweekStats>(`${BASE}/api/team/gameweek/${gameweek}`);
     }
 
+    getCurrentGameweekTransferCount(): Observable<{ transferCount: number; gameweek: number }> {
+        return this.http.get<{ transferCount: number; gameweek: number }>(`${BASE}/api/team/gameweek/transfers/count`).pipe(
+            catchError(err => {
+                console.error('ApiService.getCurrentGameweekTransferCount failed:', err);
+                return throwError(() => err);
+            })
+        );
+    }
+
     // ── Players ───────────────────────────────────────
     getPlayers(position?: string, size: number = 20): Observable<PlayerSummary[]> {
         let params = new HttpParams();
@@ -260,5 +296,14 @@ export class ApiService {
     }
     getSimClock(): Observable<SimClock> {
         return this.http.get<SimClock>(`${BASE}/api/matches/clock`);
+    }
+
+    // ── Profile ───────────────────────────────────────
+    getMyProfile(): Observable<ProfileResponse> {
+        return this.http.get<ProfileResponse>(`${BASE}/api/profile`);
+    }
+
+    updateMyProfile(payload: ProfileUpdateRequest): Observable<ProfileResponse> {
+        return this.http.put<ProfileResponse>(`${BASE}/api/profile`, payload);
     }
 }
