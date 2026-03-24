@@ -21,6 +21,10 @@ public class GameweekStatsResponse {
     public static class PlayerGameweekScore {
         private Long playerId;
         private String name;
+        private String position;
+        private String realTeam;
+        private double price;
+        private int totalPoints;
         private int points;
         private boolean starter;
     }
