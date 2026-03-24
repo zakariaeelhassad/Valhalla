@@ -1,10 +1,10 @@
 package com.example.backend.service;
 
-import com.example.backend.dto.ProfileResponse;
-import com.example.backend.dto.ProfileUpdateRequest;
+import com.example.backend.dto.profile.ProfileResponse;
+import com.example.backend.dto.profile.ProfileUpdateRequest;
 import com.example.backend.exception.ResourceNotFoundException;
-import com.example.backend.model.User;
-import com.example.backend.model.UserTeam;
+import com.example.backend.model.entity.User;
+import com.example.backend.model.entity.UserTeam;
 import com.example.backend.repository.UserRepository;
 import com.example.backend.repository.UserTeamRepository;
 import com.example.backend.security.JwtUtil;
