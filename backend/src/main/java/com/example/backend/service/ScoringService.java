@@ -1,6 +1,8 @@
 package com.example.backend.service;
 
-import com.example.backend.model.*;
+import com.example.backend.model.entity.*;
+import com.example.backend.model.enums.EventType;
+import com.example.backend.model.enums.Position;
 import com.example.backend.repository.MatchRepository;
 import com.example.backend.repository.GameweekRepository;
 import com.example.backend.repository.PlayerGameweekStatsRepository;
