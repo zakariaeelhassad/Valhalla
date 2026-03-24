@@ -1,16 +1,16 @@
 package com.example.backend.controller;
 
-import com.example.backend.dto.GameweekStatsResponse;
-import com.example.backend.dto.GameweekTotalPointsResponse;
-import com.example.backend.dto.GameweekTransferCountResponse;
-import com.example.backend.dto.PlayerSummary;
-import com.example.backend.dto.SaveLineupRequest;
-import com.example.backend.dto.SubstitutionRequest;
-import com.example.backend.dto.TeamResponse;
-import com.example.backend.dto.TeamLineupResponse;
-import com.example.backend.dto.TransferRequest;
-import com.example.backend.model.UserTeam;
-import com.example.backend.model.UserTeamPlayer;
+import com.example.backend.dto.game.GameweekStatsResponse;
+import com.example.backend.dto.game.GameweekTotalPointsResponse;
+import com.example.backend.dto.game.GameweekTransferCountResponse;
+import com.example.backend.dto.player.PlayerSummary;
+import com.example.backend.dto.team.SaveLineupRequest;
+import com.example.backend.dto.team.SubstitutionRequest;
+import com.example.backend.dto.team.TeamResponse;
+import com.example.backend.dto.team.TeamLineupResponse;
+import com.example.backend.dto.team.TransferRequest;
+import com.example.backend.model.entity.UserTeam;
+import com.example.backend.model.entity.UserTeamPlayer;
 import com.example.backend.security.SecurityUtils;
 import com.example.backend.service.TeamManagementService;
 import io.swagger.v3.oas.annotations.Operation;
