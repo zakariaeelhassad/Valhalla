@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 
 export interface LoginRequest { emailOrUsername: string; password: string; }
 export interface RegisterRequest { username: string; email: string; password: string; }
-export interface UserResponse { id: number; username: string; email: string; createdAt?: string; }
+export interface UserResponse { id: number; username: string; email: string; profileImage?: string | null; createdAt?: string; }
 export interface AuthResponse { token: string; type: string; user: UserResponse; }
 
 @Injectable({ providedIn: 'root' })
@@ -54,6 +54,23 @@ export class AuthService {
             try { return raw ? JSON.parse(raw) : null; } catch { return null; }
         }
         return null;
+    }
+
+    updateStoredUser(patch: Partial<UserResponse>): void {
+        if (typeof window === 'undefined' || !window.localStorage) {
+            return;
+        }
+        const current = this.getUser();
+        if (!current) {
+            return;
+        }
+        localStorage.setItem('user', JSON.stringify({ ...current, ...patch }));
+    }
+
+    setToken(token: string): void {
+        if (typeof window !== 'undefined' && window.localStorage) {
+            localStorage.setItem('token', token);
+        }
     }
 
     private persist(res: AuthResponse): void {
