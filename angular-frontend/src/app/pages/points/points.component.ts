@@ -8,6 +8,7 @@ import { AuthService, UserResponse } from '../../core/services/auth.service';
 import { ApiService, CurrentGameweekContext, GameState, PlayerSummary, MatchResponse, TeamResponse, TeamGameweekStats, TeamLineupResponse } from '../../core/services/api.service';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
+import { getTeamJersey, getTeamLogo } from '../../shared/utils/team-visuals';
 
 type PointsPlayer = PlayerSummary & { gameweekPoints: number, starter?: boolean };
 
@@ -159,7 +160,7 @@ export class PointsComponent implements OnInit, OnDestroy {
         } else {
           this.gwPoints = 0;
           this.highestPoints = 0;
-          this.mySquad = this.mySquad.map(p => ({ ...p, gameweekPoints: 0 }));
+          this.mySquad = [];
         }
 
         this.rebuildPitchFromLineup();
@@ -204,7 +205,7 @@ export class PointsComponent implements OnInit, OnDestroy {
         } else {
           this.gwPoints = 0;
           this.highestPoints = 0;
-          this.mySquad = this.mySquad.map(p => ({ ...p, gameweekPoints: 0 }));
+          this.mySquad = [];
         }
         this.rebuildPitchFromLineup();
         this.cdr.detectChanges();
@@ -251,8 +252,20 @@ export class PointsComponent implements OnInit, OnDestroy {
     return viewed > maxVisible;
   }
 
+  shouldShowLineupSections(): boolean {
+    return !this.isFutureHiddenGameweek() && this.mySquad.length > 0;
+  }
+
   getAbbr(team: string): string {
     return team ? team.substring(0, 3).toUpperCase() : '';
+  }
+
+  getClubLogo(team: string | null | undefined): string {
+    return getTeamLogo(team || '');
+  }
+
+  getJersey(team: string | null | undefined): string {
+    return getTeamJersey(team || '');
   }
 
   getTeamImageSrc(): string | null {
