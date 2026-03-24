@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 import { ApiService } from '../../../core/services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -21,7 +22,7 @@ export class NavbarComponent implements OnInit {
   menuOpen = false;
   teamComplete = false;
 
-  constructor(private auth: AuthService, private api: ApiService) { }
+  constructor(private auth: AuthService, private api: ApiService, private router: Router) { }
 
   ngOnInit() {
     if (this.isAuth) {
@@ -33,6 +34,9 @@ export class NavbarComponent implements OnInit {
   }
 
   get isAuth(): boolean { return this.auth.isAuthenticated(); }
+  get showPointsAndSubs(): boolean {
+    return this.teamComplete || this.isOnPointsOrSubstitutionsRoute();
+  }
   get username(): string { return this.auth.getUser()?.username ?? 'U'; }
   get profileImageSrc(): string | null {
     const value = this.auth.getUser()?.profileImage ?? null;
@@ -50,5 +54,11 @@ export class NavbarComponent implements OnInit {
     }
     return null;
   }
+
+  private isOnPointsOrSubstitutionsRoute(): boolean {
+    const path = this.router.url || '';
+    return path.startsWith('/points') || path.startsWith('/substitutions');
+  }
+
   logout(): void { this.auth.logout(); }
 }
