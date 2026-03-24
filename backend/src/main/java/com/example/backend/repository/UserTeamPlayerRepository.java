@@ -1,7 +1,7 @@
 package com.example.backend.repository;
 
-import com.example.backend.dto.LineupPlayerMeta;
-import com.example.backend.model.UserTeamPlayer;
+import com.example.backend.dto.team.LineupPlayerMeta;
+import com.example.backend.model.entity.UserTeamPlayer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -20,7 +20,7 @@ public interface UserTeamPlayerRepository extends JpaRepository<UserTeamPlayer, 
 
     long countByTeamId(Long teamId);
 
-    @Query("select new com.example.backend.dto.LineupPlayerMeta(tp.player.id, tp.player.position) " +
+    @Query("select new com.example.backend.dto.team.LineupPlayerMeta(tp.player.id, tp.player.position) " +
             "from UserTeamPlayer tp where tp.team.id = :teamId")
     List<LineupPlayerMeta> findLineupMetaByTeamId(Long teamId);
 
