@@ -5,7 +5,7 @@
     <a routerLink="/" class="flex items-center gap-2.5 no-underline">
       <span class="text-2xl" style="filter:drop-shadow(0 0 8px rgba(56,189,248,0.6))">⚽</span>
       <span class="font-outfit font-extrabold text-xl tracking-tight text-slate-100">
-        Aji<span class="gradient-text">T9aser</span>
+        <span class="gradient-text">Valhalla</span>
       </span>
     </a>
 
@@ -24,11 +24,7 @@
         class="px-4 py-2 text-slate-400 text-sm font-medium rounded-lg transition-all hover:text-slate-100 hover:bg-white/[0.05] no-underline">
         Team Selection
       </a>
-      <a routerLink="/profile" routerLinkActive="text-sky-400 bg-white/[0.06]"
-        class="px-4 py-2 text-slate-400 text-sm font-medium rounded-lg transition-all hover:text-slate-100 hover:bg-white/[0.05] no-underline">
-        Profile
-      </a>
-      @if (teamComplete) {
+      @if (showPointsAndSubs) {
       <a routerLink="/substitutions" routerLinkActive="text-sky-400 bg-white/[0.06]"
         class="px-4 py-2 text-slate-400 text-sm font-medium rounded-lg transition-all hover:text-slate-100 hover:bg-white/[0.05] no-underline">
         Substitutions
@@ -44,7 +40,7 @@
     <!-- Auth area -->
     <div class="hidden md:flex items-center gap-3">
       @if (isAuth) {
-      <a routerLink="/profile" class="flex items-center gap-2 bg-sky-400/[0.08] border border-sky-400/20 rounded-full px-4 py-1.5 no-underline">
+      <div class="flex items-center gap-2 bg-sky-400/[0.08] border border-sky-400/20 rounded-full px-4 py-1.5">
         @if (profileImageSrc) {
         <img [src]="profileImageSrc" alt="Profile" class="w-7 h-7 rounded-full object-cover border border-sky-300/40" />
         } @else {
@@ -54,7 +50,7 @@
         </div>
         }
         <span class="text-slate-100 text-sm font-medium max-w-[120px] truncate">{{ username }}</span>
-      </a>
+      </div>
       <button (click)="logout()" class="btn-secondary text-sm px-5 py-2">Sign Out</button>
       } @else {
       <a routerLink="/login" class="btn-secondary text-sm px-5 py-2 no-underline">Log In</a>
@@ -78,8 +74,7 @@
     @if (isAuth) {
     <a routerLink="/dashboard" (click)="menuOpen=false" class="mob-link no-underline">Dashboard</a>
     <a routerLink="/team-selection" (click)="menuOpen=false" class="mob-link no-underline">Team Selection</a>
-    <a routerLink="/profile" (click)="menuOpen=false" class="mob-link no-underline">Profile</a>
-    @if (teamComplete) {
+    @if (showPointsAndSubs) {
     <a routerLink="/substitutions" (click)="menuOpen=false" class="mob-link no-underline">Substitutions</a>
     <a routerLink="/points" (click)="menuOpen=false" class="mob-link no-underline">Points</a>
     }
