@@ -4,16 +4,16 @@ import com.example.backend.exception.InsufficientBudgetException;
 import com.example.backend.exception.InvalidTransferException;
 import com.example.backend.exception.ResourceNotFoundException;
 import com.example.backend.exception.TeamFullException;
-import com.example.backend.model.Player;
-import com.example.backend.model.Position;
-import com.example.backend.model.User;
-import com.example.backend.model.UserTeam;
-import com.example.backend.model.UserTeamGameweekLineup;
-import com.example.backend.model.UserTeamGameweekLineupPlayer;
-import com.example.backend.model.UserTeamPlayer;
-import com.example.backend.model.UserTeamGameweekTransfers;
-import com.example.backend.model.Gameweek;
-import com.example.backend.model.Match;
+import com.example.backend.model.entity.Player;
+import com.example.backend.model.enums.Position;
+import com.example.backend.model.entity.User;
+import com.example.backend.model.entity.UserTeam;
+import com.example.backend.model.entity.UserTeamGameweekLineup;
+import com.example.backend.model.entity.UserTeamGameweekLineupPlayer;
+import com.example.backend.model.entity.UserTeamPlayer;
+import com.example.backend.model.entity.UserTeamGameweekTransfers;
+import com.example.backend.model.entity.Gameweek;
+import com.example.backend.model.entity.Match;
 import com.example.backend.repository.PlayerRepository;
 import com.example.backend.repository.PlayerGameweekStatsRepository;
 import com.example.backend.repository.GameweekRepository;
@@ -24,14 +24,14 @@ import com.example.backend.repository.UserTeamGameweekTransfersRepository;
 import com.example.backend.repository.UserRepository;
 import com.example.backend.repository.UserTeamPlayerRepository;
 import com.example.backend.repository.UserTeamRepository;
-import com.example.backend.dto.GameweekStatsResponse;
-import com.example.backend.dto.GameweekStatsResponse.PlayerGameweekScore;
-import com.example.backend.dto.GameweekTotalPointsResponse;
-import com.example.backend.dto.LineupPlayerMeta;
-import com.example.backend.dto.TeamLineupPlayerResponse;
-import com.example.backend.dto.TeamLineupResponse;
-import com.example.backend.model.PlayerGameweekStats;
-import com.example.backend.model.UserTeamGameweekPoints;
+import com.example.backend.dto.game.GameweekStatsResponse;
+import com.example.backend.dto.game.GameweekStatsResponse.PlayerGameweekScore;
+import com.example.backend.dto.game.GameweekTotalPointsResponse;
+import com.example.backend.dto.team.LineupPlayerMeta;
+import com.example.backend.dto.team.TeamLineupPlayerResponse;
+import com.example.backend.dto.team.TeamLineupResponse;
+import com.example.backend.model.entity.PlayerGameweekStats;
+import com.example.backend.model.entity.UserTeamGameweekPoints;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -1133,7 +1133,7 @@ public class TeamManagementService {
         }
 
         @Transactional(readOnly = true)
-        public com.example.backend.dto.GameweekTransferCountResponse getCurrentGameweekTransferCount(Long userId) {
+        public com.example.backend.dto.game.GameweekTransferCountResponse getCurrentGameweekTransferCount(Long userId) {
                 UserTeam userTeam = userTeamRepository.findByUserId(userId)
                                 .orElseThrow(() -> new ResourceNotFoundException("User team not found"));
 
@@ -1143,7 +1143,7 @@ public class TeamManagementService {
                                 : status.nextGameweek();
 
                 if (currentGameweek == null) {
-                        return com.example.backend.dto.GameweekTransferCountResponse.builder()
+                        return com.example.backend.dto.game.GameweekTransferCountResponse.builder()
                                 .gameweek(0)
                                 .transferCount(0)
                                 .build();
@@ -1151,10 +1151,10 @@ public class TeamManagementService {
 
                 int transferCount = userTeamGameweekTransfersRepository
                         .findByTeamIdAndGameweekNumber(userTeam.getId(), currentGameweek)
-                        .map(com.example.backend.model.UserTeamGameweekTransfers::getTransferCount)
+                        .map(com.example.backend.model.entity.UserTeamGameweekTransfers::getTransferCount)
                         .orElse(0);
 
-                return com.example.backend.dto.GameweekTransferCountResponse.builder()
+                return com.example.backend.dto.game.GameweekTransferCountResponse.builder()
                         .gameweek(currentGameweek)
                         .transferCount(transferCount)
                         .build();
