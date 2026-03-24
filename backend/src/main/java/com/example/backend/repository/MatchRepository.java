@@ -1,6 +1,6 @@
 package com.example.backend.repository;
 
-import com.example.backend.model.Match;
+import com.example.backend.model.entity.Match;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
