@@ -5,6 +5,7 @@ import { ApiService, PlayerSummary, TransferWindowStatus } from '../../core/serv
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { catchError, finalize, forkJoin, interval, of, startWith, Subscription, switchMap } from 'rxjs';
+import { getTeamJersey, getTeamLogo } from '../../shared/utils/team-visuals';
 
 export interface PitchSlot {
   id: number;
@@ -622,5 +623,13 @@ export class TeamSelectionComponent implements OnInit, OnDestroy {
       return value;
     }
     return null;
+  }
+
+  getClubLogo(team: string | null | undefined): string {
+    return getTeamLogo(team || '');
+  }
+
+  getJersey(team: string | null | undefined): string {
+    return getTeamJersey(team || '');
   }
 }
