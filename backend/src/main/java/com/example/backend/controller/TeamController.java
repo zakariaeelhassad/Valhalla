@@ -75,7 +75,7 @@ public class TeamController {
 
     @GetMapping("/stats")
     @Operation(summary = "Get squad statistics (positions, budget, points)")
-    public ResponseEntity<TeamManagementService.SquadStatistics> getStats() {
+    public ResponseEntity<com.example.backend.service.Impl.TeamManagementService.SquadStatistics> getStats() {
         Long userId = securityUtils.getCurrentUserId();
         return ResponseEntity.ok(teamManagementService.getSquadStatistics(userId));
     }
@@ -145,3 +145,4 @@ public class TeamController {
                 players.size());
     }
 }
+
