@@ -15,7 +15,7 @@ import { RouterLink } from '@angular/router';
           <div class="flex items-center gap-2 mb-3">
             <span class="text-xl">⚽</span>
             <span class="font-outfit font-extrabold text-lg text-slate-100">
-              Aji<span class="gradient-text">T9aser</span>
+              <span class="gradient-text">Valhalla</span>
             </span>
           </div>
           <p class="text-slate-500 text-sm">The Moroccan Fantasy Football Experience.</p>
@@ -41,7 +41,7 @@ import { RouterLink } from '@angular/router';
       </div>
 
       <div class="border-t border-white/[0.05] pt-6 flex flex-wrap items-center justify-between gap-2">
-        <span class="text-slate-500 text-xs">© 2026 AjiT9aser. All rights reserved.</span>
+        <span class="text-slate-500 text-xs">© 2026 Valhalla. All rights reserved.</span>
         <span class="text-slate-500 text-xs">Built with ❤️ for football fans</span>
       </div>
     </div>
