@@ -31,6 +31,9 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Column(columnDefinition = "TEXT")
+    private String profileImage;
+
     @Column(nullable = false, length = 20, columnDefinition = "varchar(20) default 'USER'")
     @Builder.Default
     private String role = "USER";
