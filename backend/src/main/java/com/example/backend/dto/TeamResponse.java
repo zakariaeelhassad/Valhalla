@@ -6,6 +6,7 @@ import java.util.List;
 public record TeamResponse(
         Long id,
         String teamName,
+        String teamImage,
         BigDecimal budget,
         BigDecimal remainingBudget,
         Integer totalPoints,
