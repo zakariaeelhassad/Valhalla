@@ -1,6 +1,6 @@
 package com.example.backend.repository;
 
-import com.example.backend.model.UserTeam;
+import com.example.backend.model.entity.UserTeam;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.JpaRepository;
