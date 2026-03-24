@@ -1,8 +1,9 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { catchError, finalize, interval, of, startWith, Subscription, switchMap } from 'rxjs';
+import { catchError, finalize, forkJoin, interval, of, startWith, Subscription, switchMap } from 'rxjs';
 import { ApiService, TeamLineupPlayer, TeamLineupResponse, TransferWindowStatus } from '../../core/services/api.service';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
+import { getTeamJersey, getTeamLogo } from '../../shared/utils/team-visuals';
 
 interface LineupSlot {
   id: number;
@@ -26,6 +27,7 @@ interface LineupSlot {
   `]
 })
 export class SubstitutionsComponent implements OnInit, OnDestroy {
+  private readonly backendBase = 'http://localhost:8080';
   loadingLineup = true;
   loadingGameState = true;
   saving = false;
@@ -33,6 +35,7 @@ export class SubstitutionsComponent implements OnInit, OnDestroy {
   successMessage: string | null = null;
 
   teamName = '';
+  teamImage: string | null = null;
   currentGameweek = 0;
   gameweekLocked = false;
   transferWindowStatus: TransferWindowStatus | null = null;
@@ -119,17 +122,48 @@ export class SubstitutionsComponent implements OnInit, OnDestroy {
     this.loadingLineup = true;
     this.errorMessage = null;
 
-    this.api.getTeamLineup().pipe(
+    forkJoin({
+      lineup: this.api.getTeamLineup(),
+      team: this.api.getMyTeam().pipe(catchError(() => of(null)))
+    }).pipe(
       finalize(() => {
         this.loadingLineup = false;
         this.cdr.detectChanges();
       })
     ).subscribe({
-      next: (lineup) => this.applyLineup(lineup),
+      next: ({ lineup, team }) => {
+        this.applyLineup(lineup);
+        this.teamImage = team?.teamImage || null;
+      },
       error: (err) => {
         this.errorMessage = err.error?.message || 'Failed to load lineup.';
       }
     });
+  }
+
+  getTeamImageSrc(): string | null {
+    const value = this.teamImage ?? null;
+    if (!value) {
+      return null;
+    }
+    if (value.startsWith('data:image/')) {
+      return value;
+    }
+    if (value.startsWith('/')) {
+      return `${this.backendBase}${value}`;
+    }
+    if (value.startsWith('http://') || value.startsWith('https://')) {
+      return value;
+    }
+    return null;
+  }
+
+  getClubLogo(team: string | null | undefined): string {
+    return getTeamLogo(team || '');
+  }
+
+  getJersey(team: string | null | undefined): string {
+    return getTeamJersey(team || '');
   }
 
   selectOrSwap(slot: LineupSlot): void {
