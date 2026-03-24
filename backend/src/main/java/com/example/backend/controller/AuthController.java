@@ -1,8 +1,8 @@
 package com.example.backend.controller;
 
-import com.example.backend.dto.AuthResponse;
-import com.example.backend.dto.LoginRequest;
-import com.example.backend.dto.RegisterRequest;
+import com.example.backend.dto.auth.AuthResponse;
+import com.example.backend.dto.auth.LoginRequest;
+import com.example.backend.dto.auth.RegisterRequest;
 import com.example.backend.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
