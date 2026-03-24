@@ -1,6 +1,7 @@
 package com.example.backend.service;
 
-import com.example.backend.model.*;
+import com.example.backend.model.entity.*;
+import com.example.backend.model.enums.Position;
 import com.example.backend.repository.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
