@@ -1,0 +1,209 @@
+<main class="flex flex-col gap-4">
+  <div class="flex justify-between items-center bg-black/20 p-4 rounded-xl border border-white/5">
+    <div>
+      <h1 class="text-2xl lg:text-3xl font-black text-white">Team Selection</h1>
+    </div>
+    <div class="flex items-center">
+      @if (getTeamImageSrc()) {
+        <img [src]="getTeamImageSrc()!" alt="Team image" class="w-12 h-12 rounded-xl object-cover border border-cyan-400/40" />
+      } @else {
+        <div class="w-12 h-12 rounded-xl border border-cyan-400/30 bg-cyan-500/10 flex items-center justify-center text-cyan-200 font-bold text-[10px] text-center leading-tight">TEAM</div>
+      }
+    </div>
+  </div>
+
+  <div class="glass-card p-4 flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-6 md:gap-10 mx-auto lg:mr-0">
+      <div class="flex flex-col items-center">
+        <div class="bg-emerald-500 text-slate-900 font-black px-4 py-1 rounded text-xl">{{ playersSelected }} / 15</div>
+        <span class="text-[10px] text-slate-400 uppercase mt-1">Players Selected</span>
+      </div>
+
+      <div class="flex flex-col items-center">
+        <div class="bg-emerald-500 text-slate-900 font-black px-4 py-1 rounded text-xl">£{{ budget.toFixed(1) }}m</div>
+        <span class="text-[10px] text-slate-400 uppercase mt-1">Budget</span>
+      </div>
+
+      <div class="flex flex-col items-center">
+        @if (!hasExistingTeam) {
+          <div class="text-white font-black text-xl">0 pts</div>
+        } @else {
+          @let totalTransfers = currentGameweekTransferCount + transfersMade;
+          @if (totalTransfers === 0) {
+            <div class="text-emerald-400 font-black text-xl">1 Free</div>
+          } @else if (totalTransfers === 1) {
+            <div class="text-emerald-400 font-black text-xl">0 pts</div>
+          } @else {
+            <div class="text-red-400 font-black text-xl">-{{ transferCost }} pts</div>
+          }
+        }
+        <span class="text-[10px] text-slate-400 uppercase mt-1">Cost</span>
+      </div>
+    </div>
+  </div>
+
+  @if (!loadingGameState && !gameweekLocked) {
+    <div class="flex items-center gap-3 bg-emerald-900/40 border border-emerald-500/60 text-emerald-200 px-4 py-3 rounded-xl text-sm font-semibold">
+      <span class="text-lg">✅</span>
+      <div>
+        <div class="font-bold text-emerald-100">
+          @if (transferWindowStatus?.nextGameweek) {
+            You can make changes until {{ nextDeadlineLabel }} before Gameweek {{ transferWindowStatus?.nextGameweek }} starts.
+          } @else {
+            The transfer window is open.
+          }
+        </div>
+        <div class="text-xs text-emerald-300/80 mt-0.5 font-normal">{{ transferWindowStatus?.message }}</div>
+      </div>
+    </div>
+  }
+
+  @if (!loadingGameState && gameweekLocked) {
+    <div class="flex items-center gap-3 bg-red-900/40 border border-red-500/60 text-red-200 px-4 py-3 rounded-xl text-sm font-semibold">
+      <span class="text-lg">🔒</span>
+      <div>
+        <div class="font-bold text-red-100">We are currently in Gameweek {{ transferWindowStatus?.activeGameweek || currentGameweek }}. Transfers are locked.</div>
+        <div class="text-xs text-red-300/80 mt-0.5 font-normal">{{ transferWindowStatus?.message }}</div>
+      </div>
+    </div>
+  }
+
+  @if (errorMessage && playersSelected === 15) {
+    <div class="bg-red-600 text-white font-bold text-center py-2 rounded shadow-lg text-sm animate-pulse mx-auto px-8">{{ errorMessage }}</div>
+  }
+
+  <div class="relative w-full aspect-[4/5] sm:aspect-[4/3] lg:aspect-[16/11] overflow-hidden rounded-xl border-t-[8px] border-emerald-400 shadow-[0_10px_30px_rgba(0,0,0,0.5)] bg-emerald-500 mb-4 p-2">
+    <div class="absolute inset-x-0 bottom-0 top-[10%] bg-emerald-500 overflow-hidden" style="background-image: repeating-linear-gradient(to right, transparent, transparent 10%, rgba(255,255,255,0.05) 10%, rgba(255,255,255,0.05) 20%); z-index: 0">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] h-[15%] border-b-2 border-l-2 border-r-2 border-white/40"></div>
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[20%] h-[6%] border-b-2 border-l-2 border-r-2 border-white/40"></div>
+      <div class="absolute top-[15%] left-1/2 -translate-x-1/2 w-[16%] h-[6%] rounded-b-full border-b-2 border-white/40 border-r-0 border-l-0 border-t-0"></div>
+      <div class="absolute inset-4 border-2 border-white/40"></div>
+    </div>
+
+    <div class="relative w-full h-full z-10 perspective-[1000px] flex flex-col justify-between py-[4%]">
+      <div class="flex justify-center gap-16 sm:gap-32 w-full z-40">
+        @for (slot of gks; track slot.id) {
+          <div class="flex flex-col items-center w-[75px] sm:w-[85px] transition-transform cursor-pointer relative" (click)="onOpenSlot(slot)" [ngClass]="{'opacity-50 hover:opacity-100 hover:scale-105': !slot.player, 'drop-shadow-xl hover:scale-105': slot.player, 'scale-110 drop-shadow-[0_0_15px_rgba(56,189,248,0.6)]': activeSlotId === slot.id}">
+            @if (slot.player) {
+              <button (click)="onRemoveSlot(slot, $event)" class="absolute -top-1 -left-1 w-4 h-4 bg-purple-900 border border-white text-white rounded-full flex items-center justify-center text-[8px] font-bold z-30 shadow hover:bg-red-500">✕</button>
+              <div class="bg-slate-900 text-white font-bold text-[9px] px-1 rounded-t border-b border-black w-full text-center z-20 absolute -top-4 shadow-md">£{{ slot.player.price.toFixed(1) }}m</div>
+              <img [src]="getJersey(slot.player.realTeam)" class="w-14 sm:w-16 h-14 sm:h-16 object-contain z-10 rounded-t-md opacity-95 shadow-sm" />
+              <div class="bg-white text-slate-900 font-bold text-[10px] px-1 w-[110%] text-center rounded-t-sm truncate shadow-md z-10 mt-[-5px]">{{ slot.player.name.split(' ').pop() }}</div>
+              <div class="bg-purple-900 text-white font-bold text-[10px] px-1 w-[110%] text-center rounded-b-sm shadow-md z-10 border-t border-purple-800 truncate"><span class="inline-flex items-center gap-1 justify-center"><img [src]="getClubLogo(slot.player.realTeam)" alt="Club" class="w-3 h-3 object-contain rounded-full" />{{ slot.player.realTeam }}</span></div>
+            } @else {
+              <div class="bg-slate-900/80 text-white font-bold text-[9px] px-1 rounded-t w-full text-center z-20 absolute -top-4 border border-white/20">Add Player</div>
+              <div class="w-14 sm:w-16 h-14 sm:h-16 z-10 rounded-t-lg bg-black/40 border-2 border-dashed border-white/40 flex items-center justify-center text-2xl text-white/50 shadow-sm">+</div>
+              <div class="bg-black/60 text-white font-bold text-[10px] px-1 w-[110%] text-center rounded shadow-md z-10 mt-1 border border-white/10 uppercase tracking-widest">{{ slot.position }}</div>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="flex justify-center gap-1 sm:gap-4 w-full z-30 mt-4">
+        @for (slot of defs; track slot.id) {
+          <div class="flex flex-col items-center w-[60px] sm:w-[80px] transition-transform cursor-pointer relative" (click)="onOpenSlot(slot)" [ngClass]="{'opacity-50 hover:opacity-100 hover:scale-105': !slot.player, 'drop-shadow-xl hover:scale-105': slot.player, 'scale-110 drop-shadow-[0_0_15px_rgba(56,189,248,0.6)]': activeSlotId === slot.id}">
+            @if (slot.player) {
+              <button (click)="onRemoveSlot(slot, $event)" class="absolute -top-1 -left-1 w-4 h-4 bg-purple-900 border border-white text-white rounded-full flex items-center justify-center text-[8px] font-bold z-30 transition-colors hover:bg-red-500">✕</button>
+              <div class="bg-slate-900 text-white font-bold text-[9px] px-1 rounded-t border-b border-black w-full text-center z-20 absolute -top-4 shadow-md">£{{ slot.player.price.toFixed(1) }}m</div>
+              <img [src]="getJersey(slot.player.realTeam)" class="w-12 sm:w-16 h-12 sm:h-16 object-contain z-10 rounded-t-md opacity-95 shadow-sm" />
+              <div class="bg-white text-slate-900 font-bold text-[9px] sm:text-[10px] px-1 w-[114%] text-center rounded-t-sm truncate shadow-md z-10 mt-[-5px]">{{ slot.player.name.split(' ').pop() }}</div>
+              <div class="bg-purple-900 text-white font-bold text-[9px] sm:text-[10px] px-1 w-[114%] text-center rounded-b-sm shadow-md z-10 border-t border-purple-800 truncate"><span class="inline-flex items-center gap-1 justify-center"><img [src]="getClubLogo(slot.player.realTeam)" alt="Club" class="w-3 h-3 object-contain rounded-full" />{{ slot.player.realTeam }}</span></div>
+            } @else {
+              <div class="bg-slate-900/80 text-white font-bold text-[9px] px-1 rounded-t w-full text-center z-20 absolute -top-4 border border-white/20">£{{ budget.toFixed(1) }}</div>
+              <div class="w-12 sm:w-16 h-12 sm:h-16 z-10 rounded-t-lg bg-black/40 border-2 border-dashed border-white/40 flex items-center justify-center text-2xl text-white/50 shadow-sm transition-colors hover:border-sky-400">+</div>
+              <div class="bg-black/60 text-white font-bold text-[9px] px-1 w-[110%] text-center rounded shadow-md z-10 mt-1 border border-white/10 uppercase tracking-widest">{{ slot.position }}</div>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="flex justify-center gap-1 sm:gap-4 w-full z-20">
+        @for (slot of mids; track slot.id) {
+          <div class="flex flex-col items-center w-[60px] sm:w-[80px] transition-transform cursor-pointer relative" (click)="onOpenSlot(slot)" [ngClass]="{'opacity-50 hover:opacity-100 hover:scale-105': !slot.player, 'drop-shadow-xl hover:scale-105': slot.player, 'scale-110 drop-shadow-[0_0_15px_rgba(56,189,248,0.6)]': activeSlotId === slot.id}">
+            @if (slot.player) {
+              <button (click)="onRemoveSlot(slot, $event)" class="absolute -top-1 -left-1 w-4 h-4 bg-purple-900 border border-white text-white rounded-full flex items-center justify-center text-[8px] font-bold z-30 transition-colors hover:bg-red-500">✕</button>
+              <div class="bg-slate-900 text-white font-bold text-[9px] px-1 rounded-t border-b border-black w-full text-center z-20 absolute -top-4 shadow-md">£{{ slot.player.price.toFixed(1) }}m</div>
+              <img [src]="getJersey(slot.player.realTeam)" class="w-12 sm:w-16 h-12 sm:h-16 object-contain z-10 rounded-t-md opacity-95 shadow-sm" />
+              <div class="bg-white text-slate-900 font-bold text-[9px] sm:text-[10px] px-1 w-[114%] text-center rounded-t-sm truncate shadow-md z-10 mt-[-5px]">{{ slot.player.name.split(' ').pop() }}</div>
+              <div class="bg-purple-900 text-white font-bold text-[9px] sm:text-[10px] px-1 w-[114%] text-center rounded-b-sm shadow-md z-10 border-t border-purple-800 truncate"><span class="inline-flex items-center gap-1 justify-center"><img [src]="getClubLogo(slot.player.realTeam)" alt="Club" class="w-3 h-3 object-contain rounded-full" />{{ slot.player.realTeam }}</span></div>
+            } @else {
+              <div class="bg-slate-900/80 text-white font-bold text-[9px] px-1 rounded-t w-full text-center z-20 absolute -top-4 border border-white/20">£{{ budget.toFixed(1) }}</div>
+              <div class="w-12 sm:w-16 h-12 sm:h-16 z-10 rounded-t-lg bg-black/40 border-2 border-dashed border-white/40 flex items-center justify-center text-2xl text-white/50 shadow-sm transition-colors hover:border-sky-400">+</div>
+              <div class="bg-black/60 text-white font-bold text-[9px] px-1 w-[110%] text-center rounded shadow-md z-10 mt-1 border border-white/10 uppercase tracking-widest">{{ slot.position }}</div>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="flex justify-center gap-8 sm:gap-16 w-full z-10 relative top-2">
+        @for (slot of fwds; track slot.id) {
+          <div class="flex flex-col items-center w-[70px] sm:w-[85px] transition-transform cursor-pointer relative" (click)="onOpenSlot(slot)" [ngClass]="{'opacity-50 hover:opacity-100 hover:scale-105': !slot.player, 'drop-shadow-xl hover:scale-105': slot.player, 'scale-110 drop-shadow-[0_0_15px_rgba(56,189,248,0.6)]': activeSlotId === slot.id}">
+            @if (slot.player) {
+              <button (click)="onRemoveSlot(slot, $event)" class="absolute -top-1 -left-1 w-4 h-4 bg-purple-900 border border-white text-white rounded-full flex items-center justify-center text-[8px] font-bold z-30 transition-colors hover:bg-red-500">✕</button>
+              <div class="bg-slate-900 text-white font-bold text-[9px] px-1 rounded-t border-b border-black w-full text-center z-20 absolute -top-4 shadow-md">£{{ slot.player.price.toFixed(1) }}m</div>
+              <img [src]="getJersey(slot.player.realTeam)" class="w-14 sm:w-16 h-14 sm:h-16 object-contain z-10 rounded-t-md opacity-95 shadow-sm" />
+              <div class="bg-white text-slate-900 font-bold text-[10px] px-1 w-[110%] text-center rounded-t-sm truncate shadow-md z-10 mt-[-5px]">{{ slot.player.name.split(' ').pop() }}</div>
+              <div class="bg-purple-900 text-white font-bold text-[10px] px-1 w-[110%] text-center rounded-b-sm shadow-md z-10 border-t border-purple-800 truncate"><span class="inline-flex items-center gap-1 justify-center"><img [src]="getClubLogo(slot.player.realTeam)" alt="Club" class="w-3 h-3 object-contain rounded-full" />{{ slot.player.realTeam }}</span></div>
+            } @else {
+              <div class="bg-slate-900/80 text-white font-bold text-[9px] px-1 rounded-t w-full text-center z-20 absolute -top-4 border border-white/20">£{{ budget.toFixed(1) }}</div>
+              <div class="w-14 sm:w-16 h-14 sm:h-16 z-10 rounded-t-lg bg-black/40 border-2 border-dashed border-white/40 flex items-center justify-center text-2xl text-white/50 shadow-sm transition-colors hover:border-sky-400">+</div>
+              <div class="bg-black/60 text-white font-bold text-[10px] px-1 w-[110%] text-center rounded shadow-md z-10 mt-1 border border-white/10 uppercase tracking-widest">{{ slot.position }}</div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  @if (!hasExistingTeam) {
+    <div class="flex flex-col sm:flex-row gap-4 items-center justify-between glass-card p-4 mt-auto">
+      <button class="hover:text-white transition-colors text-slate-400" (click)="resetTeamClick.emit()">Reset Selection ↺</button>
+      <button class="btn-primary py-3 px-12 text-sm shadow-[0_0_15px_rgba(56,189,248,0.4)] disabled:opacity-50 disabled:shadow-none flex items-center justify-center gap-2 transition-all w-full sm:w-auto" [disabled]="playersSelected < 15 || saving || gameweekLocked" (click)="saveTeamClick.emit()">
+        @if (saving) {
+          <div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+          Saving...
+        } @else if (gameweekLocked) {
+          🔒 Locked
+        } @else if (playersSelected === 15) {
+          Save Team & Continue
+        } @else {
+          Select {{ 15 - playersSelected }} more players
+        }
+      </button>
+    </div>
+  } @else {
+    <div class="flex flex-col sm:flex-row gap-4 items-center justify-between glass-card p-4 mt-auto border" [class.border-red-500/30]="gameweekLocked" [class.border-purple-500/20]="!gameweekLocked">
+      <div class="flex flex-col gap-1">
+        @if (gameweekLocked) {
+          <span class="text-red-300 font-bold text-sm">🔒 Transfers locked — currently in Gameweek {{ transferWindowStatus?.activeGameweek || currentGameweek }} progress</span>
+          <span class="text-slate-400 text-xs">{{ transferWindowStatus?.message }}</span>
+        } @else {
+          <span class="text-white font-bold text-sm">
+            @let totalTransfers = currentGameweekTransferCount + transfersMade;
+            @if (totalTransfers === 0) {
+              No transfers made yet.
+            } @else if (totalTransfers === 1) {
+              1 Free Transfer used — No cost!
+            } @else {
+              {{ totalTransfers }} transfer{{ totalTransfers===1 ? '' : 's' }} — {{ freeTransfers }} free, <span class="text-red-400">-{{ transferCost }} pts cost</span>
+            }
+          </span>
+          <span class="text-slate-400 text-xs">1 free transfer per gameweek. Each extra costs 4 pts.</span>
+        }
+      </div>
+      <div class="flex gap-3">
+        <button (click)="resetTransfersClick.emit()" [disabled]="gameweekLocked" class="py-2 px-5 text-sm text-slate-300 hover:text-white border border-white/10 hover:border-white/30 rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed">Reset Transfers ↺</button>
+        <button (click)="saveTransfersClick.emit()" [disabled]="saving || transfersMade === 0 || gameweekLocked" class="btn-primary py-2 px-6 text-sm disabled:opacity-50 flex items-center gap-2">
+          @if (saving) {
+            <div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+            Saving...
+          } @else if (gameweekLocked) {
+            🔒 Locked
+          } @else {
+            Save Transfers
+          }
+        </button>
+      </div>
+    </div>
+  }
+</main>

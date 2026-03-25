@@ -1,0 +1,60 @@
+<div class="min-h-screen flex flex-col" style="background:#070b14">
+  <app-navbar />
+
+  <div class="max-w-[1400px] mx-auto w-full px-4 lg:px-6 py-8 grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-6 flex-1 items-start relative">
+    <app-team-selection-sidebar
+      [activeFilterPanel]="activeFilterPanel"
+      [sortBy]="sortBy"
+      [priceFilter]="priceFilter"
+      [selectedPosition]="selectedPosition"
+      [selectedTeam]="selectedTeam"
+      [uniqueTeams]="uniqueTeams"
+      [searchQuery]="searchQuery"
+      [loadingPlayers]="loadingPlayers"
+      [filteredPlayers]="filteredPlayers"
+      [paginatedPlayers]="paginatedPlayers"
+      [currentPage]="currentPage"
+      [totalPages]="totalPages"
+      [errorMessage]="errorMessage"
+      (filterPanelToggle)="toggleFilterPanel($event)"
+      (filtersReset)="resetFilters()"
+      (sortByChange)="setSortBy($event)"
+      (priceFilterChange)="setPriceFilter($event)"
+      (positionFilterChange)="setPositionFilter($event)"
+      (teamFilterChange)="setTeamFilter($event)"
+      (searchQueryChange)="searchQuery = $event; filterPlayers()"
+      (playerSelected)="selectPlayer($event)"
+      (prevPageClick)="prevPage()"
+      (nextPageClick)="nextPage()"
+    />
+
+    <app-team-selection-board
+      [teamImage]="teamImage"
+      [playersSelected]="playersSelected"
+      [budget]="budget"
+      [hasExistingTeam]="hasExistingTeam"
+      [currentGameweekTransferCount]="currentGameweekTransferCount"
+      [transfersMade]="transfersMade"
+      [freeTransfers]="freeTransfers"
+      [transferCost]="transferCost"
+      [loadingGameState]="loadingGameState"
+      [gameweekLocked]="gameweekLocked"
+      [transferWindowStatus]="transferWindowStatus"
+      [currentGameweek]="currentGameweek"
+      [nextDeadlineLabel]="nextDeadlineLabel"
+      [errorMessage]="errorMessage"
+      [saving]="saving"
+      [activeSlotId]="activeSlotId"
+      [gks]="gks"
+      [defs]="defs"
+      [mids]="mids"
+      [fwds]="fwds"
+      (slotOpen)="openPlayerModal($event)"
+      (slotRemove)="removePlayer($event)"
+      (resetTeamClick)="resetTeam()"
+      (saveTeamClick)="saveTeam()"
+      (resetTransfersClick)="resetTransfers()"
+      (saveTransfersClick)="saveTransfers()"
+    />
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<aside class="flex flex-col gap-4 h-full">
+  <div class="glass-card p-6 flex flex-col h-[calc(100vh-140px)] overflow-hidden" style="background: rgba(20, 10, 30, 0.6);">
+    <h2 class="text-3xl font-black text-white mb-2">Player Selection</h2>
+    <p class="text-xs text-slate-400 mb-4">Select a maximum of 3 players from a single team.</p>
+
+    <div class="mb-4 grid grid-cols-4 gap-2">
+      <button (click)="filterPanelToggle.emit('global')" [ngClass]="activeFilterPanel === 'global' ? 'bg-purple-600/50 border-purple-500 text-white' : 'bg-black/30 border-white/10 text-slate-300 hover:border-purple-500/30'" class="border rounded px-3 py-2 text-xs font-semibold transition-colors">Global</button>
+      <button (click)="filterPanelToggle.emit('position')" [ngClass]="activeFilterPanel === 'position' ? 'bg-purple-600/50 border-purple-500 text-white' : 'bg-black/30 border-white/10 text-slate-300 hover:border-purple-500/30'" class="border rounded px-3 py-2 text-xs font-semibold transition-colors">Position</button>
+      <button (click)="filterPanelToggle.emit('teams')" [ngClass]="activeFilterPanel === 'teams' ? 'bg-purple-600/50 border-purple-500 text-white' : 'bg-black/30 border-white/10 text-slate-300 hover:border-purple-500/30'" class="border rounded px-3 py-2 text-xs font-semibold transition-colors">Teams</button>
+      <button (click)="filtersReset.emit()" class="border rounded px-3 py-2 text-xs font-semibold bg-black/30 border-white/10 text-slate-300 hover:border-purple-500/30 transition-colors">Reset</button>
+    </div>
+
+    @if (activeFilterPanel === 'global') {
+      <div class="mb-5 pb-5 border-b border-purple-500/20 space-y-3">
+        <div>
+          <p class="text-xs font-bold text-slate-400 uppercase mb-2">Sort</p>
+          <div class="grid grid-cols-3 gap-2">
+            <button (click)="sortByChange.emit('points')" [ngClass]="sortBy === 'points' ? 'bg-purple-600/50 border-purple-500 text-white' : 'bg-black/30 border-white/10 text-slate-400 hover:border-purple-500/30'" class="border rounded px-3 py-2 text-xs font-semibold transition-colors">Total points</button>
+            <button (click)="sortByChange.emit('price')" [ngClass]="sortBy === 'price' ? 'bg-purple-600/50 border-purple-500 text-white' : 'bg-black/30 border-white/10 text-slate-400 hover:border-purple-500/30'" class="border rounded px-3 py-2 text-xs font-semibold transition-colors">Price</button>
+            <button (click)="sortByChange.emit('form')" [ngClass]="sortBy === 'form' ? 'bg-purple-600/50 border-purple-500 text-white' : 'bg-black/30 border-white/10 text-slate-400 hover:border-purple-500/30'" class="border rounded px-3 py-2 text-xs font-semibold transition-colors">Form</button>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-xs font-bold text-slate-400 uppercase mb-2">Price</p>
+          <div class="grid grid-cols-3 gap-2">
+            <button (click)="priceFilterChange.emit(null)" [ngClass]="priceFilter === null ? 'bg-purple-600/50 border-purple-500 text-white' : 'bg-black/30 border-white/10 text-slate-400 hover:border-purple-500/30'" class="border rounded px-3 py-2 text-xs font-semibold transition-colors">All</button>
+            <button (click)="priceFilterChange.emit(6)" [ngClass]="priceFilter === 6 ? 'bg-purple-600/50 border-purple-500 text-white' : 'bg-black/30 border-white/10 text-slate-400 hover:border-purple-500/30'" class="border rounded px-3 py-2 text-xs font-semibold transition-colors">≤ £6.0m</button>
+            <button (click)="priceFilterChange.emit(8)" [ngClass]="priceFilter === 8 ? 'bg-purple-600/50 border-purple-500 text-white' : 'bg-black/30 border-white/10 text-slate-400 hover:border-purple-500/30'" class="border rounded px-3 py-2 text-xs font-semibold transition-colors">≤ £8.0m</button>
+          </div>
+        </div>
+      </div>
+    }
+
+    @if (activeFilterPanel === 'position') {
+      <div class="mb-5 pb-5 border-b border-purple-500/20">
+        <p class="text-xs font-bold text-slate-400 uppercase mb-3">Position</p>
+        <div class="grid grid-cols-2 gap-2">
+          <button (click)="positionFilterChange.emit('GK')" [ngClass]="selectedPosition === 'GK' ? 'bg-amber-500/40 border-amber-500/70 text-amber-200' : 'bg-black/30 border-white/10 text-slate-400 hover:bg-amber-500/20'" class="border rounded px-3 py-2 text-xs font-semibold text-center transition-colors">Goalkeepers</button>
+          <button (click)="positionFilterChange.emit('DEF')" [ngClass]="selectedPosition === 'DEF' ? 'bg-blue-500/40 border-blue-500/70 text-blue-200' : 'bg-black/30 border-white/10 text-slate-400 hover:bg-blue-500/20'" class="border rounded px-3 py-2 text-xs font-semibold text-center transition-colors">Defenders</button>
+          <button (click)="positionFilterChange.emit('MID')" [ngClass]="selectedPosition === 'MID' ? 'bg-green-500/40 border-green-500/70 text-green-200' : 'bg-black/30 border-white/10 text-slate-400 hover:bg-green-500/20'" class="border rounded px-3 py-2 text-xs font-semibold text-center transition-colors">Midfielders</button>
+          <button (click)="positionFilterChange.emit('FWD')" [ngClass]="selectedPosition === 'FWD' ? 'bg-red-500/40 border-red-500/70 text-red-200' : 'bg-black/30 border-white/10 text-slate-400 hover:bg-red-500/20'" class="border rounded px-3 py-2 text-xs font-semibold text-center transition-colors">Forwards</button>
+        </div>
+      </div>
+    }
+
+    @if (activeFilterPanel === 'teams') {
+      <div class="mb-5 pb-5 border-b border-purple-500/20">
+        <p class="text-xs font-bold text-slate-400 uppercase mb-3">Teams</p>
+        <div class="grid grid-cols-2 gap-2 max-h-48 overflow-y-auto custom-scrollbar">
+          @for (team of uniqueTeams; track team) {
+            <button (click)="teamFilterChange.emit(team)" [ngClass]="selectedTeam === team ? 'bg-purple-600/50 border-purple-500 text-white' : 'bg-black/30 border-white/10 text-slate-300 hover:border-purple-500/30'" class="border rounded px-2 py-1.5 text-[10px] font-semibold transition-colors">{{ team }}</button>
+          }
+        </div>
+      </div>
+    }
+
+    <div class="flex flex-col gap-3 mb-4">
+      <label class="text-sm font-bold text-white">Search players</label>
+      <div class="relative">
+        <span class="absolute left-3 top-2.5 text-slate-400">🔍</span>
+        <input type="text" placeholder="Search by name" [ngModel]="searchQuery" (ngModelChange)="onSearchChange($event)" class="w-full bg-black/40 border border-purple-500/30 rounded-lg py-2.5 pl-9 pr-4 text-sm text-white focus:outline-none focus:border-purple-400 transition-colors" />
+      </div>
+    </div>
+
+    <div class="bg-blue-500/80 text-white font-bold text-center py-1.5 rounded text-xs mb-4 shadow-[0_0_10px_rgba(59,130,246,0.3)]">{{ filteredPlayers.length }} players found</div>
+
+    @if (errorMessage) {
+      <div class="bg-red-500/20 border border-red-500/50 text-red-200 text-xs p-3 rounded mb-4 text-center font-semibold animate-pulse">{{ errorMessage }}</div>
+    }
+
+    <div class="flex-1 overflow-y-auto custom-scrollbar pr-2 relative flex flex-col">
+      @if (loadingPlayers) {
+        <div class="flex justify-center py-10">
+          <div class="w-8 h-8 border-4 border-sky-400/20 border-t-sky-400 rounded-full animate-spin"></div>
+        </div>
+      } @else if (filteredPlayers.length === 0) {
+        <div class="text-center text-slate-500 text-sm py-10">No players found matching your filters.</div>
+      } @else {
+        <div class="flex flex-col gap-1 flex-1">
+          <div class="flex justify-between text-xs text-slate-400 font-bold mb-2 sticky top-0 bg-[#160b24] py-2 z-10">
+            <span class="w-1/2">Players</span>
+            <div class="w-1/2 flex justify-end gap-6 pr-8">
+              <span>Price</span>
+              <span>TP</span>
+            </div>
+          </div>
+
+          @for (player of paginatedPlayers; track player.id) {
+            <div class="flex items-center justify-between border-b border-white/[0.03] py-2 hover:bg-white/[0.02] transition-colors rounded">
+              <div class="flex items-center gap-3 w-3/5">
+                <span class="text-slate-500 text-xs italic font-serif">i</span>
+                <img [src]="getClubLogo(player.realTeam)" alt="Club logo" class="w-8 h-8 object-contain rounded-full border border-white/20 bg-white/5 p-0.5" />
+                <div class="flex flex-col">
+                  <span class="font-bold text-white text-sm">{{ player.name }}</span>
+                  <span class="text-[10px] text-slate-400 inline-flex items-center gap-1">{{ player.realTeam }} <span class="uppercase">{{ player.position }}</span></span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-end gap-4 w-2/5 pr-2">
+                <span class="text-white text-xs whitespace-nowrap">£{{ player.price.toFixed(1) }}m</span>
+                <span class="text-white text-xs w-6 text-center">{{ player.totalPoints }}</span>
+                <button (click)="playerSelected.emit(player)" class="w-6 h-6 rounded-full bg-purple-500/20 hover:bg-purple-500/40 text-purple-300 flex items-center justify-center text-lg font-bold transition-colors">+</button>
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
+          <button (click)="prevPageClick.emit()" [disabled]="currentPage === 1" class="px-3 py-1.5 rounded bg-white/5 hover:bg-white/10 disabled:opacity-30 disabled:pointer-events-none transition-colors">← Prev</button>
+          <span class="font-medium text-slate-300">Page <span class="text-white">{{ currentPage }}</span> of {{ totalPages }}</span>
+          <button (click)="nextPageClick.emit()" [disabled]="currentPage === totalPages" class="px-3 py-1.5 rounded bg-white/5 hover:bg-white/10 disabled:opacity-30 disabled:pointer-events-none transition-colors">Next →</button>
+        </div>
+      }
+    </div>
+  </div>
+</aside>
