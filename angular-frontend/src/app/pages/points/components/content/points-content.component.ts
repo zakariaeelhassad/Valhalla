@@ -24,7 +24,7 @@ import { PitchSquad, PointsPlayer } from '../points-types';
   templateUrl: './points-content.component.html'
 })
 export class PointsContentComponent {
-  private readonly backendBase = 'http://localhost:8080';
+  private readonly backendBase = 'http://localhost:8081';
 
   @Input() user: UserResponse | null = null;
   @Input() teamResponse: TeamResponse | null = null;
