@@ -1,19 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { ApiService } from '../../core/services/api.service';
 import { GameState } from '../../core/models';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
+import { HomeHeroComponent } from './components/hero/home-hero.component';
+import { HomeFeaturesComponent, HomeFeatureItem } from './components/features/home-features.component';
+import { HomeAboutComponent, HomeScoringItem } from './components/about/home-about.component';
+import { HomeCtaComponent } from './components/cta/home-cta.component';
 
-const FEATURES = [
+const FEATURES: HomeFeatureItem[] = [
   { icon: '🧠', title: 'Pick Your Squad', desc: 'Choose 15 players within your 100.0 budget. Balance star power with depth across all positions.', color: 'blue' },
   { icon: '⚡', title: 'Earn Points Every GW', desc: 'Goals, assists, clean sheets — every action earns points. Tune your lineup before each gameweek.', color: 'purple' },
   { icon: '🏆', title: 'Climb the Leaderboard', desc: 'Compete in global and private leagues. See where you rank against friends and the entire player base.', color: 'green' },
 ];
 
-const SCORING = [
+const SCORING: HomeScoringItem[] = [
   { event: 'Goal (FWD)', pts: '+4', color: '#f87171' },
   { event: 'Goal (MID)', pts: '+5', color: '#4ade80' },
   { event: 'Goal (DEF)', pts: '+6', color: '#38bdf8' },
@@ -35,7 +38,15 @@ const FEATURE_BAR: Record<string, string> = {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink, NavbarComponent, FooterComponent],
+  imports: [
+    CommonModule,
+    NavbarComponent,
+    FooterComponent,
+    HomeHeroComponent,
+    HomeFeaturesComponent,
+    HomeAboutComponent,
+    HomeCtaComponent
+  ],
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
