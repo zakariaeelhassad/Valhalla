@@ -10,7 +10,7 @@ import { TeamResponse } from '../../../../core/models';
   templateUrl: './points-sidebar.component.html'
 })
 export class PointsSidebarComponent {
-  private readonly backendBase = 'http://localhost:8080';
+  private readonly backendBase = 'http://localhost:8081';
 
   @Input() user: UserResponse | null = null;
   @Input() teamResponse: TeamResponse | null = null;
