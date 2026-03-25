@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { ApiService, PlayerSummary, TransferWindowStatus } from '../../core/services/api.service';
+import { ApiService } from '../../core/services/api.service';
+import { PlayerSummary, TransferWindowStatus } from '../../core/models';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { catchError, finalize, forkJoin, interval, of, startWith, Subscription, switchMap } from 'rxjs';
