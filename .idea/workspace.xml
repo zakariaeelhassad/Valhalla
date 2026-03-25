@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="afc6ced4-4a0f-4335-9c2a-b5ec7f0f7e87" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/pages/points/points.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/pages/points/points.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/pages/points/points.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/pages/points/points.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/controller/MatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/controller/MatchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/controller/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/controller/TeamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/repository/PlayerGameweekStatsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/repository/PlayerGameweekStatsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/service/GameEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/service/GameEngineService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/service/ScoringService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/service/ScoringService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/service/TeamManagementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/backend/service/TeamManagementService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +38,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/youco/IdeaProjects/AjiT9aser&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/youco/Desktop/Valhalla&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -92,6 +84,8 @@
       <workItem from="1774202531266" duration="8000" />
       <workItem from="1774348066423" duration="5000" />
       <workItem from="1774366375262" duration="18000" />
+      <workItem from="1774434577032" duration="57000" />
+      <workItem from="1774434646128" duration="15000" />
     </task>
     <servers />
   </component>
