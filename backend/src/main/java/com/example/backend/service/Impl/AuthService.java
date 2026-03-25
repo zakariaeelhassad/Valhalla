@@ -4,6 +4,7 @@ import com.example.backend.dto.auth.AuthResponse;
 import com.example.backend.dto.auth.LoginRequest;
 import com.example.backend.dto.auth.RegisterRequest;
 import com.example.backend.dto.profile.UserResponse;
+import com.example.backend.mapper.UserMapper;
 import com.example.backend.model.entity.User;
 import com.example.backend.model.entity.UserTeam;
 import com.example.backend.repository.UserRepository;
@@ -29,6 +30,7 @@ public class AuthService implements com.example.backend.service.AuthService {
         private final PasswordEncoder passwordEncoder;
         private final JwtUtil jwtUtil;
         private final AuthenticationManager authenticationManager;
+        private final UserMapper userMapper;
 
         @Transactional
         public AuthResponse register(RegisterRequest request) {
@@ -64,11 +66,7 @@ public class AuthService implements com.example.backend.service.AuthService {
                 UserDetails userDetails = buildUserDetails(user);
                 String token = jwtUtil.generateToken(userDetails);
 
-                UserResponse userResponse = new UserResponse(
-                                user.getId(),
-                                user.getUsername(),
-                                user.getEmail(),
-                                user.getCreatedAt());
+                UserResponse userResponse = userMapper.toResponse(user);
 
                 return new AuthResponse(token, userResponse);
         }
@@ -89,11 +87,7 @@ public class AuthService implements com.example.backend.service.AuthService {
                 UserDetails userDetails = buildUserDetails(user);
                 String token = jwtUtil.generateToken(userDetails);
 
-                UserResponse userResponse = new UserResponse(
-                                user.getId(),
-                                user.getUsername(),
-                                user.getEmail(),
-                                user.getCreatedAt());
+                UserResponse userResponse = userMapper.toResponse(user);
 
                 return new AuthResponse(token, userResponse);
         }
