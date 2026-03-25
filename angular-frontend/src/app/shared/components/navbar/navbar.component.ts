@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
-import { ApiService } from '../../../core/services/api.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,25 +15,15 @@ import { Router } from '@angular/router';
     .mob-link:hover { color: rgb(241 245 249); background: rgba(255,255,255,0.05); }
   `]
 })
-export class NavbarComponent implements OnInit {
-  private readonly backendBase = 'http://localhost:8080';
+export class NavbarComponent {
+  private readonly backendBase = 'http://localhost:8081';
   menuOpen = false;
-  teamComplete = false;
 
-  constructor(private auth: AuthService, private api: ApiService, private router: Router) { }
-
-  ngOnInit() {
-    if (this.isAuth) {
-      this.api.getMyTeam().subscribe({
-        next: (team) => { this.teamComplete = team.playerCount >= 15; },
-        error: () => { this.teamComplete = false; }
-      });
-    }
-  }
+  constructor(private auth: AuthService) { }
 
   get isAuth(): boolean { return this.auth.isAuthenticated(); }
   get showPointsAndSubs(): boolean {
-    return this.teamComplete || this.isOnPointsOrSubstitutionsRoute();
+    return this.isAuth;
   }
   get username(): string { return this.auth.getUser()?.username ?? 'U'; }
   get profileImageSrc(): string | null {
@@ -53,11 +41,6 @@ export class NavbarComponent implements OnInit {
       return value;
     }
     return null;
-  }
-
-  private isOnPointsOrSubstitutionsRoute(): boolean {
-    const path = this.router.url || '';
-    return path.startsWith('/points') || path.startsWith('/substitutions');
   }
 
   logout(): void { this.auth.logout(); }
