@@ -72,7 +72,40 @@ The application will start on **http://localhost:8080**
 ### Using cURL
 
 ```bash
+curl http://localhost:8081/api/health
+```
+
+## 🐳 Docker (Backend Only)
+
+Run backend + PostgreSQL with Docker Compose:
+
+```bash
+cd backend
+docker compose up --build -d
+```
+
+Check containers status:
+
+```bash
+docker compose ps
+```
+
+Check backend logs:
+
+```bash
+docker compose logs backend --tail=200
+```
+
+Health check:
+
+```bash
 curl http://localhost:8080/api/health
+```
+
+Stop and remove containers:
+
+```bash
+docker compose down
 ```
 
 ### H2 Database Console
