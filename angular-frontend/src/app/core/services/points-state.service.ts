@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, forkJoin, catchError, of } from 'rxjs';
-import { ApiService, TeamResponse, PointsPageData } from './api.service';
+import { ApiService } from './api.service';
+import { PointsPageData, TeamResponse } from '../models';
 
 @Injectable({
     providedIn: 'root'
