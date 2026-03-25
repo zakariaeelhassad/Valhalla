@@ -14,8 +14,7 @@ import {
     TeamGameweekStats,
     TeamLineupResponse,
     TeamResponse,
-    TransferWindowStatus,
-    SimClock
+    TransferWindowStatus
 } from '../models';
 
 const BASE = 'http://localhost:8080';
@@ -32,15 +31,6 @@ export class ApiService {
                 return throwError(() => err);
             })
         );
-    }
-    addPlayer(id: number): Observable<TeamResponse> {
-        return this.http.post<TeamResponse>(`${BASE}/api/team/players/${id}`, {});
-    }
-    removePlayer(id: number): Observable<TeamResponse> {
-        return this.http.delete<TeamResponse>(`${BASE}/api/team/players/${id}`);
-    }
-    getSquadStats(): Observable<any> {
-        return this.http.get<any>(`${BASE}/api/team/stats`);
     }
     getGameweekStats(gameweek: number): Observable<TeamGameweekStats> {
         return this.http.get<TeamGameweekStats>(`${BASE}/api/team/gameweek/${gameweek}`);
@@ -112,16 +102,6 @@ export class ApiService {
         );
     }
 
-    makeSubstitution(starterPlayerId: number, benchPlayerId: number): Observable<TeamLineupResponse> {
-        const payload = { starterPlayerId, benchPlayerId };
-        return this.http.post<TeamLineupResponse>(`${BASE}/api/team/substitutions`, payload).pipe(
-            catchError(err => {
-                console.error('ApiService.makeSubstitution failed:', err);
-                return throwError(() => err);
-            })
-        );
-    }
-
     saveLineup(starterPlayerIds: number[]): Observable<void> {
         const payload = { starterPlayerIds };
         return this.http.post<void>(`${BASE}/api/team/lineup/save`, payload).pipe(
@@ -153,17 +133,11 @@ export class ApiService {
     getMatchesByGameweek(gw: number): Observable<MatchResponse[]> {
         return this.http.get<MatchResponse[]>(`${BASE}/api/matches/gameweek/${gw}`);
     }
-    getLiveMatches(): Observable<MatchResponse[]> {
-        return this.http.get<MatchResponse[]>(`${BASE}/api/matches/live`);
-    }
     getCurrentGameweekContext(): Observable<CurrentGameweekContext> {
         return this.http.get<CurrentGameweekContext>(`${BASE}/api/matches/current`);
     }
     getTransferWindowStatus(): Observable<TransferWindowStatus> {
         return this.http.get<TransferWindowStatus>(`${BASE}/api/game/transfer-window`);
-    }
-    getSimClock(): Observable<SimClock> {
-        return this.http.get<SimClock>(`${BASE}/api/matches/clock`);
     }
 
     // ── Profile ───────────────────────────────────────
