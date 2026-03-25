@@ -21,13 +21,13 @@ public class CommentaryService implements com.example.backend.service.Commentary
     private String generateFallbackCommentary(String playerName, String eventType, int minute) {
         // Moroccan Darija/Arabic commentary
         return switch (eventType.toUpperCase()) {
-            case "GOAL" -> String.format("⚽ Waaaw! %s dkhel f had l'minute %d! Goooool khatar! 🔥", playerName, minute);
-            case "ASSIST" -> String.format("💪 Makaynch! %s dar assist dial l'3am f minute %d! Tbarkellah 3lih!",
+            case "GOAL" -> String.format("⚽ Wow! %s scored in minute %d! What a goal! 🔥", playerName, minute);
+            case "ASSIST" -> String.format("💪 Incredible! %s made a key assist in the 90th minute! Well done!",
                     playerName, minute);
             case "RED_CARD" ->
-                String.format("😱 Yallah! %s khrj mn l'terrain f minute %d! Red card!", playerName, minute);
-            case "YELLOW_CARD" -> String.format("⚠️ %s akhd yellow card f minute %d. Ykhali bal!", playerName, minute);
-            default -> String.format("⚽ %s f minute %d!", playerName, minute);
+                String.format("😱 Oh no! %s was sent off in the %d minute! Red card!", playerName, minute);
+            case "YELLOW_CARD" -> String.format("⚠️ %s received a yellow card in minute %d. Be careful!", playerName, minute);
+            default -> String.format("⚽ %s in minute %d!", playerName, minute);
         };
     }
 }
