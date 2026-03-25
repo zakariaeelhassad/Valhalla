@@ -101,7 +101,7 @@ export class DashboardContentComponent implements OnInit, OnDestroy {
   transferWindowStatus: TransferWindowStatus | null = null;
   posMeta = POS_META;
   readonly totalPlayers = 13002458;
-  private readonly backendBase = 'http://localhost:8080';
+  private readonly backendBase = 'http://localhost:8081';
 
   countdownTime: CountdownTime = { days: 0, hours: 0, minutes: 0, seconds: 0, totalSeconds: 0 };
   isLowTime = false;
