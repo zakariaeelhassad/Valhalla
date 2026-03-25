@@ -1,0 +1,185 @@
+<div class="glass-card p-6">
+  <div class="flex justify-between items-center mb-6 border-b border-white/5 pb-4">
+    <h3 class="text-xl font-bold text-slate-100">Fixtures</h3>
+    <div class="w-8 h-8 rounded-full border border-purple-500/30 flex items-center justify-center text-slate-300 cursor-pointer hover:bg-white/5 transition-colors">
+      📅
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center gap-6 mb-6">
+    <button
+      (click)="changeGameweek(-1)"
+      [disabled]="viewedGameweek <= 1"
+      class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-sm font-bold text-slate-300 hover:bg-purple-500/40 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+    >&lt;</button>
+    <div class="text-center">
+      <h4 class="font-bold text-slate-100 text-lg">Matchday {{ viewedGameweek || dbCurrentGameweek || 1 }}</h4>
+      <div
+        class="text-xs mt-1"
+        [ngClass]="(viewedGameweek || dbCurrentGameweek || 1) === (dbCurrentGameweek || 1) ? 'text-emerald-300' : 'text-slate-400'"
+      >
+        @if ((viewedGameweek || dbCurrentGameweek || 1) === (dbCurrentGameweek || 1)) {
+          Current matchday
+        } @else {
+          Viewing another matchday
+        }
+      </div>
+      <div class="text-[10px] text-slate-500">* All times are shown in your local time</div>
+    </div>
+    <button
+      (click)="changeGameweek(1)"
+      [disabled]="viewedGameweek >= 38"
+      class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-sm font-bold text-slate-300 hover:bg-purple-500/40 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+    >&gt;</button>
+  </div>
+
+  <div class="space-y-4 pt-2">
+    @if (matchesByDate.length === 0) {
+      <div class="text-center text-slate-400 py-8 text-sm font-medium">
+        <div
+          class="animate-spin inline-block w-6 h-6 border-2 border-current border-t-transparent text-purple-600 rounded-full mb-3"
+          role="status"
+          aria-label="loading"
+        ></div>
+        <p>Fetching Fixtures...</p>
+      </div>
+    }
+
+    @for (group of matchesByDate; track group.date) {
+      <div class="text-[0.73rem] font-bold tracking-[0.08em] uppercase text-slate-400 mt-5 mb-2 ml-1">
+        {{ group.date }}
+      </div>
+
+      <div class="flex flex-col gap-2">
+        @for (match of group.matches; track match.id) {
+          <div
+            class="bg-[#0f1624] border border-[#1c2d45] rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-px hover:border-[#283d5e] mb-2 flex flex-col"
+            [ngClass]="getMatchDisplayStatus(match) === 'LIVE' ? 'border-[#10b981] bg-linear-to-br from-[#0f1624] to-[rgba(16,185,129,0.05)]' : (getMatchDisplayStatus(match) === 'FINISHED' ? 'opacity-[0.72]' : '')"
+          >
+            <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-3.5 p-[18px_22px]">
+              <div class="flex items-center gap-2.75">
+                <div
+                  class="w-10.5 h-10.5 rounded-full flex justify-center items-center font-extrabold text-[0.95rem] text-white shrink-0"
+                  [style.background]="getTeamColor(match.homeTeam)"
+                >
+                  @if (getClubLogo(match.homeTeam)) {
+                    <img [src]="getClubLogo(match.homeTeam)" [alt]="match.homeTeam + ' logo'" class="w-7 h-7 object-contain" />
+                  } @else {
+                    {{ getAbbr(match.homeTeam) }}
+                  }
+                </div>
+                <div class="font-semibold text-[0.95rem] text-slate-100">{{ match.homeTeam }}</div>
+              </div>
+
+              <div class="text-center min-w-30">
+                @if (getMatchDisplayStatus(match) === 'LIVE') {
+                  <div class="text-[1.7rem] font-black tracking-[2px] tabular-nums text-[#10b981]">
+                    {{ getDisplayHomeScore(match) }} - {{ getDisplayAwayScore(match) }}
+                  </div>
+                  <div class="flex flex-col items-center justify-center gap-1 mt-0.75">
+                    <div
+                      class="inline-flex items-center justify-center gap-1.25 text-[0.7rem] font-bold tracking-[0.06em] uppercase rounded-[20px] p-[3px_10px] bg-[rgba(16,185,129,0.1)] text-[#10b981] border border-[rgba(16,185,129,0.25)]"
+                    >
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse"></span>LIVE
+                    </div>
+                    <div class="text-[0.75rem] font-black text-[#10b981] tracking-widest tabular-nums">{{ getDisplayElapsedMinutes(match) }}'</div>
+                  </div>
+                } @else if (getMatchDisplayStatus(match) === 'FINISHED') {
+                  <div class="text-[1.7rem] font-black tracking-[2px] tabular-nums text-slate-100">
+                    {{ getDisplayHomeScore(match) }} - {{ getDisplayAwayScore(match) }}
+                  </div>
+                  <div
+                    class="inline-flex items-center justify-center gap-1.25 text-[0.7rem] font-bold tracking-[0.06em] uppercase rounded-[20px] p-[3px_10px] mt-1.25 bg-[rgba(107,114,128,0.12)] text-[#6b7280] border border-[rgba(107,114,128,0.2)]"
+                  >
+                    Finished
+                  </div>
+                } @else {
+                  <div class="text-[1.1rem] font-bold text-accent-purple tracking-[1px]">{{ formatKickoff(match.kickoffTime) }}</div>
+                  <div
+                    class="inline-flex items-center justify-center gap-1.25 text-[0.7rem] font-bold tracking-[0.06em] uppercase rounded-[20px] p-[3px_10px] mt-1.25 bg-[rgba(99,102,241,0.1)] text-accent-purple border border-[rgba(99,102,241,0.2)]"
+                  >
+                    Upcoming
+                  </div>
+                }
+              </div>
+
+              <div class="flex items-center gap-2.75 flex-row-reverse text-right">
+                <div
+                  class="w-10.5 h-10.5 rounded-full flex justify-center items-center font-extrabold text-[0.95rem] text-white shrink-0"
+                  [style.background]="getTeamColor(match.awayTeam)"
+                >
+                  @if (getClubLogo(match.awayTeam)) {
+                    <img [src]="getClubLogo(match.awayTeam)" [alt]="match.awayTeam + ' logo'" class="w-7 h-7 object-contain" />
+                  } @else {
+                    {{ getAbbr(match.awayTeam) }}
+                  }
+                </div>
+                <div class="font-semibold text-[0.95rem] text-slate-100">{{ match.awayTeam }}</div>
+              </div>
+            </div>
+
+            @if (getMatchDisplayStatus(match) === 'LIVE' || getMatchDisplayStatus(match) === 'FINISHED') {
+              <div class="px-5.5 pb-2.5">
+                <div class="w-full h-px bg-white/5 mb-2"></div>
+                <div class="grid grid-cols-3 gap-2 text-[0.68rem] uppercase tracking-wider text-slate-400">
+                  <div class="text-left">{{ getMatchStat(match, 'home', 'goals') }} Goals</div>
+                  <div class="text-center">Statistics</div>
+                  <div class="text-right">Goals {{ getMatchStat(match, 'away', 'goals') }}</div>
+                  <div class="text-left">{{ getMatchStat(match, 'home', 'yellows') }} Yellow</div>
+                  <div class="text-center">Cards</div>
+                  <div class="text-right">Yellow {{ getMatchStat(match, 'away', 'yellows') }}</div>
+                  <div class="text-left">{{ getMatchStat(match, 'home', 'reds') }} Red</div>
+                  <div class="text-center">Cards</div>
+                  <div class="text-right">Red {{ getMatchStat(match, 'away', 'reds') }}</div>
+                </div>
+              </div>
+            }
+
+            @if (match.events && match.events.length > 0) {
+              <div class="px-5.5 pb-3.5 pt-0">
+                <div class="w-full h-px bg-white/5 mb-2"></div>
+                <div class="grid grid-cols-2 gap-3.5 text-[0.72rem] font-medium">
+                  <div class="flex flex-col gap-1 items-start text-slate-400">
+                    @for (event of match.events; track event.team + event.minute + event.player + event.type) {
+                      @if (event.team === match.homeTeam && (getMatchDisplayStatus(match) === 'FINISHED' || event.minute <= getDisplayElapsedMinutes(match))) {
+                        <div class="flex items-center gap-1.5 group">
+                          @if (event.type === 'GOAL') {
+                            <div class="w-1.5 h-1.5 rounded-full bg-slate-500/50" title="Goal"></div>
+                          } @else if (event.type === 'YELLOW_CARD') {
+                            <div class="w-2 h-2.5 rounded-xs bg-yellow-400" title="Yellow Card"></div>
+                          } @else if (event.type === 'RED_CARD') {
+                            <div class="w-2 h-2.5 rounded-xs bg-red-500" title="Red Card"></div>
+                          }
+                          <span class="text-slate-300">{{ event.player }}</span>
+                          <span class="text-slate-500">{{ event.minute }}'</span>
+                        </div>
+                      }
+                    }
+                  </div>
+
+                  <div class="flex flex-col gap-1 items-end text-slate-400 text-right">
+                    @for (event of match.events; track event.team + event.minute + event.player + event.type) {
+                      @if (event.team === match.awayTeam && (getMatchDisplayStatus(match) === 'FINISHED' || event.minute <= getDisplayElapsedMinutes(match))) {
+                        <div class="flex items-center gap-1.5 group flex-row-reverse">
+                          @if (event.type === 'GOAL') {
+                            <div class="w-1.5 h-1.5 rounded-full bg-slate-500/50" title="Goal"></div>
+                          } @else if (event.type === 'YELLOW_CARD') {
+                            <div class="w-2 h-2.5 rounded-xs bg-yellow-400" title="Yellow Card"></div>
+                          } @else if (event.type === 'RED_CARD') {
+                            <div class="w-2 h-2.5 rounded-xs bg-red-500" title="Red Card"></div>
+                          }
+                          <span class="text-slate-300">{{ event.player }}</span>
+                          <span class="text-slate-500">{{ event.minute }}'</span>
+                        </div>
+                      }
+                    }
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>

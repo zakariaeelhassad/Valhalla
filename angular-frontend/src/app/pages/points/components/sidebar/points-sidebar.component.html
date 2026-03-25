@@ -1,0 +1,81 @@
+<aside class="flex flex-col gap-6">
+  <div class="flex items-center gap-4 mb-2">
+    @if (getProfileImageSrc()) {
+      <img
+        [src]="getProfileImageSrc()!"
+        alt="Profile picture"
+        class="w-16 h-16 rounded-full object-cover border-2 border-white shadow-glow"
+      />
+    } @else {
+      <div
+        class="w-16 h-16 rounded-full flex items-center justify-center text-3xl font-black text-white shadow-glow"
+        style="background:linear-gradient(135deg,rgba(255,255,255,0.1),transparent); border: 2px solid white"
+      >
+        {{ (user?.username || 'M')[0].toUpperCase() }}
+      </div>
+    }
+    <div class="flex flex-col">
+      <h2 class="text-2xl font-black text-slate-100">{{ user?.username || 'Manager' }}</h2>
+      <span class="text-sm text-slate-400 flex items-center gap-2">
+        {{ teamName || 'No Team' }} <span title="Morocco">🇲🇦</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="w-full h-px bg-white/6"></div>
+
+  <div class="flex flex-col gap-3">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="text-base font-bold text-slate-100">Points & Rankings</h3>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-slate-400">Overall points</span>
+      <span class="font-bold text-slate-100">{{ teamResponse?.totalPoints ?? 0 }}</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-slate-400">Overall rank</span>
+      <span class="font-bold text-slate-100">8 867 051</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-slate-400">Total players</span>
+      <span class="font-bold text-slate-100">13 005 711</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-slate-400">Gameweek points</span>
+      <span class="font-bold text-slate-100">{{ hideGameweekPoints ? '-' : gwPoints }}</span>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-3 mt-4">
+    <div class="flex justify-between items-center">
+      <h3 class="text-base font-bold text-slate-100">Team Image</h3>
+    </div>
+    @if (getTeamImageSrc()) {
+      <img
+        [src]="getTeamImageSrc()!"
+        alt="Team image"
+        class="w-full max-w-57.5 aspect-square rounded-xl object-cover border-2 border-cyan-300/50 shadow-[0_0_24px_rgba(34,211,238,0.35)]"
+      />
+    } @else {
+      <div
+        class="w-full max-w-57.5 aspect-square rounded-xl border-2 border-cyan-300/40 bg-cyan-500/10 flex items-center justify-center text-cyan-100 font-bold text-base tracking-wide"
+      >
+        No Team Image
+      </div>
+    }
+  </div>
+
+  <div class="w-full h-px bg-white/6 my-2"></div>
+
+  <div class="flex flex-col gap-4 pb-4">
+    <h3 class="text-lg font-bold mt-1">Finance</h3>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-slate-400">Squad value</span>
+      <span class="font-semibold text-slate-100">£100.8m</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-slate-400">In the bank</span>
+      <span class="font-semibold text-slate-100">£{{ remainingBudget ?? 0 | number:'1.1-1' }}m</span>
+    </div>
+  </div>
+</aside>

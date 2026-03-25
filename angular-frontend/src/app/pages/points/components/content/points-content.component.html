@@ -1,0 +1,83 @@
+<div class="min-h-screen flex flex-col" style="background:#070b14">
+  <app-navbar />
+
+  <div *ngIf="state.loading$ | async" class="flex-1 flex flex-col items-center justify-center gap-5 text-slate-400">
+    <div class="w-11 h-11 border-4 border-sky-400/20 border-t-sky-400 rounded-full animate-spin-slow"></div>
+    <p class="text-sm">Loading gameweek data...</p>
+  </div>
+
+  <div *ngIf="state.error$ | async as error" class="flex-1 flex items-center justify-center p-6">
+    <div class="glass-card p-6 text-center border-red-500/30">
+      <span class="text-3xl mb-2 block">⚠️</span>
+      <p class="text-slate-100 font-semibold">{{ error }}</p>
+    </div>
+  </div>
+
+  <div
+    *ngIf="(state.loading$ | async) === false && (state.error$ | async) === null"
+    class="max-w-350 mx-auto w-full px-6 py-8 grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8 flex-1 items-start"
+  >
+    <app-points-sidebar
+      class="block lg:sticky lg:top-24 self-start max-h-[calc(100vh-120px)] overflow-y-auto custom-scrollbar pr-2 pb-10"
+      [user]="user"
+      [teamResponse]="teamResponse"
+      [gwPoints]="gwPoints"
+      [hideGameweekPoints]="isFutureHiddenGameweek()"
+      [teamName]="(state.team$ | async)?.teamName ?? null"
+      [remainingBudget]="(state.team$ | async)?.remainingBudget ?? null"
+    />
+
+    <main class="flex flex-col gap-6">
+      <div class="flex justify-between items-center mb-2">
+        <h1 class="text-3xl font-black text-slate-100 hidden lg:block">{{ user?.username }}</h1>
+        <div class="flex gap-3 ml-auto">
+          @if (getTeamImageSrc()) {
+            <img
+              [src]="getTeamImageSrc()!"
+              alt="Team image"
+              class="w-16 h-16 rounded-xl object-cover border border-cyan-400/40 shadow-[0_0_22px_rgba(34,211,238,0.35)]"
+            />
+          } @else {
+            <div
+              class="w-16 h-16 rounded-xl border border-cyan-400/30 bg-cyan-500/10 flex items-center justify-center text-cyan-200 font-extrabold text-xs text-center leading-tight px-1"
+            >
+              TEAM
+            </div>
+          }
+        </div>
+      </div>
+
+      <app-points-gameweek-summary
+        [shouldShow]="shouldShowLineupSections()"
+        [viewedGameweek]="viewedGameweek"
+        [gwPoints]="gwPoints"
+        [highestPoints]="highestPoints"
+        (gameweekChange)="changeGameweek($event)"
+      />
+
+      <app-points-pitch
+        [shouldShow]="shouldShowLineupSections()"
+        [pitchSquad]="pitchSquad"
+        [benchSquad]="benchSquad"
+      />
+
+      <div *ngIf="isFutureHiddenGameweek()" class="glass-card p-4 text-center text-slate-300 text-sm">
+        Team lineup and points are not shown yet for this gameweek. Only fixtures are available.
+      </div>
+
+      <div *ngIf="!isFutureHiddenGameweek() && !shouldShowLineupSections()" class="glass-card p-4 text-center text-slate-300 text-sm">
+        You did not play this gameweek.
+      </div>
+
+      <app-points-fixtures
+        [matches]="matches"
+        [viewedGameweek]="viewedGameweek"
+        [dbCurrentGameweek]="dbCurrentGameweek"
+        [backendCurrentDate]="backendCurrentDate"
+        (gameweekChange)="changeGameweek($event)"
+      />
+    </main>
+  </div>
+
+  <div class="h-10 w-full shrink-0"></div>
+</div>

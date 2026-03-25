@@ -1,0 +1,106 @@
+<div
+  *ngIf="shouldShow"
+  class="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden rounded-xl border border-white/10 mt-2 p-2 pt-0 pb-8 shadow-card bg-emerald-500"
+>
+  <div
+    class="absolute inset-x-0 bottom-0 top-[20px] bg-emerald-500 overflow-hidden"
+    style="background-image: repeating-linear-gradient(to right, transparent, transparent 10%, rgba(255,255,255,0.05) 10%, rgba(255,255,255,0.05) 20%); z-index: 0"
+  >
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[20%] border-b border-l border-r border-white/50"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/5 h-[8%] border-b border-l border-r border-white/50"></div>
+    <div class="absolute top-[20%] left-1/2 -translate-x-1/2 w-1/6 h-[8%] rounded-b-full border-b border-white/50 border-r-0 border-l-0 border-t-0"></div>
+    <div class="absolute inset-2 border border-white/50"></div>
+    <div class="absolute top-2 left-2 w-6 h-6 border-b border-r border-white/50 rounded-br-full"></div>
+    <div class="absolute top-2 right-2 w-6 h-6 border-b border-l border-white/50 rounded-bl-full"></div>
+  </div>
+
+  <div class="relative w-full h-full z-10 perspective-[1000px] flex flex-col justify-between pt-[4%]">
+    <div class="absolute top-0 left-0 right-0 flex max-w-full z-20 overflow-hidden rounded-t-xl opacity-90">
+      <div class="flex-1 bg-teal-400 py-3 flex items-center justify-center font-black text-slate-900 border-r border-black/10">⚽ Valhalla</div>
+      <div class="w-1/4 h-12 bg-cover bg-bottom flex items-end justify-center">
+        <div class="w-2/3 h-5 border-[3px] border-b-0 border-white/60 mb-0"></div>
+      </div>
+      <div class="flex-1 bg-indigo-400 py-3 flex items-center justify-center font-black text-slate-900 border-l border-black/10">⚽ Valhalla</div>
+    </div>
+
+    <div class="flex justify-center gap-[2%] sm:gap-[8%] w-full z-30 translate-y-6">
+      @for (player of pitchSquad.gks; track player.id) {
+        <div class="flex flex-col items-center w-[70px] sm:w-[80px] drop-shadow-xl hover:scale-105 transition-transform cursor-pointer relative top-4">
+          <img [src]="getJersey(player.realTeam)" class="w-14 sm:w-16 h-14 sm:h-16 object-contain z-10 rounded-t-md opacity-95" />
+          <div class="bg-white text-slate-900 font-bold text-[9px] sm:text-[10px] px-1 w-[110%] text-center rounded-t-sm truncate shadow-md z-10">
+            <span class="inline-flex items-center gap-1 justify-center">
+              <img [src]="getClubLogo(player.realTeam)" alt="Club" class="w-3 h-3 object-contain rounded-full" />{{ player.name }}
+            </span>
+          </div>
+          <div class="bg-purple-900 text-white font-bold text-xs px-2 w-[110%] text-center rounded-b-sm shadow-md z-10 border-t border-purple-800">{{ player.gameweekPoints }}</div>
+        </div>
+      }
+    </div>
+
+    <div class="flex justify-center gap-[2%] sm:gap-[8%] w-full z-20 translate-y-4">
+      @for (player of pitchSquad.defs; track player.id) {
+        <div class="flex flex-col items-center w-[70px] sm:w-[80px] drop-shadow-xl hover:scale-105 transition-transform cursor-pointer relative top-2">
+          <img [src]="getJersey(player.realTeam)" class="w-14 sm:w-16 h-14 sm:h-16 object-contain z-10 rounded-t-md opacity-95" />
+          <div class="bg-white text-slate-900 font-bold text-[9px] sm:text-[10px] px-1 w-[110%] text-center rounded-t-sm truncate shadow-md z-10">
+            <span class="inline-flex items-center gap-1 justify-center">
+              <img [src]="getClubLogo(player.realTeam)" alt="Club" class="w-3 h-3 object-contain rounded-full" />{{ player.name }}
+            </span>
+          </div>
+          <div class="bg-purple-900 text-white font-bold text-xs px-2 w-[110%] text-center rounded-b-sm shadow-md z-10 border-t border-purple-800">{{ player.gameweekPoints }}</div>
+        </div>
+      }
+    </div>
+
+    <div class="flex justify-center gap-[2%] sm:gap-[8%] w-full z-10">
+      @for (player of pitchSquad.mids; track player.id) {
+        <div class="flex flex-col items-center w-[70px] sm:w-[80px] drop-shadow-xl hover:scale-105 transition-transform cursor-pointer relative top-2">
+          <img [src]="getJersey(player.realTeam)" class="w-14 sm:w-16 h-14 sm:h-16 object-contain z-10 rounded-t-md opacity-95" />
+          <div class="bg-white text-slate-900 font-bold text-[9px] sm:text-[10px] px-1 w-[110%] text-center rounded-t-sm truncate shadow-md z-10">
+            <span class="inline-flex items-center gap-1 justify-center">
+              <img [src]="getClubLogo(player.realTeam)" alt="Club" class="w-3 h-3 object-contain rounded-full" />{{ player.name }}
+            </span>
+          </div>
+          <div class="bg-purple-900 text-white font-bold text-xs px-2 w-[110%] text-center rounded-b-sm shadow-md z-10 border-t border-purple-800">{{ player.gameweekPoints }}</div>
+        </div>
+      }
+    </div>
+
+    <div class="flex justify-center gap-[2%] sm:gap-[8%] w-full z-0 translate-y-4">
+      @for (player of pitchSquad.fwds; track player.id) {
+        <div class="flex flex-col items-center w-[70px] sm:w-[80px] drop-shadow-xl hover:scale-105 transition-transform cursor-pointer relative top-2">
+          <img [src]="getJersey(player.realTeam)" class="w-14 sm:w-16 h-14 sm:h-16 object-contain z-10 rounded-t-md opacity-95" />
+          <div class="bg-white text-slate-900 font-bold text-[9px] sm:text-[10px] px-1 w-[110%] text-center rounded-t-sm truncate shadow-md z-10">
+            <span class="inline-flex items-center gap-1 justify-center">
+              <img [src]="getClubLogo(player.realTeam)" alt="Club" class="w-3 h-3 object-contain rounded-full" />{{ player.name }}
+            </span>
+          </div>
+          <div class="bg-purple-900 text-white font-bold text-xs px-2 w-[110%] text-center rounded-b-sm shadow-md z-10 border-t border-purple-800">{{ player.gameweekPoints }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="shouldShow"
+  class="w-full glass-card rounded-xl border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] flex flex-col items-center py-4 px-3"
+  style="background: linear-gradient(180deg, rgba(20,20,30,0.85), rgba(10,10,20,0.95))"
+>
+  <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Substitutes</span>
+  <div class="flex gap-4 sm:gap-8 items-end justify-center w-full">
+    @for (player of benchSquad; track player.id; let i = $index) {
+      <div class="flex flex-col items-center w-[55px] sm:w-[65px] cursor-pointer drop-shadow-xl hover:scale-105 transition-transform opacity-85">
+        <span class="text-[9px] font-bold uppercase text-slate-300 mb-1 tracking-widest bg-black/40 px-2 py-0.5 rounded-full">
+          {{ i === 0 ? 'GK' : i + '. ' + player.position }}
+        </span>
+        <img [src]="getJersey(player.realTeam)" class="w-10 sm:w-12 h-12 sm:h-14 object-contain rounded-t-sm" />
+        <div class="bg-slate-700 text-white font-bold text-[9px] px-1 w-full text-center rounded-t-sm truncate shadow-sm border border-slate-600 mt-[-2px]">
+          <span class="inline-flex items-center gap-1 justify-center">
+            <img [src]="getClubLogo(player.realTeam)" alt="Club" class="w-3 h-3 object-contain rounded-full" />{{ player.name }}
+          </span>
+        </div>
+        <div class="bg-slate-900 text-white font-bold text-[10px] px-1 w-full text-center rounded-b-sm shadow-sm border border-slate-800">{{ player.gameweekPoints }}</div>
+      </div>
+    }
+  </div>
+</div>
