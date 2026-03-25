@@ -4,7 +4,7 @@ import { ApiService } from '../services/api.service';
 import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
-export const teamCompleteGuard: CanActivateFn = (route, state) => {
+export const teamCompleteGuard: CanActivateFn = (_route, _state) => {
     const apiService = inject(ApiService);
     const router = inject(Router);
 
