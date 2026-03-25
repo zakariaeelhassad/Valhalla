@@ -5,7 +5,8 @@ import { interval, Subscription, switchMap, startWith, forkJoin, of } from 'rxjs
 import { catchError } from 'rxjs/operators';
 import { PointsStateService } from '../../core/services/points-state.service';
 import { AuthService, UserResponse } from '../../core/services/auth.service';
-import { ApiService, CurrentGameweekContext, GameState, PlayerSummary, MatchResponse, TeamResponse, TeamGameweekStats, TeamLineupResponse } from '../../core/services/api.service';
+import { ApiService } from '../../core/services/api.service';
+import { CurrentGameweekContext, GameState, MatchResponse, PlayerSummary, TeamGameweekStats, TeamLineupResponse, TeamResponse } from '../../core/models';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { getTeamJersey, getTeamLogo } from '../../shared/utils/team-visuals';
