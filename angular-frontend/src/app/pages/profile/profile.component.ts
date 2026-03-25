@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
-import { ApiService, ProfileResponse, ProfileUpdateRequest } from '../../core/services/api.service';
+import { ApiService } from '../../core/services/api.service';
+import { ProfileResponse, ProfileUpdateRequest } from '../../core/models';
 import { AuthService } from '../../core/services/auth.service';
 import { finalize, timeout } from 'rxjs';
 
