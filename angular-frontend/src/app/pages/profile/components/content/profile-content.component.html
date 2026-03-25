@@ -1,0 +1,85 @@
+<div class="min-h-screen bg-[#070b14] text-slate-100 flex flex-col">
+  <app-navbar />
+
+  <main class="max-w-5xl mx-auto w-full px-6 py-8 flex-1">
+    <h1 class="text-3xl font-black mb-2">Profile Settings</h1>
+    <p class="text-slate-400 mb-8">Update your account, team identity, password, and images.</p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <section class="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+        <h2 class="text-xl font-bold mb-4">Account</h2>
+
+        <label class="block text-sm text-slate-300 mb-1">Display Name</label>
+        <input [(ngModel)]="form.username" class="w-full mb-4 px-3 py-2 rounded-lg bg-slate-900 border border-slate-700" />
+
+        <label class="block text-sm text-slate-300 mb-1">Email</label>
+        <input [(ngModel)]="form.email" type="email" class="w-full mb-4 px-3 py-2 rounded-lg bg-slate-900 border border-slate-700" />
+
+        <label class="block text-sm text-slate-300 mb-1">Profile Picture</label>
+        <div class="flex items-center gap-4 mb-2">
+          <img [src]="imageSrc(form.profileImage, 'data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 120 120%27><rect width=%27120%27 height=%27120%27 fill=%27%231e293b%27/><text x=%2750%25%27 y=%2755%25%27 text-anchor=%27middle%27 fill=%27%23cbd5e1%27 font-size=%2714%27 font-family=%27Arial%27>No Image</text></svg>')" class="w-16 h-16 rounded-full object-cover border border-slate-600" />
+          <div class="flex flex-col gap-2">
+            <input type="file" accept="image/*" (change)="onImageSelected($event, 'profile')" class="text-sm text-slate-300" />
+            <div class="flex items-center gap-2">
+              <button type="button" (click)="removeImage('profile')" class="px-3 py-1 rounded-md border border-red-400/50 text-red-300 hover:bg-red-500/10 text-xs font-semibold">
+                Delete
+              </button>
+              <span class="text-xs text-slate-400">Choose a file to update.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+        <h2 class="text-xl font-bold mb-4">Team</h2>
+
+        <label class="block text-sm text-slate-300 mb-1">Team Name</label>
+        <input [(ngModel)]="form.teamName" class="w-full mb-4 px-3 py-2 rounded-lg bg-slate-900 border border-slate-700" />
+
+        <label class="block text-sm text-slate-300 mb-1">Team Image</label>
+        <div class="flex items-center gap-4 mb-2">
+          <img [src]="imageSrc(form.teamImage, 'data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 120 120%27><rect width=%27120%27 height=%27120%27 fill=%27%230f766e%27/><text x=%2750%25%27 y=%2755%25%27 text-anchor=%27middle%27 fill=%27%23ccfbf1%27 font-size=%2714%27 font-family=%27Arial%27>Team</text></svg>')" class="w-16 h-16 rounded-lg object-cover border border-slate-600" />
+          <div class="flex flex-col gap-2">
+            <input type="file" accept="image/*" (change)="onImageSelected($event, 'team')" class="text-sm text-slate-300" />
+            <div class="flex items-center gap-2">
+              <button type="button" (click)="removeImage('team')" class="px-3 py-1 rounded-md border border-red-400/50 text-red-300 hover:bg-red-500/10 text-xs font-semibold">
+                Delete
+              </button>
+              <span class="text-xs text-slate-400">Choose a file to update.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="rounded-2xl border border-white/10 bg-white/[0.03] p-5 mt-6">
+      <h2 class="text-xl font-bold mb-4">Change Password</h2>
+      <p class="text-sm text-slate-400 mb-4">If you set a new password, your current password is required.</p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm text-slate-300 mb-1">Current Password</label>
+          <input [(ngModel)]="form.currentPassword" type="password" class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700" />
+        </div>
+        <div>
+          <label class="block text-sm text-slate-300 mb-1">New Password</label>
+          <input [(ngModel)]="form.newPassword" type="password" class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700" />
+        </div>
+      </div>
+    </section>
+
+    <div class="mt-6 flex items-center gap-4">
+      <button (click)="submit()" [disabled]="saving" class="px-6 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-900 font-bold disabled:opacity-50">
+        {{ saving ? 'Saving...' : 'Save Changes' }}
+      </button>
+      @if (message) {
+      <span class="text-emerald-300 text-sm">{{ message }}</span>
+      }
+      @if (error) {
+      <span class="text-red-300 text-sm">{{ error }}</span>
+      }
+    </div>
+  </main>
+
+  <app-footer />
+</div>
