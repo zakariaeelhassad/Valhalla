@@ -4,6 +4,7 @@ import com.example.backend.dto.game.GameweekStatsResponse;
 import com.example.backend.dto.game.GameweekTotalPointsResponse;
 import com.example.backend.dto.game.GameweekTransferCountResponse;
 import com.example.backend.dto.team.SaveLineupRequest;
+import com.example.backend.dto.team.SquadStatisticsResponse;
 import com.example.backend.dto.team.SubstitutionRequest;
 import com.example.backend.dto.team.TeamResponse;
 import com.example.backend.dto.team.TeamLineupResponse;
@@ -74,7 +75,7 @@ public class TeamController {
 
     @GetMapping("/stats")
     @Operation(summary = "Get squad statistics (positions, budget, points)")
-    public ResponseEntity<com.example.backend.service.Impl.TeamManagementService.SquadStatistics> getStats() {
+    public ResponseEntity<SquadStatisticsResponse> getStats() {
         Long userId = securityUtils.getCurrentUserId();
         return ResponseEntity.ok(teamManagementService.getSquadStatistics(userId));
     }
