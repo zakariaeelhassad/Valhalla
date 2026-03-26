@@ -1,5 +1,6 @@
 package com.example.backend.service.Impl;
 
+import com.example.backend.dto.game.TransferWindowStatusResponse;
 import com.example.backend.model.entity.Gameweek;
 import com.example.backend.repository.GameweekRepository;
 import org.junit.jupiter.api.Test;
@@ -31,7 +32,7 @@ class TransferWindowServiceTest {
     void getTransferWindowStatus_shouldReturnNoGameweeks_whenRepositoryEmpty() {
         when(gameweekRepository.findAll()).thenReturn(List.of());
 
-        TransferWindowService.TransferWindowStatus status = transferWindowService.getTransferWindowStatus();
+        TransferWindowStatusResponse status = transferWindowService.getTransferWindowStatus();
 
         assertEquals("NO_GAMEWEEKS", status.phase());
         assertFalse(status.transfersAllowed());
@@ -54,7 +55,7 @@ class TransferWindowServiceTest {
 
         when(gameweekRepository.findAll()).thenReturn(List.of(gw1, gw2));
 
-        TransferWindowService.TransferWindowStatus status = transferWindowService.getTransferWindowStatus();
+        TransferWindowStatusResponse status = transferWindowService.getTransferWindowStatus();
 
         assertEquals("ACTIVE", status.phase());
         assertFalse(status.transfersAllowed());
@@ -78,7 +79,7 @@ class TransferWindowServiceTest {
 
         when(gameweekRepository.findAll()).thenReturn(List.of(gw1, gw2));
 
-        TransferWindowService.TransferWindowStatus status = transferWindowService.getTransferWindowStatus();
+        TransferWindowStatusResponse status = transferWindowService.getTransferWindowStatus();
 
         assertEquals("BETWEEN_GAMEWEEKS", status.phase());
         assertTrue(status.transfersAllowed());
