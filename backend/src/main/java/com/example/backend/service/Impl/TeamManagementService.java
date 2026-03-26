@@ -27,7 +27,9 @@ import com.example.backend.repository.UserTeamRepository;
 import com.example.backend.dto.game.GameweekStatsResponse;
 import com.example.backend.dto.game.GameweekStatsResponse.PlayerGameweekScore;
 import com.example.backend.dto.game.GameweekTotalPointsResponse;
+import com.example.backend.dto.game.TransferWindowStatusResponse;
 import com.example.backend.dto.team.LineupPlayerMeta;
+import com.example.backend.dto.team.SquadStatisticsResponse;
 import com.example.backend.dto.team.TeamLineupPlayerResponse;
 import com.example.backend.dto.team.TeamLineupResponse;
 import com.example.backend.model.entity.PlayerGameweekStats;
@@ -276,7 +278,7 @@ public class TeamManagementService implements com.example.backend.service.TeamMa
 
                 ensureTransferWindowOpen();
 
-                TransferWindowService.TransferWindowStatus status = transferWindowService.getTransferWindowStatus();
+                TransferWindowStatusResponse status = transferWindowService.getTransferWindowStatus();
                 Integer targetGameweek = status.activeGameweek() != null ? status.activeGameweek() : status.nextGameweek();
                 boolean betweenGameweeksDraft = status.activeGameweek() == null && status.nextGameweek() != null;
 
@@ -363,7 +365,7 @@ public class TeamManagementService implements com.example.backend.service.TeamMa
         public TeamLineupResponse getTeamLineup(Long userId) {
                 UserTeam userTeam = getDetailedTeam(userId);
 
-                TransferWindowService.TransferWindowStatus status = transferWindowService.getTransferWindowStatus();
+                TransferWindowStatusResponse status = transferWindowService.getTransferWindowStatus();
                 if (status.activeGameweek() == null && status.nextGameweek() != null) {
                         UserTeamGameweekLineup draftSnapshot = getOrCreateSnapshotForGameweek(userTeam, status.nextGameweek());
                         return toLineupResponseFromSnapshot(userTeam, draftSnapshot);
@@ -385,7 +387,7 @@ public class TeamManagementService implements com.example.backend.service.TeamMa
                 }
 
                 UserTeam userTeam = getDetailedTeam(userId);
-                TransferWindowService.TransferWindowStatus status = transferWindowService.getTransferWindowStatus();
+                TransferWindowStatusResponse status = transferWindowService.getTransferWindowStatus();
 
                 if (status.activeGameweek() == null && status.nextGameweek() != null) {
                         UserTeamGameweekLineup draftSnapshot = getOrCreateSnapshotForGameweek(userTeam, status.nextGameweek());
@@ -463,7 +465,7 @@ public class TeamManagementService implements com.example.backend.service.TeamMa
                 }
 
                 UserTeam userTeam = getDetailedTeam(userId);
-                TransferWindowService.TransferWindowStatus status = transferWindowService.getTransferWindowStatus();
+                TransferWindowStatusResponse status = transferWindowService.getTransferWindowStatus();
 
                 final Set<Long> squadPlayerIds;
                 final Map<Long, Position> positionByPlayerId;
@@ -596,7 +598,7 @@ public class TeamManagementService implements com.example.backend.service.TeamMa
         }
 
         private void ensureTransferWindowOpen() {
-                TransferWindowService.TransferWindowStatus status = transferWindowService.getTransferWindowStatus();
+                TransferWindowStatusResponse status = transferWindowService.getTransferWindowStatus();
                 if (!status.transfersAllowed()) {
                         if (status.activeGameweek() != null) {
                                 throw new InvalidTransferException(
@@ -615,7 +617,7 @@ public class TeamManagementService implements com.example.backend.service.TeamMa
         }
 
         @Transactional(readOnly = true)
-        public SquadStatistics getSquadStatistics(Long userId) {
+        public SquadStatisticsResponse getSquadStatistics(Long userId) {
                 UserTeam userTeam = userTeamRepository.findByUserId(userId)
                                 .orElseGet(() -> createDefaultTeam(userId));
 
@@ -629,7 +631,7 @@ public class TeamManagementService implements com.example.backend.service.TeamMa
                                                 tp -> tp.getPlayer().getRealTeam(),
                                                 Collectors.counting()));
 
-                return SquadStatistics.builder()
+                return SquadStatisticsResponse.builder()
                                 .totalPlayers(userTeam.getTeamPlayers().size())
                                 .remainingBudget(userTeam.getRemainingBudget())
                                 .totalPoints(userTeam.getTotalPoints())
@@ -807,7 +809,7 @@ public class TeamManagementService implements com.example.backend.service.TeamMa
         }
 
         private int getMaxVisibleLineupGameweek() {
-                TransferWindowService.TransferWindowStatus status = transferWindowService.getTransferWindowStatus();
+                TransferWindowStatusResponse status = transferWindowService.getTransferWindowStatus();
                 if (status.activeGameweek() != null) {
                         return status.activeGameweek();
                 }
@@ -962,7 +964,7 @@ public class TeamManagementService implements com.example.backend.service.TeamMa
                         return team;
                 }
 
-                TransferWindowService.TransferWindowStatus status = transferWindowService.getTransferWindowStatus();
+                TransferWindowStatusResponse status = transferWindowService.getTransferWindowStatus();
                 Integer activeGameweek = status.activeGameweek();
                 if (activeGameweek == null) {
                         return team;
@@ -1009,7 +1011,7 @@ public class TeamManagementService implements com.example.backend.service.TeamMa
                         return;
                 }
 
-                TransferWindowService.TransferWindowStatus status = transferWindowService.getTransferWindowStatus();
+                TransferWindowStatusResponse status = transferWindowService.getTransferWindowStatus();
                 Integer targetGameweek = status.nextGameweek() != null ? status.nextGameweek() : status.activeGameweek();
                 if (targetGameweek == null) {
                         return;
@@ -1137,7 +1139,7 @@ public class TeamManagementService implements com.example.backend.service.TeamMa
                 UserTeam userTeam = userTeamRepository.findByUserId(userId)
                                 .orElseThrow(() -> new ResourceNotFoundException("User team not found"));
 
-                TransferWindowService.TransferWindowStatus status = transferWindowService.getTransferWindowStatus();
+                TransferWindowStatusResponse status = transferWindowService.getTransferWindowStatus();
                 Integer currentGameweek = status.activeGameweek() != null
                                 ? status.activeGameweek()
                                 : status.nextGameweek();
@@ -1178,19 +1180,6 @@ public class TeamManagementService implements com.example.backend.service.TeamMa
         private record UserTeamPlayerState(Player player, BigDecimal purchasePrice, boolean starter) {
         }
 
-        @lombok.Data
-        @lombok.Builder
-        public static class SquadStatistics {
-                private int totalPlayers;
-                private BigDecimal remainingBudget;
-                private int totalPoints;
-                private int goalkeepers;
-                private int defenders;
-                private int midfielders;
-                private int forwards;
-                private Map<String, Long> teamCounts;
-                private boolean isComplete;
-        }
 }
 
 
