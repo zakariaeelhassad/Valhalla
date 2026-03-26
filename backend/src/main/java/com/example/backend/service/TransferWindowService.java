@@ -1,8 +1,10 @@
 package com.example.backend.service;
 
+import com.example.backend.dto.game.TransferWindowStatusResponse;
+
 public interface TransferWindowService {
 
-    com.example.backend.service.Impl.TransferWindowService.TransferWindowStatus getTransferWindowStatus();
+    TransferWindowStatusResponse getTransferWindowStatus();
 
     boolean isTransfersAllowed();
 }
