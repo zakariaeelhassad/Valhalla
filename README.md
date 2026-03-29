@@ -165,46 +165,22 @@ Valhalla/
 
 ## 📊 Project Diagrams
 
-This section is reserved for project diagrams and architecture visuals.
-
-**To add diagrams:**
-1. Create a `docs/diagrams` folder
-2. Add your diagram files (.png, .jpg, .svg)
-3. Reference them here with markdown syntax
-
-Example:
-```markdown
-![System Architecture](docs/diagrams/architecture.png)
-![Database Schema](docs/diagrams/database-schema.png)
-![Auth Flow](docs/diagrams/auth-flow.png)
-```
+![Use Case](images/Use_Case.png)
+![diagramme de class](images/diagramme_de_class.png)
 
 ## 📸 Screenshots
 
-This section is reserved for application screenshots.
-
-**To add screenshots:**
-1. Create a `docs/screenshots` folder
-2. Take screenshots of the app pages
-3. Reference them here with markdown syntax
-
-Example:
-```markdown
 ### Home Page
-![Home](docs/screenshots/home.png)
-
-### Login
-![Login](docs/screenshots/login.png)
+![Home](images/home.png)
 
 ### Dashboard
-![Dashboard](docs/screenshots/dashboard.png)
+![Dashboard](images/dashboard.png)
 
 ### Team Selection
-![Team Selection](docs/screenshots/team-selection.png)
+![Team Selection](images/team_selection.png)
 
 ### Points
-![Points](docs/screenshots/points.png)
+![Points](images/points.png)
 
-### Profile
-![Profile](docs/screenshots/profile.png)
-```
+### Substitutions
+![Substitutions](images/substitutions.png)
