@@ -11,6 +11,7 @@ import com.example.backend.repository.UserTeamGameweekPointsRepository;
 import com.example.backend.repository.UserTeamGameweekLineupRepository;
 import com.example.backend.repository.UserTeamGameweekTransfersRepository;
 import com.example.backend.repository.UserTeamRepository;
+import com.example.backend.service.ScoringService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +36,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class ScoringService implements com.example.backend.service.ScoringService {
+public class ScoringServiceImpl implements ScoringService {
 
     private final PlayerRepository playerRepository;
     private final PlayerGameweekStatsRepository statsRepository;
@@ -466,18 +467,18 @@ public class ScoringService implements com.example.backend.service.ScoringServic
             return;
         }
 
-        List<DataInitializationService.MatchJsonDTO> allMatches;
+        List<DataInitializationServiceImpl.MatchJsonDTO> allMatches;
         try {
             ClassPathResource resource = new ClassPathResource("data/fique_data");
             allMatches = objectMapper.readValue(resource.getInputStream(),
-                    new TypeReference<List<DataInitializationService.MatchJsonDTO>>() {
+                    new TypeReference<List<DataInitializationServiceImpl.MatchJsonDTO>>() {
                     });
         } catch (IOException e) {
             log.error("Failed to load fixture data for gameweek {} backfill", gameweekNumber, e);
             return;
         }
 
-        List<DataInitializationService.MatchJsonDTO> gameweekMatches = allMatches.stream()
+        List<DataInitializationServiceImpl.MatchJsonDTO> gameweekMatches = allMatches.stream()
                 .filter(m -> m.getGameweek() != null && m.getGameweek() == gameweekNumber)
                 .toList();
 
@@ -491,7 +492,7 @@ public class ScoringService implements com.example.backend.service.ScoringServic
         });
 
         // Only score matches that are truly finished and not already persisted.
-        List<DataInitializationService.MatchJsonDTO> finishedUnprocessedMatches = gameweekMatches.stream()
+        List<DataInitializationServiceImpl.MatchJsonDTO> finishedUnprocessedMatches = gameweekMatches.stream()
                 .filter(mj -> {
                     Match dbMatch = matchByKey.get(matchKey(mj.getHomeTeam(), mj.getAwayTeam()));
                     return dbMatch != null
@@ -506,7 +507,7 @@ public class ScoringService implements com.example.backend.service.ScoringServic
 
         Map<Long, PlayerAccumulator> accum = new HashMap<>();
 
-        for (DataInitializationService.MatchJsonDTO matchJson : finishedUnprocessedMatches) {
+        for (DataInitializationServiceImpl.MatchJsonDTO matchJson : finishedUnprocessedMatches) {
             applyLineup(accum, matchJson.getLineups() != null ? matchJson.getLineups().getHome() : null,
                     matchJson.getHomeTeam(), matchByKey.get(matchKey(matchJson.getHomeTeam(), matchJson.getAwayTeam())));
             applyLineup(accum, matchJson.getLineups() != null ? matchJson.getLineups().getAway() : null,
@@ -579,7 +580,7 @@ public class ScoringService implements com.example.backend.service.ScoringServic
         return !match.getKickoffTime().plusMinutes(105).isAfter(nowUtc);
     }
 
-    private void applyLineup(Map<Long, PlayerAccumulator> accum, DataInitializationService.LineupJsonDTO lineup,
+    private void applyLineup(Map<Long, PlayerAccumulator> accum, DataInitializationServiceImpl.LineupJsonDTO lineup,
             String team,
             Match match) {
         if (lineup == null) {
@@ -590,13 +591,13 @@ public class ScoringService implements com.example.backend.service.ScoringServic
         applyLineupPlayers(accum, lineup.getBenchUnused(), team, match);
     }
 
-    private void applyLineupPlayers(Map<Long, PlayerAccumulator> accum, List<DataInitializationService.PlayerJsonDTO> players,
+    private void applyLineupPlayers(Map<Long, PlayerAccumulator> accum, List<DataInitializationServiceImpl.PlayerJsonDTO> players,
             String team, Match match) {
         if (players == null) {
             return;
         }
 
-        for (DataInitializationService.PlayerJsonDTO p : players) {
+        for (DataInitializationServiceImpl.PlayerJsonDTO p : players) {
             Optional<Player> playerOpt = findPlayerByNameAndTeam(p.getName(), team);
             if (playerOpt.isEmpty()) {
                 continue;
@@ -611,14 +612,14 @@ public class ScoringService implements com.example.backend.service.ScoringServic
         }
     }
 
-    private void applyEvents(Map<Long, PlayerAccumulator> accum, List<DataInitializationService.EventPlayerJsonDTO> events,
+    private void applyEvents(Map<Long, PlayerAccumulator> accum, List<DataInitializationServiceImpl.EventPlayerJsonDTO> events,
             String team,
             EventType type) {
         if (events == null) {
             return;
         }
 
-        for (DataInitializationService.EventPlayerJsonDTO e : events) {
+        for (DataInitializationServiceImpl.EventPlayerJsonDTO e : events) {
             if (e.getTeam() == null || !e.getTeam().equalsIgnoreCase(team)) {
                 continue;
             }
