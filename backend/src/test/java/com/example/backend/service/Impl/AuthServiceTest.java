@@ -50,7 +50,7 @@ class AuthServiceTest {
     private UserMapper userMapper;
 
     @InjectMocks
-    private AuthService authService;
+    private AuthServiceImpl authService;
 
     @Test
     void register_shouldCreateUserAndTeam_andReturnToken() {
