@@ -32,7 +32,7 @@ class PlayerServiceTest {
     private PlayerMapper playerMapper;
 
     @InjectMocks
-    private PlayerService playerService;
+    private PlayerServiceImpl playerService;
 
     @Test
     void getPlayers_shouldFilterAndPaginate() {
