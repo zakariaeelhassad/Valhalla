@@ -9,6 +9,7 @@ import com.example.backend.model.entity.User;
 import com.example.backend.model.entity.UserTeam;
 import com.example.backend.repository.UserRepository;
 import com.example.backend.repository.UserTeamRepository;
+import com.example.backend.service.AuthService;
 import com.example.backend.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,7 +24,7 @@ import java.math.BigDecimal;
 
 @Service
 @RequiredArgsConstructor
-public class AuthService implements com.example.backend.service.AuthService {
+public class AuthServiceImpl implements AuthService {
 
         private final UserRepository userRepository;
         private final UserTeamRepository userTeamRepository;
