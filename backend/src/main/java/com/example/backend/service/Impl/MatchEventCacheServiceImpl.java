@@ -1,6 +1,7 @@
 package com.example.backend.service.Impl;
 
 import com.example.backend.dto.match.MatchEventDTO;
+import com.example.backend.service.MatchEventCacheService;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,7 +18,7 @@ import java.util.*;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class MatchEventCacheService implements com.example.backend.service.MatchEventCacheService {
+public class MatchEventCacheServiceImpl implements MatchEventCacheService {
 
     private final ObjectMapper objectMapper;
 
