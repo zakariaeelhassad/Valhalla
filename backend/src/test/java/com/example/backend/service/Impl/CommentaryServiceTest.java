@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CommentaryServiceTest {
 
-    private final CommentaryService commentaryService = new CommentaryService();
+    private final CommentaryServiceImpl commentaryService = new CommentaryServiceImpl();
 
     @Test
     void generateCommentary_shouldReturnGoalTemplate_forGoalEvent() {
