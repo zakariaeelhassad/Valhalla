@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SimulatedClockServiceTest {
 
-    private final SimulatedClockService simulatedClockService = new SimulatedClockService();
+    private final SimulatedClockServiceImpl simulatedClockService = new SimulatedClockServiceImpl();
 
     @Test
     void computeStatus_shouldReturnScheduled_whenKickoffIsInFuture() {
