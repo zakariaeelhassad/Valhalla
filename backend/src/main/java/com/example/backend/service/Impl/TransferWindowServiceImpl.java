@@ -3,6 +3,7 @@ package com.example.backend.service.Impl;
 import com.example.backend.dto.game.TransferWindowStatusResponse;
 import com.example.backend.model.entity.Gameweek;
 import com.example.backend.repository.GameweekRepository;
+import com.example.backend.service.TransferWindowService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class TransferWindowService implements com.example.backend.service.TransferWindowService {
+public class TransferWindowServiceImpl implements TransferWindowService {
 
     private final GameweekRepository gameweekRepository;
         private volatile List<Gameweek> cachedGameweeks = List.of();
@@ -84,7 +85,6 @@ public class TransferWindowService implements com.example.backend.service.Transf
                     message);
         }
 
-        Gameweek last = gameweeks.get(gameweeks.size() - 1);
         return new TransferWindowStatusResponse(
                 now.toString(),
                 null,
