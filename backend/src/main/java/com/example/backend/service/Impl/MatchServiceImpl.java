@@ -8,6 +8,7 @@ import com.example.backend.model.entity.Gameweek;
 import com.example.backend.model.entity.Match;
 import com.example.backend.repository.GameweekRepository;
 import com.example.backend.repository.MatchRepository;
+import com.example.backend.service.MatchService;
 import com.example.backend.service.MatchEventCacheService;
 import com.example.backend.service.SimulatedClockService;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class MatchService implements com.example.backend.service.MatchService {
+public class MatchServiceImpl implements MatchService {
 
     private final MatchRepository matchRepository;
     private final GameweekRepository gameweekRepository;
