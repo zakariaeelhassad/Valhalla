@@ -7,6 +7,7 @@ import com.example.backend.mapper.PlayerMapper;
 import com.example.backend.model.entity.Player;
 import com.example.backend.model.enums.Position;
 import com.example.backend.repository.PlayerRepository;
+import com.example.backend.service.PlayerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class PlayerService implements com.example.backend.service.PlayerService {
+public class PlayerServiceImpl implements PlayerService {
 
     private final PlayerRepository playerRepository;
         private final PlayerMapper playerMapper;
