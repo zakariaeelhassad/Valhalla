@@ -26,7 +26,7 @@ class TransferWindowServiceTest {
     private GameweekRepository gameweekRepository;
 
     @InjectMocks
-    private TransferWindowService transferWindowService;
+    private TransferWindowServiceImpl transferWindowService;
 
     @Test
     void getTransferWindowStatus_shouldReturnNoGameweeks_whenRepositoryEmpty() {
